@@ -2049,5 +2049,41 @@ namespace FlujoCreditosExpress.Properties {
                 this["CtesMCPPerm"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ProsLIAnt {
+            get {
+                return ((double)(this["ProsLIAnt"]));
+            }
+            set {
+                this["ProsLIAnt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ProsLHAnt {
+            get {
+                return ((double)(this["ProsLHAnt"]));
+            }
+            set {
+                this["ProsLHAnt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ProsLNAnt {
+            get {
+                return ((double)(this["ProsLNAnt"]));
+            }
+            set {
+                this["ProsLNAnt"] = value;
+            }
+        }
     }
 }

@@ -134,6 +134,9 @@ namespace FlujoCreditosExpress
                 Properties.Settings.Default.CantMiembros = 0;                                       //Asigna 0 a la cantidad de miembros de célula.
                 Properties.Settings.Default.Distribuidoras = 0;                                     //Asigna 0 a la cantidad de distribuidoras.
                 Properties.Settings.Default.DistribuidorasAnt = 0;                                  //Asigna 0 a la cantidad de distribuidoras anteriores.
+                Properties.Settings.Default.ProsLIAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes iniciadoras.
+                Properties.Settings.Default.ProsLHAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes hijos.
+                Properties.Settings.Default.ProsLNAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes nietos.
                 Properties.Settings.Default.Save();                                                 //Guarda la configuracion de la configuración.
 
             }
@@ -1006,7 +1009,7 @@ namespace FlujoCreditosExpress
                 double creditos4QMCN = 0;
                 double creditos4Q = 0;
                 double creditos4QD = 0;
-                double creditosT = 0;
+                double creditosPros = 0;
                 double clientesMMP2CT = 0;
                 double clientesZP2CT = 0;
                 double clientesMCP2CT = 0;
@@ -1014,189 +1017,206 @@ namespace FlujoCreditosExpress
                 double clientesMCNP2C = 0;
                 double clientesMCBP2C = 0;
 
+                double cantidadMiembros = 0;
                 double cantidadMiembrosH = 0;
                 double cantidadMiembrosN = 0;
                 double cantidadLideresMCH = 0;
                 double cantidadLideresMCN = 0;
-
+                double cantMiembrosProd = 0;
                 //Comienza la generación de miembros y líderes de célula.
-                if (isIniciadorasOn)
+
+                //Obtiene la cantidad de prospectos a líderes o miembros de célula
+                if (flujoDBDataSet.T_Configuraciones.Rows.Count > 0)
                 {
-                    if (flujoDBDataSet.T_Configuraciones.Rows.Count > 0)
+                    DataRow[] drL;
+                    if (periodoActual >= 3)
                     {
-                        DataRow[] drL;
-                        if (periodoActual >= 3)
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                        " SesionId = " + Properties.Settings.Default.SessionId +
+                        " AND Campo = 'CD'" +
+                        " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
                         {
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
-                            " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos2QD = double.Parse(dr["Valor"].ToString());
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CtesMMP'" +
-                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMMP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesZP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesZP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMC'" +
-                                " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CtesMCHP'" +
-                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCNP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo LIKE '%Q02'" +
-                                " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos2Q += double.Parse(dr["Valor"].ToString());
-                            }
-
-                            if (creditos2Q > 0)
-                            {                                
-                                creditos2QMM = ((creditos2Q - creditos2QD) * clientesMMP2CT) * permanenciaMM;
-                                creditos2QCZ = ((creditos2Q - creditos2QD) * clientesZP2CT) * permanenciaCZ;
-                                creditos2QMC = ((creditos2Q - creditos2QD) * clientesMCP2CT) * permanenciaMC;
-                                creditos2QMCH = creditos2QMC * clientesMCHP2C;
-                                creditos2QMCN = creditos2QMCN * clientesMCNP2C;
-                                creditos2Q = creditos2QMM + creditos2QCZ;
-                            }
+                            creditos2QD = double.Parse(dr["Valor"].ToString());
                         }
 
-                        if (periodoActual >= 5)
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                        " SesionId = " + Properties.Settings.Default.SessionId +
+                        " AND Campo = 'CtesMMP'" +
+                        " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
                         {
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
+                            clientesMMP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
-                            " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+                            " AND Campo = 'CtesZP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos4QD = double.Parse(dr["Valor"].ToString());
-                            }
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesZP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CtesMMP'" +
-                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+                            " AND Campo = 'CtesMC'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMMP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesZP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                        " SesionId = " + Properties.Settings.Default.SessionId +
+                        " AND Campo = 'CtesMCHP'" +
+                        " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesZP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMC'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCHP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo LIKE '%Q02'" +
+                            " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
+                        foreach (DataRow dr in drL)
+                        {
+                            creditos2Q += double.Parse(dr["Valor"].ToString());
+                        }
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCNP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo LIKE '%Q04'" +
-                                " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos4Q += double.Parse(dr["Valor"].ToString());
-                            }
-
-                            if (creditos4Q > 0)
-                            {
-                                creditos4QMM = ((creditos4Q - creditos4QD) * clientesMMP2CT) * permanenciaMM;
-                                creditos4QCZ = ((creditos4Q - creditos4QD) * clientesZP2CT) * permanenciaCZ;
-                                creditos4QMC = ((creditos4Q - creditos4QD) * clientesMCP2CT) * permanenciaMC;
-                                creditos4QMCH = creditos4QMC * clientesMCHP2C;
-                                creditos4QMCN = creditos4QMC * clientesMCNP2C;
-                                creditos4Q = creditos4QMM + creditos4QCZ;
-                            }
+                        if (creditos2Q > 0)
+                        {
+                            creditos2QMM = Math.Round(((creditos2Q - creditos2QD) * clientesMMP2CT) * permanenciaMM);
+                            creditos2QCZ = Math.Round(((creditos2Q - creditos2QD) * clientesZP2CT) * permanenciaCZ);
+                            creditos2QMC = Math.Round(((creditos2Q - creditos2QD) * clientesMCP2CT) * permanenciaMC);
+                            creditos2QMCH = Math.Round((creditos2QMC * clientesMCHP2C));
+                            creditos2QMCN = Math.Round((creditos2QMC * clientesMCNP2C));
+                            creditos2Q = Math.Round(creditos2QMM + creditos2QCZ);
                         }
                     }
 
-                    creditosT = Math.Round(creditos2Q + creditos4Q);
+                    if (periodoActual >= 5)
+                    {
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                        " SesionId = " + Properties.Settings.Default.SessionId +
+                        " AND Campo = 'CD'" +
+                        " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
 
-                    cantidadLC = Math.Round(creditosT * prosLC * lideLC);
-                    Properties.Settings.Default.CantIniciadoras += cantidadLC;
+                        foreach (DataRow dr in drL)
+                        {
+                            creditos4QD = double.Parse(dr["Valor"].ToString());
+                        }
 
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                        " SesionId = " + Properties.Settings.Default.SessionId +
+                        " AND Campo = 'CtesMMP'" +
+                        " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMMP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesZP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesZP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMC'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo LIKE '%Q04'" +
+                            " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            creditos4Q += double.Parse(dr["Valor"].ToString());
+                        }
+
+                        if (creditos4Q > 0)
+                        {
+                            creditos4QMM = Math.Round(((creditos4Q - creditos4QD) * clientesMMP2CT) * permanenciaMM);
+                            creditos4QCZ = Math.Round(((creditos4Q - creditos4QD) * clientesZP2CT) * permanenciaCZ);
+                            creditos4QMC = Math.Round(((creditos4Q - creditos4QD) * clientesMCP2CT) * permanenciaMC);
+                            creditos4QMCH = Math.Round((creditos4QMC * clientesMCHP2C));
+                            creditos4QMCN = Math.Round((creditos4QMC * clientesMCNP2C));
+                            creditos4Q = Math.Round(creditos4QMM + creditos4QCZ);
+                        }
+                    }
+                }
+                //Obtiene los prospectos totales
+                creditosPros = Math.Round(creditos2Q + creditos4Q) + 
+                    Properties.Settings.Default.ProsLIAnt;
+
+                if (creditosPros > 0)
+                {
+                    //Crea líderes iniciadoras y/o miembros de célula
+                    if (isIniciadorasOn)
+                    {
+                        //Cálcula la creación de líderes iniciadoras
+                        cantidadLC = Math.Truncate(creditosPros * prosLC * lideLC);
+                        Properties.Settings.Default.CantIniciadoras += cantidadLC;
+                        Properties.Settings.Default.ProsLIAnt = creditosPros - cantidadLC;
+                    }
+                    else
+                    {
+                        //cálcula la creación de miembros de célula
+                        cantidadMiembros = Math.Truncate(creditosPros * prosLC * lideLC);
+                        Properties.Settings.Default.ProsLIAnt = creditosPros - cantidadMiembros;
+                    }
+
+                    //Genera miembros de célula hijos
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel2MC) * 2;
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel3MC) * 3;
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel4MC) * 4;
@@ -1205,14 +1225,15 @@ namespace FlujoCreditosExpress
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel7MC) * 7;
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel8MC) * 8;
                     cantidadMCH += (Properties.Settings.Default.CantIniciadoras * probTamCel9MC) * 9;
+                    cantidadMCH = Math.Truncate(cantidadMCH);
 
-                    if (periodoActual > 1)
-                    {
-                        cantidadMiembrosH = creditos2QMCH + creditos4QMCH;
-                        cantidadLideresMCH = cantidadMiembrosH * prosLC * lideLC;
-                        Properties.Settings.Default.CantLideresH += cantidadLideresMCH;                        
-                    }
-
+                    //Cálcula la creación de líderes hijos
+                    cantidadMiembrosH = Math.Round(creditos2QMCH + creditos4QMCH) +
+                            Properties.Settings.Default.ProsLHAnt;
+                    cantidadLideresMCH = Math.Truncate(cantidadMiembrosH * prosLC * lideLC);
+                    Properties.Settings.Default.CantLideresH += cantidadLideresMCH;
+                    Properties.Settings.Default.ProsLHAnt = cantidadMiembrosH - cantidadLideresMCH;
+                    //Genera miembros de célula nietos
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel2MC) * 2;
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel3MC) * 3;
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel4MC) * 4;
@@ -1221,14 +1242,15 @@ namespace FlujoCreditosExpress
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel7MC) * 7;
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel8MC) * 8;
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel9MC) * 9;
+                    cantidadMCN = Math.Truncate(cantidadMCN);
 
-                    if (periodoActual > 1)
-                    {
-                        cantidadMiembrosN = creditos2QMCN + creditos4QMCN;
-                        cantidadLideresMCN = cantidadMiembrosN * prosLC * lideLC;
-                        Properties.Settings.Default.CantLideresN += cantidadLideresMCN;
-                    }
-
+                    //Cálcula la creación de líderes nietos
+                    cantidadMiembrosN = Math.Round(creditos2QMCN + creditos4QMCN) +
+                            Properties.Settings.Default.ProsLNAnt;
+                    cantidadLideresMCN = Math.Truncate(cantidadMiembrosN * prosLC * lideLC);
+                    Properties.Settings.Default.CantLideresN += cantidadLideresMCN;
+                    Properties.Settings.Default.ProsLNAnt = cantidadMiembrosN - cantidadLideresMCN;
+                    //Genera miembros de célula bisnietos
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel2MC) * 2;
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel3MC) * 3;
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel4MC) * 4;
@@ -1237,181 +1259,23 @@ namespace FlujoCreditosExpress
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel7MC) * 7;
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel8MC) * 8;
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel9MC) * 9;
-                }
-                else
-                {
-                    if (flujoDBDataSet.T_Configuraciones.Rows.Count > 0)
-                    {
-                        DataRow[] drL;
-                        if (periodoActual >= 3)
-                        {
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
-                            " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+                    cantidadMCB = Math.Truncate(cantidadMCB);
 
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos2QD = double.Parse(dr["Valor"].ToString());
-                            }
+                    //Obtiene el total de miembros producidos para este período
+                    cantMiembrosProd = cantidadMCH + cantidadMCN + cantidadMCB;
 
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMC'" +
-                                " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CtesMCHP'" +
-                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCNP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo LIKE '%Q02'" +
-                                " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos2Q += double.Parse(dr["Valor"].ToString());
-                            }
-
-                            if (creditos2Q > 0)
-                            {
-                                creditos2QMC = ((creditos2Q - creditos2QD) * clientesMCP2CT) * permanenciaMC;
-                                creditos2QMCH = creditos2QMC * clientesMCHP2C;
-                                creditos2QMCN = creditos2QMC * clientesMCNP2C;
-                            }
-                        }
-
-                        if (periodoActual >= 5)
-                        {
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                            " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
-                            " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos4QD = double.Parse(dr["Valor"].ToString());
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCP2CT = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCHP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCHP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo = 'CtesMCNP'" +
-                                " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                clientesMCNP2C = double.Parse(dr["Valor"].ToString()) / 100;
-                            }
-
-                            drL = flujoDBDataSet.T_Configuraciones.Select(
-                                " SesionId = " + Properties.Settings.Default.SessionId +
-                                " AND Campo LIKE '%Q04'" +
-                                " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
-
-                            foreach (DataRow dr in drL)
-                            {
-                                creditos4Q += double.Parse(dr["Valor"].ToString());
-                            }
-
-                            if (creditos4Q > 0)
-                            {
-                                creditos4QMC = ((creditos4Q - creditos4QD) * clientesMCP2CT) * permanenciaMC;
-                                creditos4QMCH = creditos4QMC * clientesMCHP2C;
-                                creditos4QMCN = creditos4QMC * clientesMCNP2C;
-                            }
-                        }
-                    }
-
-                    //No crea nuevos iniciadoras solo líderes y miembros de célula.
-
-                    cantidadLC = Properties.Settings.Default.CantIniciadoras;
-
-                    cantidadMCH += (cantidadLC * probTamCel2MC) * 2;
-                    cantidadMCH += (cantidadLC * probTamCel3MC) * 3;
-                    cantidadMCH += (cantidadLC * probTamCel4MC) * 4;
-                    cantidadMCH += (cantidadLC * probTamCel5MC) * 5;
-                    cantidadMCH += (cantidadLC * probTamCel6MC) * 6;
-                    cantidadMCH += (cantidadLC * probTamCel7MC) * 7;
-                    cantidadMCH += (cantidadLC * probTamCel8MC) * 8;
-                    cantidadMCH += (cantidadLC * probTamCel9MC) * 9;
-
-                    if (periodoActual > 1)
-                    {
-                        cantidadMiembrosH = creditos2QMCH + creditos4QMCH;
-                        cantidadLideresMCH = cantidadMiembrosH * prosLC * lideLC;
-                        Properties.Settings.Default.CantLideresH += cantidadLideresMCH;
-                    }
-
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel2MC) * 2;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel3MC) * 3;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel4MC) * 4;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel5MC) * 5;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel6MC) * 6;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel7MC) * 7;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel8MC) * 8;
-                    cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel9MC) * 9;
-
-                    if (periodoActual > 1)
-                    {
-                        cantidadMiembrosN = creditos2QMCN + creditos4QMCN;
-                        cantidadLideresMCN = cantidadMiembrosN * prosLC * lideLC;
-                        Properties.Settings.Default.CantLideresN += cantidadLideresMCN;
-                    }
-
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel2MC) * 2;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel3MC) * 3;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel4MC) * 4;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel5MC) * 5;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel6MC) * 6;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel7MC) * 7;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel8MC) * 8;
-                    cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel9MC) * 9;
+                    //Define los límites de Madres, hijas, nietas y bisnietas de la célula
+                    Properties.Settings.Default.MadresC = Properties.Settings.Default.CantIniciadoras;
+                    Properties.Settings.Default.HijasC = Properties.Settings.Default.MadresC * 9;
+                    Properties.Settings.Default.NietasC = Properties.Settings.Default.HijasC * 9;
+                    Properties.Settings.Default.BisnietasC = Properties.Settings.Default.NietasC * 9;
+                    Properties.Settings.Default.MiembrosC =
+                        Properties.Settings.Default.HijasC +
+                        Properties.Settings.Default.NietasC +
+                        Properties.Settings.Default.BisnietasC;
                 }
 
-                double cantMiembrosProd = Math.Truncate(cantidadMCH + cantidadMCN + cantidadMCB);
-
+                //Guarda la configuración por canal de incremento, permanencia, clientes nuevos y miembros de célula;
                 Properties.Settings.Default.IncrementoDVal = incrementoD;
                 Properties.Settings.Default.IncrementoMMVal = incrementoMM;
                 Properties.Settings.Default.IncrementoCZVal = incrementoCZ;
@@ -1424,102 +1288,100 @@ namespace FlujoCreditosExpress
                 Properties.Settings.Default.ClientesXDist = cantXD;
                 Properties.Settings.Default.CreditosXDistP = credD;
 
-                //Define la cantidad Madres, hijas, nietas y bisnietas de la célula
-                Properties.Settings.Default.MadresC = Properties.Settings.Default.CantIniciadoras;
-                Properties.Settings.Default.HijasC = Properties.Settings.Default.MadresC * 9;
-                Properties.Settings.Default.NietasC = Properties.Settings.Default.HijasC * 9;
-                Properties.Settings.Default.BisnietasC = Properties.Settings.Default.NietasC * 9;
-                Properties.Settings.Default.MiembrosC =
-                    Properties.Settings.Default.HijasC +
-                    Properties.Settings.Default.NietasC +
-                    Properties.Settings.Default.BisnietasC;
-
-                //Obtiene el porcentaje de hijas, nietas y bisnietas que se producen.
-                Properties.Settings.Default.HijasP = cantMiembrosProd > 0 ? (Math.Truncate(cantidadMCH) / cantMiembrosProd) * 100 : 0;
-                Properties.Settings.Default.NietasP = cantMiembrosProd > 0 ? (Math.Truncate(cantidadMCN) / cantMiembrosProd) * 100 : 0;
-                Properties.Settings.Default.BisnietasP = cantMiembrosProd > 0 ? (Math.Truncate(cantidadMCB) / cantMiembrosProd) * 100 : 0;
-
-                //Obtiene el último Id de configuración
-                FlujoDBDataSet.T_ConfiguracionesRow tcrId;
-                FlujoDBDataSet.T_ConfiguracionesRow tConfiguracionesRow;
-                if (flujoDBDataSet.T_Configuraciones.Rows.Count > 0)
+                //Guarda las proporciones de hijas, nietas y bisnietas que se producen.
+                if (cantMiembrosProd > 0)
                 {
-                    tcrId =
-                    (FlujoDBDataSet.T_ConfiguracionesRow)flujoDBDataSet.T_Configuraciones.Rows[
-                        flujoDBDataSet.T_Configuraciones.Rows.Count - 1];
+                    Properties.Settings.Default.HijasP = (cantidadMCH / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.NietasP = (cantidadMCN / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.BisnietasP = (cantidadMCB / cantMiembrosProd) * 100;
 
-                    configId = int.Parse(tcrId["Id"].ToString()) + 1;
+                    Properties.Settings.Default.HijasP = (cantidadMCH / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.NietasP = (cantidadMCN / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.BisnietasP = (cantidadMCB / cantMiembrosProd) * 100;
 
-                }
-
-                //Clientes miembros de célula Hijos
-                tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
-                tConfiguracionesRow["Id"] = configId;
-                tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
-                tConfiguracionesRow["Campo"] = "CtesMCHP";
-                tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasP;
-                tConfiguracionesRow["TipoDato"] =
-                    "P" +
-                    (Properties.Settings.Default.PeriodoActual > 0 ?
-                    Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
-                    "C";
-                tConfiguracionesRow["Estatus"] = "1";
-
-                flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
-
-                //Clientes miembros de célula Nietos
-                configId++;
-                tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
-                tConfiguracionesRow["Id"] = configId;
-                tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
-                tConfiguracionesRow["Campo"] = "CtesMCNP";
-                tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasP;
-                tConfiguracionesRow["TipoDato"] =
-                    "P" +
-                    (Properties.Settings.Default.PeriodoActual > 0 ?
-                    Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
-                    "C";
-                tConfiguracionesRow["Estatus"] = "1";
-
-                flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
-
-                //Clientes miembros de célula Bisnietos
-                configId++;
-                tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
-                tConfiguracionesRow["Id"] = configId;
-                tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
-                tConfiguracionesRow["Campo"] = "CtesMCBP";
-                tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasP;
-                tConfiguracionesRow["TipoDato"] =
-                    "P" +
-                    (Properties.Settings.Default.PeriodoActual > 0 ?
-                    Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
-                    "C";
-                tConfiguracionesRow["Estatus"] = "1";
-
-                flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
-
-                //Guarda todos los registros en la base de datos
-                int result = 0;
-
-                foreach (FlujoDBDataSet.T_ConfiguracionesRow dr in flujoDBDataSet.T_Configuraciones.Rows)
-                {
-                    result = t_ConfiguracionesTableAdapter.UpdateTConfiguracion(
-                        int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
-                        dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
-
-                    if (result == 0)
+                    //Obtiene el último Id de configuración
+                    FlujoDBDataSet.T_ConfiguracionesRow tcrId;
+                    FlujoDBDataSet.T_ConfiguracionesRow tConfiguracionesRow;
+                    if (flujoDBDataSet.T_Configuraciones.Rows.Count > 0)
                     {
-                        result = t_ConfiguracionesTableAdapter.InsertTConfiguracion(
-                        int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
-                        dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
+                        tcrId =
+                        (FlujoDBDataSet.T_ConfiguracionesRow)flujoDBDataSet.T_Configuraciones.Rows[
+                            flujoDBDataSet.T_Configuraciones.Rows.Count - 1];
+
+                        configId = int.Parse(tcrId["Id"].ToString()) + 1;
+
+                    }
+                    /*Guarda la proporciones de miembros de célula producidos*/
+                    //Clientes miembros de célula Hijos
+                    tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCHP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasP;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Nietos
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCNP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasP;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Bisnietos
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCBP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasP;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Guarda todos los registros en la base de datos
+                    int result = 0;
+
+                    foreach (FlujoDBDataSet.T_ConfiguracionesRow dr in flujoDBDataSet.T_Configuraciones.Rows)
+                    {
+                        result = t_ConfiguracionesTableAdapter.UpdateTConfiguracion(
+                            int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
+                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
+
+                        if (result == 0)
+                        {
+                            result = t_ConfiguracionesTableAdapter.InsertTConfiguracion(
+                            int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
+                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
+                        }
+
+                        result = 0;
                     }
 
-                    result = 0;
+                    flujoDBDataSet.AcceptChanges();
                 }
 
-                flujoDBDataSet.AcceptChanges();
-
+                //Guarda las proporciones de clientes producidos para el primero período.
                 if (periodoActual == 1)
                 {
                     Properties.Settings.Default.CtesDistPProd = (cantidadD / (cantCtes - cantD)) * 100;
@@ -1532,6 +1394,7 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.ClientesZafyP = (cantidadCZ / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.ClientesMCP = (cantidadMCH / (cantCtes - cantD)) * 100;
                 }
+                
             }
             catch (Exception ex)
             {

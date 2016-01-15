@@ -29,9 +29,9 @@ namespace FlujoCreditosExpress
             double ctesMM = Math.Round((carteraT - distribuidoras) * clientesMMP);
             double ctesCZ = Math.Round((carteraT - distribuidoras) * clientesZP);
             double ctesMC = Math.Round((carteraT - distribuidoras) * clientesMCP);
-            double hijasP = Properties.Settings.Default.HijasP;
-            double nietasP = Properties.Settings.Default.NietasP;
-            double bisnietasP = Properties.Settings.Default.BisnietasP;
+            double hijasP = Properties.Settings.Default.HijasP / 100;
+            double nietasP = Properties.Settings.Default.NietasP / 100;
+            double bisnietasP = Properties.Settings.Default.BisnietasP / 100;
 
             txtCarteraTotal.Text = string.Format("{0:N0}", carteraT);
 

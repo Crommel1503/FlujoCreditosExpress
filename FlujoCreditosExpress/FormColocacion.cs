@@ -792,22 +792,22 @@ namespace FlujoCreditosExpress
 
                     this.distribuidoras = Properties.Settings.Default.Distribuidoras;
 
-                    ctesDistAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesDP) - 
-                        (creditos2QCDT + creditos4QCDT + creditos6QCDT));
+                    ctesDistAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesDP) -
+                        (creditos2QCDT + creditos4QCDT + creditos6QCDT + creditos8QCDT + creditos10QCDT + creditos12QCDT));
                     ctesDist = Math.Round(distribuidoras * clientesXDist * creditosXDistP);
 
-                    ctesMMAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesMMP) - 
-                        (creditos2QMMT + creditos4QMMT + creditos6QMMT));
+                    ctesMMAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesMMP) -
+                        (creditos2QMMT + creditos4QMMT + creditos6QMMT + creditos8QMMT + creditos10QMMT + creditos12QMMT));
                     ctesMM = Math.Round(((clientesPeriodoAnt - distribuidorasAnt) * ctesMMPProd)
                         * Properties.Settings.Default.IncrementoMMVal);
 
-                    ctesCZAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesZafyP) - 
-                        (creditos2QCZT + creditos4QCZT + creditos6QCZT));
+                    ctesCZAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesZafyP) -
+                        (creditos2QCZT + creditos4QCZT + creditos6QCZT + creditos8QCZT + creditos10QCZT + creditos12QCZT));
                     ctesCZ = Math.Round(((clientesPeriodoAnt - distribuidorasAnt) * ctesCZPProd)
                         * Properties.Settings.Default.IncrementoCZVal);
 
-                    ctesMCAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesMCP) - 
-                        (creditos2QMCT + creditos4QMCT + creditos6QMCT));
+                    ctesMCAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesMCP) -
+                        (creditos2QMCT + creditos4QMCT + creditos6QMCT + creditos8QMCT + creditos10QMCT + creditos12QMCT));
                     ctesMC = Properties.Settings.Default.CantMiembros;
 
                     clientesNuevos = Math.Truncate(
@@ -821,16 +821,16 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.DistribuidorasAnt = dist;
                     Properties.Settings.Default.ClientesDistP = 
                         ((ctesDist + clientesD2Credito + ctesDistAnt) / 
-                        ((clientesNuevos + creditos2Q + creditos4Q + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                        ((clientesNuevos + clientesT2Credito + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
                     Properties.Settings.Default.ClientesMMP = 
                         ((ctesMM + clientesMM2Credito + ctesMMAnt) / 
-                        ((clientesNuevos + creditos2Q + creditos4Q + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                        ((clientesNuevos + clientesT2Credito + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
                     Properties.Settings.Default.ClientesZafyP = 
                         ((ctesCZ + clientesZ2Credito + ctesCZAnt) / 
-                        ((clientesNuevos + creditos2Q + creditos4Q + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                        ((clientesNuevos + clientesT2Credito + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
                     Properties.Settings.Default.ClientesMCP = 
                         ((ctesMC + clientesMC2Credito + ctesMCAnt) / 
-                        ((clientesNuevos + creditos2Q + creditos4Q + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                        ((clientesNuevos + clientesT2Credito + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
 
                     //Identifica a las hijas, madres y nietas.
                                         
@@ -924,28 +924,48 @@ namespace FlujoCreditosExpress
                         " AND TipoDato = 'N" + (periodoActual - 1).ToString().PadLeft(3, '0') + "C'");
                     double valorAnt = 0;
                     double valorNvo = 0;
+                    double valorT = 0;
 
                     foreach (FlujoDBDataSet.T_ConfiguracionesRow item in colDt)
                     {
                         if (item.Campo.Trim().Length == 6)
                         {
-                            Control[] ctrl = Controls.Find("txtN" + item.Campo.Trim(), true);
-
                             valorAnt = double.Parse(item.Valor);
 
-                            if (int.Parse(item.Campo.Substring(1, 2)) > 2)
+                            if (valorAnt > 0)
                             {
-                                if (clientesPermanenciaAnt > 0)
+                                Control[] ctrl = Controls.Find("txtN" + item.Campo.Trim(), true);
+                                
+                                if (int.Parse(item.Campo.Substring(1, 2)) > 2)
                                 {
-                                    valorNvo = Math.Truncate(clientesPermanencia * (valorAnt / clientesPermanenciaAnt));
-                                }
-                            }
-                            else
-                            {
-                                valorNvo = Math.Truncate((clientesNuevos + clientesPermanencia) * (valorAnt / clientesPeriodoAnt));
-                            }
+                                    if (clientesPermanenciaAnt > 0)
+                                    {
+                                        valorNvo = Math.Round(clientesPermanencia * (valorAnt / clientesPermanenciaAnt));
 
-                            ctrl[0].Text = valorNvo.ToString();
+                                        valorT += valorNvo;
+
+                                        if (valorT > (clientesPermanencia))
+                                        {
+                                            valorNvo = valorNvo - (valorT - (clientesPermanencia));
+                                            valorT = valorT - (valorT - (clientesPermanencia));
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    valorNvo = Math.Round((clientesNuevos + clientesPermanencia) * (valorAnt / clientesPeriodoAnt));
+
+                                    valorT += valorNvo;
+
+                                    if (valorT > (clientesNuevos + clientesPermanencia))
+                                    {
+                                        valorNvo = valorNvo - (valorT - (clientesNuevos + clientesPermanencia));
+                                        valorT = valorT - (valorT - (clientesNuevos + clientesPermanencia));
+                                    }
+                                }
+
+                                ctrl[0].Text = valorNvo.ToString();
+                            }
                         }
                     }
                 }
