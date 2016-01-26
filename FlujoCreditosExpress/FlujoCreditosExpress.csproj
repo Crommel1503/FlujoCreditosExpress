@@ -111,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="FlujoDBDataSet.xsc">
@@ -143,6 +144,9 @@
       <DependentUpon>FlujoDB.mdf</DependentUpon>
     </Content>
     <Content Include="logo-zafy-a.ico" />
+    <None Include="Resources\complete21.png" />
+    <None Include="Resources\complete2.png" />
+    <None Include="Resources\complete.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

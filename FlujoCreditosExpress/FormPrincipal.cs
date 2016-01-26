@@ -67,11 +67,11 @@ namespace FlujoCreditosExpress
         /// <param name="e">Los eventos</param>
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'flujoDBDataSet.T_Clientes' table. You can move, or remove it, as needed.
-            this.t_ClientesTableAdapter.Fill(this.flujoDBDataSet.T_Clientes);
-
             try
             {
+                // TODO: This line of code loads data into the 'flujoDBDataSet.T_Clientes' table. You can move, or remove it, as needed.
+                this.t_ClientesTableAdapter.Fill(this.flujoDBDataSet.T_Clientes);
+
                 this.configId = 1;
                 this.isConfigSaved = true;                                                          //Bandera para indicar si la configuración esta guardada.
                 this.isNewSesion = true;                                                            //Bandera para indicar si la sesión es nueva.
@@ -137,6 +137,18 @@ namespace FlujoCreditosExpress
                 Properties.Settings.Default.ProsLIAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes iniciadoras.
                 Properties.Settings.Default.ProsLHAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes hijos.
                 Properties.Settings.Default.ProsLNAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes nietos.
+                Properties.Settings.Default.CantMiembrosH = 0;
+                Properties.Settings.Default.CantMiembrosN = 0;
+                Properties.Settings.Default.CantMiembrosB = 0;
+                Properties.Settings.Default.HijasP = 0;
+                Properties.Settings.Default.NietasP = 0;
+                Properties.Settings.Default.BisnietasP = 0;
+                Properties.Settings.Default.HijasProd = 0;
+                Properties.Settings.Default.NietasProd = 0;
+                Properties.Settings.Default.BisnietasProd = 0;
+                Properties.Settings.Default.HijasPerm = 0;
+                Properties.Settings.Default.NietasProd = 0;
+                Properties.Settings.Default.BisnietasPerm = 0;
                 Properties.Settings.Default.Save();                                                 //Guarda la configuracion de la configuración.
 
             }
@@ -261,8 +273,8 @@ namespace FlujoCreditosExpress
             
             ToolTip toolTip1 = new ToolTip();
 
-            toolTip1.AutoPopDelay = 500;
-            toolTip1.InitialDelay = 1000;
+            toolTip1.AutoPopDelay = 2000;
+            toolTip1.InitialDelay = 100;
             toolTip1.ReshowDelay = 1000;
             toolTip1.ShowAlways = true;
             
@@ -272,6 +284,7 @@ namespace FlujoCreditosExpress
             toolTip1.SetToolTip(this.btnSaveConfig, "Guarda la configuración");
             toolTip1.SetToolTip(this.btnLoadDefaults, "Carga los valores por defecto para la configuración");
             toolTip1.SetToolTip(this.btnIniciadoras, "Activa la opción de crear líderes de célula iniciadoras");
+            toolTip1.SetToolTip(this.btnDetalle, "Muestra las estadisticas de la quincena procesada");
         }
 
         /// <summary>
@@ -316,14 +329,9 @@ namespace FlujoCreditosExpress
                 if (IsPorcentajeOK)
                 {
                     this.SetProperties();
-
                     Properties.Settings.Default.Save();
-
                     btnSaveConfig.Enabled = false;
-
                     this.isConfigSaved = true;
-
-                    MessageBox.Show("¡La configuración ha sido guardada exitosamente!", "Configuración guardada");
                 }
                 else
                 {
@@ -418,6 +426,7 @@ namespace FlujoCreditosExpress
                     {
                         Properties.Settings.Default.IsToFinish = true;
                         Properties.Settings.Default.IsAutomatic = true;
+                        isCurrentSession = true;
                     }
 
                     if (btn.Name == "btnSiguienteFlujo")
@@ -450,6 +459,11 @@ namespace FlujoCreditosExpress
                             frmColocacion.StartPosition = FormStartPosition.CenterParent;
                             frmColocacion.Text = "Colocación:  " + periodoActual;
                             frmColocacion.ShowDialog();
+                            if(Properties.Settings.Default.IsConfigMod)
+                            {
+                                this.GetProperties();
+                                btnSaveConfig_Click(sender, e);
+                            }
                             this.Enabled = true;
                             btnSiguienteFlujo.Select();
 
@@ -463,6 +477,7 @@ namespace FlujoCreditosExpress
 
                             if (dRowList.Length == 0)
                             {
+                                isFirstSim = true;
                                 Properties.Settings.Default.IsToFinish = false;
                                 Properties.Settings.Default.IsAutomatic = false;
                                 btnSiguienteFlujo.Visible = false;
@@ -746,21 +761,21 @@ namespace FlujoCreditosExpress
                             dgvFlujoP.Visible = true;
                             lblProcesados.Visible = true;
                             lblProcesados.Text = "| Quincena procesada: " + periodoActual + "   |   Quincena siguiente: " + (periodoActual + 1);
-
-                            if (!Properties.Settings.Default.IsToFinish)
-                            {
-                                cp = Properties.Settings.Default.CantPeriodos;
-                                Properties.Settings.Default.CantPP++;
-                                cp = cp - Properties.Settings.Default.CantPP;
-                            }
                             
+                        }
+                        if (!Properties.Settings.Default.IsToFinish)
+                        {
+                            cp = Properties.Settings.Default.CantPeriodos;
+                            Properties.Settings.Default.CantPP++;
+                            cp = cp - Properties.Settings.Default.CantPP;
+                        }
 
-                            if (cp == 0)
-                            {
-                                Properties.Settings.Default.CantPeriodos = 1;
-                                Properties.Settings.Default.IsAutomatic = false;
-                                Cursor.Current = Cursors.Arrow;
-                            }
+
+                        if (cp == 0)
+                        {
+                            Properties.Settings.Default.CantPeriodos = 1;
+                            Properties.Settings.Default.IsAutomatic = false;
+                            Cursor.Current = Cursors.Arrow;
                         }
                         //Fin
                     }
@@ -995,11 +1010,13 @@ namespace FlujoCreditosExpress
                 }
                 //Obtiene la cantidad de iniciadoras y lideres.
 
+                double clientesMCP = Properties.Settings.Default.ClientesMCP / 100;
                 double creditos2QMM = 0;
                 double creditos2QCZ = 0;
                 double creditos2QMC = 0;
                 double creditos2QMCH = 0;
                 double creditos2QMCN = 0;
+                double creditos2QMCB = 0;
                 double creditos2Q = 0;
                 double creditos2QD = 0;
                 double creditos4QMM = 0;
@@ -1007,6 +1024,7 @@ namespace FlujoCreditosExpress
                 double creditos4QMC = 0;
                 double creditos4QMCH = 0;
                 double creditos4QMCN = 0;
+                double creditos4QMCB = 0;
                 double creditos4Q = 0;
                 double creditos4QD = 0;
                 double creditosPros = 0;
@@ -1016,6 +1034,9 @@ namespace FlujoCreditosExpress
                 double clientesMCHP2C = 0;
                 double clientesMCNP2C = 0;
                 double clientesMCBP2C = 0;
+                double creditosMCHPerdidos = 0;
+                double creditosMCNPerdidos = 0;
+                double creditosMCBPerdidos = 0;
 
                 double cantidadMiembros = 0;
                 double cantidadMiembrosH = 0;
@@ -1093,6 +1114,16 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q02'" +
                             " AND TipoDato = 'N" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
 
@@ -1105,9 +1136,13 @@ namespace FlujoCreditosExpress
                         {
                             creditos2QMM = Math.Round(((creditos2Q - creditos2QD) * clientesMMP2CT) * permanenciaMM);
                             creditos2QCZ = Math.Round(((creditos2Q - creditos2QD) * clientesZP2CT) * permanenciaCZ);
-                            creditos2QMC = Math.Round(((creditos2Q - creditos2QD) * clientesMCP2CT) * permanenciaMC);
-                            creditos2QMCH = Math.Round((creditos2QMC * clientesMCHP2C));
-                            creditos2QMCN = Math.Round((creditos2QMC * clientesMCNP2C));
+                            creditos2QMC = Math.Round(((creditos2Q - creditos2QD) * clientesMCP2CT));
+                            creditos2QMCH = Math.Round((creditos2QMC * clientesMCHP2C) * permanenciaMC);
+                            creditos2QMCN = Math.Round((creditos2QMC * clientesMCNP2C) * permanenciaMC);
+                            creditos2QMCB = Math.Round((creditos2QMC * clientesMCBP2C) * permanenciaMC);
+                            creditosMCHPerdidos += Math.Round((creditos2QMC * clientesMCHP2C) - creditos2QMCH);
+                            creditosMCNPerdidos += Math.Round((creditos2QMC * clientesMCNP2C) - creditos2QMCN);
+                            creditosMCBPerdidos += Math.Round((creditos2QMC * clientesMCBP2C) - creditos2QMCB);
                             creditos2Q = Math.Round(creditos2QMM + creditos2QCZ);
                         }
                     }
@@ -1176,6 +1211,16 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2C = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q04'" +
                             " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
 
@@ -1188,13 +1233,18 @@ namespace FlujoCreditosExpress
                         {
                             creditos4QMM = Math.Round(((creditos4Q - creditos4QD) * clientesMMP2CT) * permanenciaMM);
                             creditos4QCZ = Math.Round(((creditos4Q - creditos4QD) * clientesZP2CT) * permanenciaCZ);
-                            creditos4QMC = Math.Round(((creditos4Q - creditos4QD) * clientesMCP2CT) * permanenciaMC);
-                            creditos4QMCH = Math.Round((creditos4QMC * clientesMCHP2C));
-                            creditos4QMCN = Math.Round((creditos4QMC * clientesMCNP2C));
+                            creditos4QMC = Math.Round(((creditos4Q - creditos4QD) * clientesMCP2CT));
+                            creditos4QMCH = Math.Round((creditos4QMC * clientesMCHP2C) * permanenciaMC);
+                            creditos4QMCN = Math.Round((creditos4QMC * clientesMCNP2C) * permanenciaMC);
+                            creditos4QMCB = Math.Round((creditos4QMC * clientesMCBP2C) * permanenciaMC);
+                            creditosMCHPerdidos += Math.Round((creditos4QMC * clientesMCHP2C) - creditos4QMCH);
+                            creditosMCNPerdidos += Math.Round((creditos4QMC * clientesMCNP2C) - creditos4QMCN);
+                            creditosMCBPerdidos += Math.Round((creditos4QMC * clientesMCBP2C) - creditos4QMCB);
                             creditos4Q = Math.Round(creditos4QMM + creditos4QCZ);
                         }
                     }
                 }
+
                 //Obtiene los prospectos totales
                 creditosPros = Math.Round(creditos2Q + creditos4Q) + 
                     Properties.Settings.Default.ProsLIAnt;
@@ -1261,18 +1311,106 @@ namespace FlujoCreditosExpress
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel9MC) * 9;
                     cantidadMCB = Math.Truncate(cantidadMCB);
 
+                    /*************************************************************************************
+                    *******Se reparten los miembros producidos cuando se apaga el botón de iniciadoras****
+                    *************************************************************************************/
+
+                    if(!isIniciadorasOn && cantidadMiembros > 0)
+                    {
+                        //Define los límites de Madres, hijas, nietas y bisnietas de la célula
+                        double madresL = Properties.Settings.Default.CantIniciadoras;
+                        double hijasL = madresL * 9;
+                        double nietasL = hijasL * 9;
+                        double bisnietasL = nietasL * 9;
+                        double miembrosCL = hijasL + nietasL + bisnietasL;
+
+                        //Obtiene la dimensión actual de la red
+                        double carteraT = Properties.Settings.Default.CarteraTotal;
+                        double distribuidoras = Properties.Settings.Default.Distribuidoras;
+                        double clientesMCCT = Properties.Settings.Default.ClientesMCP / 100;
+                        double ctesMC = Math.Round((carteraT - distribuidoras) * clientesMCCT);
+                        double hijasC = Math.Round((ctesMC * (Properties.Settings.Default.HijasP / 100))) - creditosMCHPerdidos;
+                        double nietasC = Math.Round((ctesMC * (Properties.Settings.Default.NietasP / 100))) - creditosMCNPerdidos;
+                        double bisnietasC = Math.Round((ctesMC * (Properties.Settings.Default.BisnietasP / 100))) - creditosMCBPerdidos;
+
+                        //Valida que no se sobrepasen el máximo de los miembros para cada nivel y reparte los miembros producidos
+                        double hijasT = hijasC + cantidadMCH;
+                        double nietasT = nietasC + cantidadMCN;
+                        double bisnietasT = bisnietasC + cantidadMCB;
+
+                        if(hijasT < hijasL)
+                        {
+                            if((hijasT + cantidadMiembros) <= hijasL)
+                            {
+                                cantidadMCH += cantidadMiembros;
+                                cantidadMiembros = 0;
+                            }
+                             else
+                            {
+                                cantidadMCH += (hijasL - hijasT);
+                                cantidadMiembros = (cantidadMiembros - (hijasL - hijasT));
+                            }
+                        }
+                        else
+                        {
+                            cantidadMiembros += (cantidadMCH - (hijasL - hijasC));
+                            cantidadMCH = (hijasL - hijasC);
+                        }
+
+                        if (nietasT < nietasL)
+                        {
+                            if ((nietasT + cantidadMiembros) <= nietasL)
+                            {
+                                cantidadMCN += cantidadMiembros;
+                                cantidadMiembros = 0;
+                            }
+                            else
+                            {
+                                cantidadMCN += (nietasL - nietasT);
+                                cantidadMiembros = (cantidadMiembros - (nietasL - nietasT));
+                            }
+                        }
+                        else
+                        {
+                            cantidadMiembros += (cantidadMCN - (nietasL - nietasC));
+                            cantidadMCN = (nietasL - nietasC);
+                        }
+
+                        if (bisnietasT < bisnietasL)
+                        {
+                            if ((bisnietasT + cantidadMiembros) <= bisnietasL)
+                            {
+                                cantidadMCB += cantidadMiembros;
+                                cantidadMiembros = 0;
+                            }
+                            else
+                            {
+                                cantidadMCB += (bisnietasL - bisnietasT);
+                                cantidadMiembros = (cantidadMiembros - (bisnietasL - bisnietasT));
+                            }
+                        }
+                        else
+                        {
+                            cantidadMiembros += (cantidadMCB - (bisnietasL - bisnietasC));
+                            cantidadMCB = (bisnietasL - bisnietasC);
+                        }
+
+                        if (cantidadMiembros > 0)
+                        {
+                            Properties.Settings.Default.ProsLIAnt += cantidadMiembros;
+                        }
+
+                        //Guarda los valores para el detalle
+                        Properties.Settings.Default.MadresC = madresL;
+                        Properties.Settings.Default.HijasC = hijasL;
+                        Properties.Settings.Default.NietasC = nietasL;
+                        Properties.Settings.Default.BisnietasC = bisnietasL;
+                        Properties.Settings.Default.MiembrosC = miembrosCL;
+
+                    }
+
                     //Obtiene el total de miembros producidos para este período
                     cantMiembrosProd = cantidadMCH + cantidadMCN + cantidadMCB;
-
-                    //Define los límites de Madres, hijas, nietas y bisnietas de la célula
-                    Properties.Settings.Default.MadresC = Properties.Settings.Default.CantIniciadoras;
-                    Properties.Settings.Default.HijasC = Properties.Settings.Default.MadresC * 9;
-                    Properties.Settings.Default.NietasC = Properties.Settings.Default.HijasC * 9;
-                    Properties.Settings.Default.BisnietasC = Properties.Settings.Default.NietasC * 9;
-                    Properties.Settings.Default.MiembrosC =
-                        Properties.Settings.Default.HijasC +
-                        Properties.Settings.Default.NietasC +
-                        Properties.Settings.Default.BisnietasC;
                 }
 
                 //Guarda la configuración por canal de incremento, permanencia, clientes nuevos y miembros de célula;
@@ -1285,19 +1423,18 @@ namespace FlujoCreditosExpress
                 Properties.Settings.Default.PermanenciaMCVal = permanenciaMC;
                 Properties.Settings.Default.ClientesNuevos = cantCtes;
                 Properties.Settings.Default.CantMiembros = cantMiembrosProd;
+                Properties.Settings.Default.CantMiembrosH = cantidadMCH;
+                Properties.Settings.Default.CantMiembrosN = cantidadMCN;
+                Properties.Settings.Default.CantMiembrosB = cantidadMCB;
                 Properties.Settings.Default.ClientesXDist = cantXD;
                 Properties.Settings.Default.CreditosXDistP = credD;
 
                 //Guarda las proporciones de hijas, nietas y bisnietas que se producen.
                 if (cantMiembrosProd > 0)
                 {
-                    Properties.Settings.Default.HijasP = (cantidadMCH / cantMiembrosProd) * 100;
-                    Properties.Settings.Default.NietasP = (cantidadMCN / cantMiembrosProd) * 100;
-                    Properties.Settings.Default.BisnietasP = (cantidadMCB / cantMiembrosProd) * 100;
-
-                    Properties.Settings.Default.HijasP = (cantidadMCH / cantMiembrosProd) * 100;
-                    Properties.Settings.Default.NietasP = (cantidadMCN / cantMiembrosProd) * 100;
-                    Properties.Settings.Default.BisnietasP = (cantidadMCB / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.HijasProd = (cantidadMCH / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.NietasProd = (cantidadMCN / cantMiembrosProd) * 100;
+                    Properties.Settings.Default.BisnietasProd = (cantidadMCB / cantMiembrosProd) * 100;
 
                     //Obtiene el último Id de configuración
                     FlujoDBDataSet.T_ConfiguracionesRow tcrId;
@@ -1317,7 +1454,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCHP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasP;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasP > 0 ? Properties.Settings.Default.HijasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1333,7 +1470,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCNP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasP;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasP > 0 ? Properties.Settings.Default.NietasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1349,7 +1486,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCBP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasP;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasP > 0 ? Properties.Settings.Default.BisnietasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?

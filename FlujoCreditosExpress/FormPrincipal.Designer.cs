@@ -257,6 +257,8 @@
             this.t_SesionesTableAdapter = new FlujoCreditosExpress.FlujoDBDataSetTableAdapters.T_SesionesTableAdapter();
             this.t_ClientesTableAdapter = new FlujoCreditosExpress.FlujoDBDataSetTableAdapters.T_ClientesTableAdapter();
             this.pbProcesando = new System.Windows.Forms.PictureBox();
+            this.tabConfigRed = new System.Windows.Forms.TabPage();
+            this.gpbComisiones = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabCContenedor.SuspendLayout();
             this.tabFlujo.SuspendLayout();
@@ -275,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.flujoDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFlujoDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProcesando)).BeginInit();
+            this.tabConfigRed.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -291,6 +294,7 @@
             // 
             this.tabCContenedor.Controls.Add(this.tabFlujo);
             this.tabCContenedor.Controls.Add(this.tabConfiguracion);
+            this.tabCContenedor.Controls.Add(this.tabConfigRed);
             this.tabCContenedor.Location = new System.Drawing.Point(12, 67);
             this.tabCContenedor.Name = "tabCContenedor";
             this.tabCContenedor.SelectedIndex = 0;
@@ -613,7 +617,7 @@
             this.tabConfiguracion.Padding = new System.Windows.Forms.Padding(3);
             this.tabConfiguracion.Size = new System.Drawing.Size(1252, 555);
             this.tabConfiguracion.TabIndex = 1;
-            this.tabConfiguracion.Text = "Configuración";
+            this.tabConfiguracion.Text = "Configuración General";
             this.tabConfiguracion.Click += new System.EventHandler(this.tabConfiguracion_Click);
             // 
             // gpbIngresos
@@ -628,7 +632,7 @@
             this.gpbIngresos.Controls.Add(this.lblSeguroI);
             this.gpbIngresos.Location = new System.Drawing.Point(6, 46);
             this.gpbIngresos.Name = "gpbIngresos";
-            this.gpbIngresos.Size = new System.Drawing.Size(215, 156);
+            this.gpbIngresos.Size = new System.Drawing.Size(161, 125);
             this.gpbIngresos.TabIndex = 49;
             this.gpbIngresos.TabStop = false;
             this.gpbIngresos.Text = "Ingresos";
@@ -637,7 +641,7 @@
             // 
             this.txtIngresoProsaI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIngresoProsaI.Enabled = false;
-            this.txtIngresoProsaI.Location = new System.Drawing.Point(147, 106);
+            this.txtIngresoProsaI.Location = new System.Drawing.Point(117, 98);
             this.txtIngresoProsaI.MaxLength = 4;
             this.txtIngresoProsaI.Name = "txtIngresoProsaI";
             this.txtIngresoProsaI.Size = new System.Drawing.Size(32, 20);
@@ -651,7 +655,7 @@
             // 
             // lblIngresoProsaI
             // 
-            this.lblIngresoProsaI.Location = new System.Drawing.Point(36, 108);
+            this.lblIngresoProsaI.Location = new System.Drawing.Point(6, 100);
             this.lblIngresoProsaI.Name = "lblIngresoProsaI";
             this.lblIngresoProsaI.Size = new System.Drawing.Size(105, 13);
             this.lblIngresoProsaI.TabIndex = 60;
@@ -661,7 +665,7 @@
             // txtCobroXPlasticoI
             // 
             this.txtCobroXPlasticoI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCobroXPlasticoI.Location = new System.Drawing.Point(147, 80);
+            this.txtCobroXPlasticoI.Location = new System.Drawing.Point(117, 72);
             this.txtCobroXPlasticoI.MaxLength = 4;
             this.txtCobroXPlasticoI.Name = "txtCobroXPlasticoI";
             this.txtCobroXPlasticoI.Size = new System.Drawing.Size(32, 20);
@@ -675,7 +679,7 @@
             // 
             // lblCobroXPlasticoI
             // 
-            this.lblCobroXPlasticoI.Location = new System.Drawing.Point(36, 82);
+            this.lblCobroXPlasticoI.Location = new System.Drawing.Point(6, 74);
             this.lblCobroXPlasticoI.Name = "lblCobroXPlasticoI";
             this.lblCobroXPlasticoI.Size = new System.Drawing.Size(105, 13);
             this.lblCobroXPlasticoI.TabIndex = 58;
@@ -685,7 +689,7 @@
             // txtComAperturaI
             // 
             this.txtComAperturaI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtComAperturaI.Location = new System.Drawing.Point(147, 54);
+            this.txtComAperturaI.Location = new System.Drawing.Point(117, 46);
             this.txtComAperturaI.MaxLength = 3;
             this.txtComAperturaI.Name = "txtComAperturaI";
             this.txtComAperturaI.Size = new System.Drawing.Size(27, 20);
@@ -699,17 +703,17 @@
             // 
             // lblComAperturaI
             // 
-            this.lblComAperturaI.Location = new System.Drawing.Point(11, 57);
+            this.lblComAperturaI.Location = new System.Drawing.Point(6, 49);
             this.lblComAperturaI.Name = "lblComAperturaI";
-            this.lblComAperturaI.Size = new System.Drawing.Size(130, 13);
+            this.lblComAperturaI.Size = new System.Drawing.Size(105, 13);
             this.lblComAperturaI.TabIndex = 56;
-            this.lblComAperturaI.Text = "% Comisión por Apertura";
+            this.lblComAperturaI.Text = "% Comisión Apertura";
             this.lblComAperturaI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtSeguroI
             // 
             this.txtSeguroI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSeguroI.Location = new System.Drawing.Point(147, 28);
+            this.txtSeguroI.Location = new System.Drawing.Point(117, 20);
             this.txtSeguroI.MaxLength = 4;
             this.txtSeguroI.Name = "txtSeguroI";
             this.txtSeguroI.Size = new System.Drawing.Size(32, 20);
@@ -723,7 +727,7 @@
             // 
             // lblSeguroI
             // 
-            this.lblSeguroI.Location = new System.Drawing.Point(36, 30);
+            this.lblSeguroI.Location = new System.Drawing.Point(6, 22);
             this.lblSeguroI.Name = "lblSeguroI";
             this.lblSeguroI.Size = new System.Drawing.Size(105, 13);
             this.lblSeguroI.TabIndex = 54;
@@ -769,9 +773,9 @@
             this.gpbProduccionCtes.Controls.Add(this.lblCtesXDist);
             this.gpbProduccionCtes.Controls.Add(this.lblCantitadD);
             this.gpbProduccionCtes.Controls.Add(this.tabCtrlProdCtesEscenarios);
-            this.gpbProduccionCtes.Location = new System.Drawing.Point(360, 9);
+            this.gpbProduccionCtes.Location = new System.Drawing.Point(239, 9);
             this.gpbProduccionCtes.Name = "gpbProduccionCtes";
-            this.gpbProduccionCtes.Size = new System.Drawing.Size(500, 493);
+            this.gpbProduccionCtes.Size = new System.Drawing.Size(500, 527);
             this.gpbProduccionCtes.TabIndex = 47;
             this.gpbProduccionCtes.TabStop = false;
             this.gpbProduccionCtes.Text = "Producción Clientes";
@@ -797,7 +801,7 @@
             // lblMiembrosCelula
             // 
             this.lblMiembrosCelula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMiembrosCelula.Location = new System.Drawing.Point(6, 413);
+            this.lblMiembrosCelula.Location = new System.Drawing.Point(2, 428);
             this.lblMiembrosCelula.Name = "lblMiembrosCelula";
             this.lblMiembrosCelula.Size = new System.Drawing.Size(126, 23);
             this.lblMiembrosCelula.TabIndex = 47;
@@ -861,7 +865,7 @@
             // 
             // lblProbMC
             // 
-            this.lblProbMC.Location = new System.Drawing.Point(33, 444);
+            this.lblProbMC.Location = new System.Drawing.Point(29, 459);
             this.lblProbMC.Name = "lblProbMC";
             this.lblProbMC.Size = new System.Drawing.Size(99, 13);
             this.lblProbMC.TabIndex = 72;
@@ -1005,7 +1009,7 @@
             this.tabCtrlProdCtesEscenarios.Location = new System.Drawing.Point(134, 19);
             this.tabCtrlProdCtesEscenarios.Name = "tabCtrlProdCtesEscenarios";
             this.tabCtrlProdCtesEscenarios.SelectedIndex = 0;
-            this.tabCtrlProdCtesEscenarios.Size = new System.Drawing.Size(262, 460);
+            this.tabCtrlProdCtesEscenarios.Size = new System.Drawing.Size(262, 487);
             this.tabCtrlProdCtesEscenarios.TabIndex = 17;
             // 
             // tabPesimista
@@ -1047,7 +1051,7 @@
             this.tabPesimista.Location = new System.Drawing.Point(4, 22);
             this.tabPesimista.Name = "tabPesimista";
             this.tabPesimista.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPesimista.Size = new System.Drawing.Size(254, 434);
+            this.tabPesimista.Size = new System.Drawing.Size(254, 461);
             this.tabPesimista.TabIndex = 0;
             this.tabPesimista.Text = "Pesimista";
             this.tabPesimista.UseVisualStyleBackColor = true;
@@ -1069,7 +1073,7 @@
             // 
             // lblTam9MCP
             // 
-            this.lblTam9MCP.Location = new System.Drawing.Point(223, 382);
+            this.lblTam9MCP.Location = new System.Drawing.Point(223, 397);
             this.lblTam9MCP.Name = "lblTam9MCP";
             this.lblTam9MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam9MCP.TabIndex = 94;
@@ -1078,7 +1082,7 @@
             // 
             // lblTam8MCP
             // 
-            this.lblTam8MCP.Location = new System.Drawing.Point(192, 382);
+            this.lblTam8MCP.Location = new System.Drawing.Point(192, 397);
             this.lblTam8MCP.Name = "lblTam8MCP";
             this.lblTam8MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam8MCP.TabIndex = 93;
@@ -1087,7 +1091,7 @@
             // 
             // lblTam7MCP
             // 
-            this.lblTam7MCP.Location = new System.Drawing.Point(161, 382);
+            this.lblTam7MCP.Location = new System.Drawing.Point(161, 397);
             this.lblTam7MCP.Name = "lblTam7MCP";
             this.lblTam7MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam7MCP.TabIndex = 92;
@@ -1096,7 +1100,7 @@
             // 
             // lblTam6MCP
             // 
-            this.lblTam6MCP.Location = new System.Drawing.Point(130, 382);
+            this.lblTam6MCP.Location = new System.Drawing.Point(130, 397);
             this.lblTam6MCP.Name = "lblTam6MCP";
             this.lblTam6MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam6MCP.TabIndex = 91;
@@ -1105,7 +1109,7 @@
             // 
             // lblTam5MCP
             // 
-            this.lblTam5MCP.Location = new System.Drawing.Point(99, 382);
+            this.lblTam5MCP.Location = new System.Drawing.Point(99, 397);
             this.lblTam5MCP.Name = "lblTam5MCP";
             this.lblTam5MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam5MCP.TabIndex = 90;
@@ -1114,7 +1118,7 @@
             // 
             // lblTam4MCP
             // 
-            this.lblTam4MCP.Location = new System.Drawing.Point(68, 382);
+            this.lblTam4MCP.Location = new System.Drawing.Point(68, 397);
             this.lblTam4MCP.Name = "lblTam4MCP";
             this.lblTam4MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam4MCP.TabIndex = 89;
@@ -1123,7 +1127,7 @@
             // 
             // lblTam3MCP
             // 
-            this.lblTam3MCP.Location = new System.Drawing.Point(37, 382);
+            this.lblTam3MCP.Location = new System.Drawing.Point(37, 397);
             this.lblTam3MCP.Name = "lblTam3MCP";
             this.lblTam3MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam3MCP.TabIndex = 88;
@@ -1132,7 +1136,7 @@
             // 
             // lblTam2MCP
             // 
-            this.lblTam2MCP.Location = new System.Drawing.Point(6, 382);
+            this.lblTam2MCP.Location = new System.Drawing.Point(6, 397);
             this.lblTam2MCP.Name = "lblTam2MCP";
             this.lblTam2MCP.Size = new System.Drawing.Size(25, 13);
             this.lblTam2MCP.TabIndex = 87;
@@ -1141,7 +1145,7 @@
             // 
             // txtPProbTamCel9MCP
             // 
-            this.txtPProbTamCel9MCP.Location = new System.Drawing.Point(221, 400);
+            this.txtPProbTamCel9MCP.Location = new System.Drawing.Point(221, 415);
             this.txtPProbTamCel9MCP.MaxLength = 3;
             this.txtPProbTamCel9MCP.Name = "txtPProbTamCel9MCP";
             this.txtPProbTamCel9MCP.Size = new System.Drawing.Size(25, 20);
@@ -1156,7 +1160,7 @@
             // 
             // txtPProbTamCel8MCP
             // 
-            this.txtPProbTamCel8MCP.Location = new System.Drawing.Point(192, 400);
+            this.txtPProbTamCel8MCP.Location = new System.Drawing.Point(192, 415);
             this.txtPProbTamCel8MCP.MaxLength = 3;
             this.txtPProbTamCel8MCP.Name = "txtPProbTamCel8MCP";
             this.txtPProbTamCel8MCP.Size = new System.Drawing.Size(25, 20);
@@ -1171,7 +1175,7 @@
             // 
             // txtPProbTamCel7MCP
             // 
-            this.txtPProbTamCel7MCP.Location = new System.Drawing.Point(161, 400);
+            this.txtPProbTamCel7MCP.Location = new System.Drawing.Point(161, 415);
             this.txtPProbTamCel7MCP.MaxLength = 3;
             this.txtPProbTamCel7MCP.Name = "txtPProbTamCel7MCP";
             this.txtPProbTamCel7MCP.Size = new System.Drawing.Size(25, 20);
@@ -1186,7 +1190,7 @@
             // 
             // txtPProbTamCel6MCP
             // 
-            this.txtPProbTamCel6MCP.Location = new System.Drawing.Point(130, 400);
+            this.txtPProbTamCel6MCP.Location = new System.Drawing.Point(130, 415);
             this.txtPProbTamCel6MCP.MaxLength = 3;
             this.txtPProbTamCel6MCP.Name = "txtPProbTamCel6MCP";
             this.txtPProbTamCel6MCP.Size = new System.Drawing.Size(25, 20);
@@ -1201,7 +1205,7 @@
             // 
             // txtPProbTamCel5MCP
             // 
-            this.txtPProbTamCel5MCP.Location = new System.Drawing.Point(99, 400);
+            this.txtPProbTamCel5MCP.Location = new System.Drawing.Point(99, 415);
             this.txtPProbTamCel5MCP.MaxLength = 3;
             this.txtPProbTamCel5MCP.Name = "txtPProbTamCel5MCP";
             this.txtPProbTamCel5MCP.Size = new System.Drawing.Size(25, 20);
@@ -1216,7 +1220,7 @@
             // 
             // txtPProbTamCel4MCP
             // 
-            this.txtPProbTamCel4MCP.Location = new System.Drawing.Point(68, 400);
+            this.txtPProbTamCel4MCP.Location = new System.Drawing.Point(68, 415);
             this.txtPProbTamCel4MCP.MaxLength = 3;
             this.txtPProbTamCel4MCP.Name = "txtPProbTamCel4MCP";
             this.txtPProbTamCel4MCP.Size = new System.Drawing.Size(25, 20);
@@ -1231,7 +1235,7 @@
             // 
             // txtPProbTamCel3MCP
             // 
-            this.txtPProbTamCel3MCP.Location = new System.Drawing.Point(37, 400);
+            this.txtPProbTamCel3MCP.Location = new System.Drawing.Point(37, 415);
             this.txtPProbTamCel3MCP.MaxLength = 3;
             this.txtPProbTamCel3MCP.Name = "txtPProbTamCel3MCP";
             this.txtPProbTamCel3MCP.Size = new System.Drawing.Size(25, 20);
@@ -1246,7 +1250,7 @@
             // 
             // txtPProbTamCel2MCP
             // 
-            this.txtPProbTamCel2MCP.Location = new System.Drawing.Point(6, 400);
+            this.txtPProbTamCel2MCP.Location = new System.Drawing.Point(6, 415);
             this.txtPProbTamCel2MCP.MaxLength = 3;
             this.txtPProbTamCel2MCP.Name = "txtPProbTamCel2MCP";
             this.txtPProbTamCel2MCP.Size = new System.Drawing.Size(25, 20);
@@ -1553,7 +1557,7 @@
             this.tabConservador.Location = new System.Drawing.Point(4, 22);
             this.tabConservador.Name = "tabConservador";
             this.tabConservador.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConservador.Size = new System.Drawing.Size(254, 434);
+            this.tabConservador.Size = new System.Drawing.Size(254, 461);
             this.tabConservador.TabIndex = 1;
             this.tabConservador.Text = "Conservador";
             this.tabConservador.UseVisualStyleBackColor = true;
@@ -1575,7 +1579,7 @@
             // 
             // lblTam9MCC
             // 
-            this.lblTam9MCC.Location = new System.Drawing.Point(223, 382);
+            this.lblTam9MCC.Location = new System.Drawing.Point(223, 397);
             this.lblTam9MCC.Name = "lblTam9MCC";
             this.lblTam9MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam9MCC.TabIndex = 113;
@@ -1584,7 +1588,7 @@
             // 
             // lblTam8MCC
             // 
-            this.lblTam8MCC.Location = new System.Drawing.Point(192, 382);
+            this.lblTam8MCC.Location = new System.Drawing.Point(192, 397);
             this.lblTam8MCC.Name = "lblTam8MCC";
             this.lblTam8MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam8MCC.TabIndex = 112;
@@ -1593,7 +1597,7 @@
             // 
             // lblTam7MCC
             // 
-            this.lblTam7MCC.Location = new System.Drawing.Point(161, 382);
+            this.lblTam7MCC.Location = new System.Drawing.Point(161, 397);
             this.lblTam7MCC.Name = "lblTam7MCC";
             this.lblTam7MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam7MCC.TabIndex = 111;
@@ -1602,7 +1606,7 @@
             // 
             // lblTam6MCC
             // 
-            this.lblTam6MCC.Location = new System.Drawing.Point(130, 382);
+            this.lblTam6MCC.Location = new System.Drawing.Point(130, 397);
             this.lblTam6MCC.Name = "lblTam6MCC";
             this.lblTam6MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam6MCC.TabIndex = 110;
@@ -1611,7 +1615,7 @@
             // 
             // lblTam5MCC
             // 
-            this.lblTam5MCC.Location = new System.Drawing.Point(99, 382);
+            this.lblTam5MCC.Location = new System.Drawing.Point(99, 397);
             this.lblTam5MCC.Name = "lblTam5MCC";
             this.lblTam5MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam5MCC.TabIndex = 109;
@@ -1620,7 +1624,7 @@
             // 
             // lblTam4MCC
             // 
-            this.lblTam4MCC.Location = new System.Drawing.Point(68, 382);
+            this.lblTam4MCC.Location = new System.Drawing.Point(68, 397);
             this.lblTam4MCC.Name = "lblTam4MCC";
             this.lblTam4MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam4MCC.TabIndex = 108;
@@ -1629,7 +1633,7 @@
             // 
             // lblTam3MCC
             // 
-            this.lblTam3MCC.Location = new System.Drawing.Point(37, 382);
+            this.lblTam3MCC.Location = new System.Drawing.Point(37, 397);
             this.lblTam3MCC.Name = "lblTam3MCC";
             this.lblTam3MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam3MCC.TabIndex = 107;
@@ -1638,7 +1642,7 @@
             // 
             // lblTam2MCC
             // 
-            this.lblTam2MCC.Location = new System.Drawing.Point(6, 382);
+            this.lblTam2MCC.Location = new System.Drawing.Point(6, 397);
             this.lblTam2MCC.Name = "lblTam2MCC";
             this.lblTam2MCC.Size = new System.Drawing.Size(25, 13);
             this.lblTam2MCC.TabIndex = 106;
@@ -1647,7 +1651,7 @@
             // 
             // txtPProbTamCel9MCC
             // 
-            this.txtPProbTamCel9MCC.Location = new System.Drawing.Point(221, 400);
+            this.txtPProbTamCel9MCC.Location = new System.Drawing.Point(221, 415);
             this.txtPProbTamCel9MCC.MaxLength = 3;
             this.txtPProbTamCel9MCC.Name = "txtPProbTamCel9MCC";
             this.txtPProbTamCel9MCC.Size = new System.Drawing.Size(25, 20);
@@ -1662,7 +1666,7 @@
             // 
             // txtPProbTamCel8MCC
             // 
-            this.txtPProbTamCel8MCC.Location = new System.Drawing.Point(192, 400);
+            this.txtPProbTamCel8MCC.Location = new System.Drawing.Point(192, 415);
             this.txtPProbTamCel8MCC.MaxLength = 3;
             this.txtPProbTamCel8MCC.Name = "txtPProbTamCel8MCC";
             this.txtPProbTamCel8MCC.Size = new System.Drawing.Size(25, 20);
@@ -1677,7 +1681,7 @@
             // 
             // txtPProbTamCel7MCC
             // 
-            this.txtPProbTamCel7MCC.Location = new System.Drawing.Point(161, 400);
+            this.txtPProbTamCel7MCC.Location = new System.Drawing.Point(161, 415);
             this.txtPProbTamCel7MCC.MaxLength = 3;
             this.txtPProbTamCel7MCC.Name = "txtPProbTamCel7MCC";
             this.txtPProbTamCel7MCC.Size = new System.Drawing.Size(25, 20);
@@ -1692,7 +1696,7 @@
             // 
             // txtPProbTamCel6MCC
             // 
-            this.txtPProbTamCel6MCC.Location = new System.Drawing.Point(130, 400);
+            this.txtPProbTamCel6MCC.Location = new System.Drawing.Point(130, 415);
             this.txtPProbTamCel6MCC.MaxLength = 3;
             this.txtPProbTamCel6MCC.Name = "txtPProbTamCel6MCC";
             this.txtPProbTamCel6MCC.Size = new System.Drawing.Size(25, 20);
@@ -1707,7 +1711,7 @@
             // 
             // txtPProbTamCel5MCC
             // 
-            this.txtPProbTamCel5MCC.Location = new System.Drawing.Point(99, 400);
+            this.txtPProbTamCel5MCC.Location = new System.Drawing.Point(99, 415);
             this.txtPProbTamCel5MCC.MaxLength = 3;
             this.txtPProbTamCel5MCC.Name = "txtPProbTamCel5MCC";
             this.txtPProbTamCel5MCC.Size = new System.Drawing.Size(25, 20);
@@ -1722,7 +1726,7 @@
             // 
             // txtPProbTamCel4MCC
             // 
-            this.txtPProbTamCel4MCC.Location = new System.Drawing.Point(68, 400);
+            this.txtPProbTamCel4MCC.Location = new System.Drawing.Point(68, 415);
             this.txtPProbTamCel4MCC.MaxLength = 3;
             this.txtPProbTamCel4MCC.Name = "txtPProbTamCel4MCC";
             this.txtPProbTamCel4MCC.Size = new System.Drawing.Size(25, 20);
@@ -1737,7 +1741,7 @@
             // 
             // txtPProbTamCel3MCC
             // 
-            this.txtPProbTamCel3MCC.Location = new System.Drawing.Point(37, 400);
+            this.txtPProbTamCel3MCC.Location = new System.Drawing.Point(37, 415);
             this.txtPProbTamCel3MCC.MaxLength = 3;
             this.txtPProbTamCel3MCC.Name = "txtPProbTamCel3MCC";
             this.txtPProbTamCel3MCC.Size = new System.Drawing.Size(25, 20);
@@ -1752,7 +1756,7 @@
             // 
             // txtPProbTamCel2MCC
             // 
-            this.txtPProbTamCel2MCC.Location = new System.Drawing.Point(6, 400);
+            this.txtPProbTamCel2MCC.Location = new System.Drawing.Point(6, 415);
             this.txtPProbTamCel2MCC.MaxLength = 3;
             this.txtPProbTamCel2MCC.Name = "txtPProbTamCel2MCC";
             this.txtPProbTamCel2MCC.Size = new System.Drawing.Size(25, 20);
@@ -2058,7 +2062,7 @@
             this.tabOptimista.Controls.Add(this.txtPCredDO);
             this.tabOptimista.Location = new System.Drawing.Point(4, 22);
             this.tabOptimista.Name = "tabOptimista";
-            this.tabOptimista.Size = new System.Drawing.Size(254, 434);
+            this.tabOptimista.Size = new System.Drawing.Size(254, 461);
             this.tabOptimista.TabIndex = 2;
             this.tabOptimista.Text = "Optimista";
             this.tabOptimista.UseVisualStyleBackColor = true;
@@ -2080,7 +2084,7 @@
             // 
             // lblTam9MCO
             // 
-            this.lblTam9MCO.Location = new System.Drawing.Point(223, 382);
+            this.lblTam9MCO.Location = new System.Drawing.Point(223, 397);
             this.lblTam9MCO.Name = "lblTam9MCO";
             this.lblTam9MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam9MCO.TabIndex = 113;
@@ -2089,7 +2093,7 @@
             // 
             // lblTam8MCO
             // 
-            this.lblTam8MCO.Location = new System.Drawing.Point(192, 382);
+            this.lblTam8MCO.Location = new System.Drawing.Point(192, 397);
             this.lblTam8MCO.Name = "lblTam8MCO";
             this.lblTam8MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam8MCO.TabIndex = 112;
@@ -2098,7 +2102,7 @@
             // 
             // lblTam7MCO
             // 
-            this.lblTam7MCO.Location = new System.Drawing.Point(161, 382);
+            this.lblTam7MCO.Location = new System.Drawing.Point(161, 397);
             this.lblTam7MCO.Name = "lblTam7MCO";
             this.lblTam7MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam7MCO.TabIndex = 111;
@@ -2107,7 +2111,7 @@
             // 
             // lblTam6MCO
             // 
-            this.lblTam6MCO.Location = new System.Drawing.Point(130, 382);
+            this.lblTam6MCO.Location = new System.Drawing.Point(130, 397);
             this.lblTam6MCO.Name = "lblTam6MCO";
             this.lblTam6MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam6MCO.TabIndex = 110;
@@ -2116,7 +2120,7 @@
             // 
             // lblTam5MCO
             // 
-            this.lblTam5MCO.Location = new System.Drawing.Point(99, 382);
+            this.lblTam5MCO.Location = new System.Drawing.Point(99, 397);
             this.lblTam5MCO.Name = "lblTam5MCO";
             this.lblTam5MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam5MCO.TabIndex = 109;
@@ -2125,7 +2129,7 @@
             // 
             // lblTam4MCO
             // 
-            this.lblTam4MCO.Location = new System.Drawing.Point(68, 382);
+            this.lblTam4MCO.Location = new System.Drawing.Point(68, 397);
             this.lblTam4MCO.Name = "lblTam4MCO";
             this.lblTam4MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam4MCO.TabIndex = 108;
@@ -2134,7 +2138,7 @@
             // 
             // lblTam3MCO
             // 
-            this.lblTam3MCO.Location = new System.Drawing.Point(37, 382);
+            this.lblTam3MCO.Location = new System.Drawing.Point(37, 397);
             this.lblTam3MCO.Name = "lblTam3MCO";
             this.lblTam3MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam3MCO.TabIndex = 107;
@@ -2143,7 +2147,7 @@
             // 
             // lblTam2MCO
             // 
-            this.lblTam2MCO.Location = new System.Drawing.Point(6, 382);
+            this.lblTam2MCO.Location = new System.Drawing.Point(6, 397);
             this.lblTam2MCO.Name = "lblTam2MCO";
             this.lblTam2MCO.Size = new System.Drawing.Size(25, 13);
             this.lblTam2MCO.TabIndex = 106;
@@ -2152,7 +2156,7 @@
             // 
             // txtPProbTamCel9MCO
             // 
-            this.txtPProbTamCel9MCO.Location = new System.Drawing.Point(221, 400);
+            this.txtPProbTamCel9MCO.Location = new System.Drawing.Point(221, 415);
             this.txtPProbTamCel9MCO.MaxLength = 3;
             this.txtPProbTamCel9MCO.Name = "txtPProbTamCel9MCO";
             this.txtPProbTamCel9MCO.Size = new System.Drawing.Size(25, 20);
@@ -2167,7 +2171,7 @@
             // 
             // txtPProbTamCel8MCO
             // 
-            this.txtPProbTamCel8MCO.Location = new System.Drawing.Point(192, 400);
+            this.txtPProbTamCel8MCO.Location = new System.Drawing.Point(192, 415);
             this.txtPProbTamCel8MCO.MaxLength = 3;
             this.txtPProbTamCel8MCO.Name = "txtPProbTamCel8MCO";
             this.txtPProbTamCel8MCO.Size = new System.Drawing.Size(25, 20);
@@ -2182,7 +2186,7 @@
             // 
             // txtPProbTamCel7MCO
             // 
-            this.txtPProbTamCel7MCO.Location = new System.Drawing.Point(161, 400);
+            this.txtPProbTamCel7MCO.Location = new System.Drawing.Point(161, 415);
             this.txtPProbTamCel7MCO.MaxLength = 3;
             this.txtPProbTamCel7MCO.Name = "txtPProbTamCel7MCO";
             this.txtPProbTamCel7MCO.Size = new System.Drawing.Size(25, 20);
@@ -2197,7 +2201,7 @@
             // 
             // txtPProbTamCel6MCO
             // 
-            this.txtPProbTamCel6MCO.Location = new System.Drawing.Point(130, 400);
+            this.txtPProbTamCel6MCO.Location = new System.Drawing.Point(130, 415);
             this.txtPProbTamCel6MCO.MaxLength = 3;
             this.txtPProbTamCel6MCO.Name = "txtPProbTamCel6MCO";
             this.txtPProbTamCel6MCO.Size = new System.Drawing.Size(25, 20);
@@ -2212,7 +2216,7 @@
             // 
             // txtPProbTamCel5MCO
             // 
-            this.txtPProbTamCel5MCO.Location = new System.Drawing.Point(99, 400);
+            this.txtPProbTamCel5MCO.Location = new System.Drawing.Point(99, 415);
             this.txtPProbTamCel5MCO.MaxLength = 3;
             this.txtPProbTamCel5MCO.Name = "txtPProbTamCel5MCO";
             this.txtPProbTamCel5MCO.Size = new System.Drawing.Size(25, 20);
@@ -2227,7 +2231,7 @@
             // 
             // txtPProbTamCel4MCO
             // 
-            this.txtPProbTamCel4MCO.Location = new System.Drawing.Point(68, 400);
+            this.txtPProbTamCel4MCO.Location = new System.Drawing.Point(68, 415);
             this.txtPProbTamCel4MCO.MaxLength = 3;
             this.txtPProbTamCel4MCO.Name = "txtPProbTamCel4MCO";
             this.txtPProbTamCel4MCO.Size = new System.Drawing.Size(25, 20);
@@ -2242,7 +2246,7 @@
             // 
             // txtPProbTamCel3MCO
             // 
-            this.txtPProbTamCel3MCO.Location = new System.Drawing.Point(37, 400);
+            this.txtPProbTamCel3MCO.Location = new System.Drawing.Point(37, 415);
             this.txtPProbTamCel3MCO.MaxLength = 3;
             this.txtPProbTamCel3MCO.Name = "txtPProbTamCel3MCO";
             this.txtPProbTamCel3MCO.Size = new System.Drawing.Size(25, 20);
@@ -2257,7 +2261,7 @@
             // 
             // txtPProbTamCel2MCO
             // 
-            this.txtPProbTamCel2MCO.Location = new System.Drawing.Point(6, 400);
+            this.txtPProbTamCel2MCO.Location = new System.Drawing.Point(6, 415);
             this.txtPProbTamCel2MCO.MaxLength = 3;
             this.txtPProbTamCel2MCO.Name = "txtPProbTamCel2MCO";
             this.txtPProbTamCel2MCO.Size = new System.Drawing.Size(25, 20);
@@ -2562,9 +2566,9 @@
             this.gpbEgresos.Controls.Add(this.lblGastosFijosZafyE);
             this.gpbEgresos.Controls.Add(this.lblComisionDistE);
             this.gpbEgresos.Controls.Add(this.lblPerdidaE);
-            this.gpbEgresos.Location = new System.Drawing.Point(6, 208);
+            this.gpbEgresos.Location = new System.Drawing.Point(3, 177);
             this.gpbEgresos.Name = "gpbEgresos";
-            this.gpbEgresos.Size = new System.Drawing.Size(348, 294);
+            this.gpbEgresos.Size = new System.Drawing.Size(230, 328);
             this.gpbEgresos.TabIndex = 1;
             this.gpbEgresos.TabStop = false;
             this.gpbEgresos.Text = "Egresos";
@@ -2572,7 +2576,7 @@
             // txtGastosVarZafyE
             // 
             this.txtGastosVarZafyE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosVarZafyE.Location = new System.Drawing.Point(147, 143);
+            this.txtGastosVarZafyE.Location = new System.Drawing.Point(122, 194);
             this.txtGastosVarZafyE.MaxLength = 3;
             this.txtGastosVarZafyE.Name = "txtGastosVarZafyE";
             this.txtGastosVarZafyE.Size = new System.Drawing.Size(27, 20);
@@ -2587,7 +2591,7 @@
             // txtGastosXOutSourcingE
             // 
             this.txtGastosXOutSourcingE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosXOutSourcingE.Location = new System.Drawing.Point(147, 193);
+            this.txtGastosXOutSourcingE.Location = new System.Drawing.Point(122, 244);
             this.txtGastosXOutSourcingE.MaxLength = 3;
             this.txtGastosXOutSourcingE.Name = "txtGastosXOutSourcingE";
             this.txtGastosXOutSourcingE.Size = new System.Drawing.Size(27, 20);
@@ -2601,17 +2605,17 @@
             // 
             // lblGastosXOutSourcingE
             // 
-            this.lblGastosXOutSourcingE.Location = new System.Drawing.Point(6, 195);
+            this.lblGastosXOutSourcingE.Location = new System.Drawing.Point(-2, 246);
             this.lblGastosXOutSourcingE.Name = "lblGastosXOutSourcingE";
-            this.lblGastosXOutSourcingE.Size = new System.Drawing.Size(135, 13);
+            this.lblGastosXOutSourcingE.Size = new System.Drawing.Size(118, 13);
             this.lblGastosXOutSourcingE.TabIndex = 75;
-            this.lblGastosXOutSourcingE.Text = "% Gastos por OutSourcing";
+            this.lblGastosXOutSourcingE.Text = "% Gastos OutSourcing";
             this.lblGastosXOutSourcingE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtGastosXPublicidadE
             // 
             this.txtGastosXPublicidadE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosXPublicidadE.Location = new System.Drawing.Point(147, 167);
+            this.txtGastosXPublicidadE.Location = new System.Drawing.Point(122, 218);
             this.txtGastosXPublicidadE.MaxLength = 9;
             this.txtGastosXPublicidadE.Name = "txtGastosXPublicidadE";
             this.txtGastosXPublicidadE.Size = new System.Drawing.Size(62, 20);
@@ -2625,17 +2629,17 @@
             // 
             // lblGastosXPublicidadE
             // 
-            this.lblGastosXPublicidadE.Location = new System.Drawing.Point(20, 171);
+            this.lblGastosXPublicidadE.Location = new System.Drawing.Point(-3, 222);
             this.lblGastosXPublicidadE.Name = "lblGastosXPublicidadE";
-            this.lblGastosXPublicidadE.Size = new System.Drawing.Size(121, 13);
+            this.lblGastosXPublicidadE.Size = new System.Drawing.Size(119, 13);
             this.lblGastosXPublicidadE.TabIndex = 73;
-            this.lblGastosXPublicidadE.Text = "Gastos por Publicidad $";
+            this.lblGastosXPublicidadE.Text = "Gastos Publicidad $";
             this.lblGastosXPublicidadE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtGastosVarPROSAE
             // 
             this.txtGastosVarPROSAE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosVarPROSAE.Location = new System.Drawing.Point(147, 89);
+            this.txtGastosVarPROSAE.Location = new System.Drawing.Point(122, 140);
             this.txtGastosVarPROSAE.MaxLength = 9;
             this.txtGastosVarPROSAE.Name = "txtGastosVarPROSAE";
             this.txtGastosVarPROSAE.Size = new System.Drawing.Size(62, 20);
@@ -2649,9 +2653,9 @@
             // 
             // lblGastosVarPROSAE
             // 
-            this.lblGastosVarPROSAE.Location = new System.Drawing.Point(17, 93);
+            this.lblGastosVarPROSAE.Location = new System.Drawing.Point(0, 144);
             this.lblGastosVarPROSAE.Name = "lblGastosVarPROSAE";
-            this.lblGastosVarPROSAE.Size = new System.Drawing.Size(124, 13);
+            this.lblGastosVarPROSAE.Size = new System.Drawing.Size(116, 13);
             this.lblGastosVarPROSAE.TabIndex = 71;
             this.lblGastosVarPROSAE.Text = "Gastos Var PROSA $";
             this.lblGastosVarPROSAE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2659,7 +2663,7 @@
             // txtGastosFijosPROSAE
             // 
             this.txtGastosFijosPROSAE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosFijosPROSAE.Location = new System.Drawing.Point(147, 63);
+            this.txtGastosFijosPROSAE.Location = new System.Drawing.Point(122, 114);
             this.txtGastosFijosPROSAE.MaxLength = 9;
             this.txtGastosFijosPROSAE.Name = "txtGastosFijosPROSAE";
             this.txtGastosFijosPROSAE.Size = new System.Drawing.Size(62, 20);
@@ -2673,16 +2677,16 @@
             // 
             // lblGastosFijosPROSAE
             // 
-            this.lblGastosFijosPROSAE.Location = new System.Drawing.Point(14, 65);
+            this.lblGastosFijosPROSAE.Location = new System.Drawing.Point(0, 116);
             this.lblGastosFijosPROSAE.Name = "lblGastosFijosPROSAE";
-            this.lblGastosFijosPROSAE.Size = new System.Drawing.Size(127, 13);
+            this.lblGastosFijosPROSAE.Size = new System.Drawing.Size(116, 13);
             this.lblGastosFijosPROSAE.TabIndex = 69;
             this.lblGastosFijosPROSAE.Text = "Gastos Fijos PROSA $";
             this.lblGastosFijosPROSAE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblGastosVarZafyE
             // 
-            this.lblGastosVarZafyE.Location = new System.Drawing.Point(43, 145);
+            this.lblGastosVarZafyE.Location = new System.Drawing.Point(18, 196);
             this.lblGastosVarZafyE.Name = "lblGastosVarZafyE";
             this.lblGastosVarZafyE.Size = new System.Drawing.Size(98, 13);
             this.lblGastosVarZafyE.TabIndex = 63;
@@ -2692,7 +2696,7 @@
             // rBtnCapital
             // 
             this.rBtnCapital.AutoSize = true;
-            this.rBtnCapital.Location = new System.Drawing.Point(241, 84);
+            this.rBtnCapital.Location = new System.Drawing.Point(122, 87);
             this.rBtnCapital.Name = "rBtnCapital";
             this.rBtnCapital.Size = new System.Drawing.Size(57, 17);
             this.rBtnCapital.TabIndex = 8;
@@ -2704,7 +2708,7 @@
             // 
             this.rBtnCapitalInteres.AutoSize = true;
             this.rBtnCapitalInteres.Checked = true;
-            this.rBtnCapitalInteres.Location = new System.Drawing.Point(241, 61);
+            this.rBtnCapitalInteres.Location = new System.Drawing.Point(122, 64);
             this.rBtnCapitalInteres.Name = "rBtnCapitalInteres";
             this.rBtnCapitalInteres.Size = new System.Drawing.Size(101, 17);
             this.rBtnCapitalInteres.TabIndex = 7;
@@ -2715,7 +2719,7 @@
             // lblPagoComisiones
             // 
             this.lblPagoComisiones.AutoSize = true;
-            this.lblPagoComisiones.Location = new System.Drawing.Point(180, 40);
+            this.lblPagoComisiones.Location = new System.Drawing.Point(8, 66);
             this.lblPagoComisiones.Name = "lblPagoComisiones";
             this.lblPagoComisiones.Size = new System.Drawing.Size(108, 13);
             this.lblPagoComisiones.TabIndex = 60;
@@ -2724,7 +2728,7 @@
             // txtRetirosE
             // 
             this.txtRetirosE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRetirosE.Location = new System.Drawing.Point(147, 245);
+            this.txtRetirosE.Location = new System.Drawing.Point(122, 296);
             this.txtRetirosE.MaxLength = 3;
             this.txtRetirosE.Name = "txtRetirosE";
             this.txtRetirosE.Size = new System.Drawing.Size(27, 20);
@@ -2738,7 +2742,7 @@
             // 
             // lblRetirosE
             // 
-            this.lblRetirosE.Location = new System.Drawing.Point(43, 249);
+            this.lblRetirosE.Location = new System.Drawing.Point(18, 300);
             this.lblRetirosE.Name = "lblRetirosE";
             this.lblRetirosE.Size = new System.Drawing.Size(98, 16);
             this.lblRetirosE.TabIndex = 48;
@@ -2748,7 +2752,7 @@
             // txtBonosPremiosE
             // 
             this.txtBonosPremiosE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBonosPremiosE.Location = new System.Drawing.Point(147, 219);
+            this.txtBonosPremiosE.Location = new System.Drawing.Point(122, 270);
             this.txtBonosPremiosE.MaxLength = 3;
             this.txtBonosPremiosE.Name = "txtBonosPremiosE";
             this.txtBonosPremiosE.Size = new System.Drawing.Size(27, 20);
@@ -2763,7 +2767,7 @@
             // txtComisionDistE
             // 
             this.txtComisionDistE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtComisionDistE.Location = new System.Drawing.Point(147, 37);
+            this.txtComisionDistE.Location = new System.Drawing.Point(122, 38);
             this.txtComisionDistE.MaxLength = 3;
             this.txtComisionDistE.Name = "txtComisionDistE";
             this.txtComisionDistE.Size = new System.Drawing.Size(27, 20);
@@ -2778,7 +2782,7 @@
             // txtPerdidaE
             // 
             this.txtPerdidaE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPerdidaE.Location = new System.Drawing.Point(147, 13);
+            this.txtPerdidaE.Location = new System.Drawing.Point(122, 14);
             this.txtPerdidaE.MaxLength = 3;
             this.txtPerdidaE.Name = "txtPerdidaE";
             this.txtPerdidaE.Size = new System.Drawing.Size(27, 20);
@@ -2793,7 +2797,7 @@
             // txtGastosFijosZafyE
             // 
             this.txtGastosFijosZafyE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosFijosZafyE.Location = new System.Drawing.Point(147, 115);
+            this.txtGastosFijosZafyE.Location = new System.Drawing.Point(122, 166);
             this.txtGastosFijosZafyE.MaxLength = 9;
             this.txtGastosFijosZafyE.Name = "txtGastosFijosZafyE";
             this.txtGastosFijosZafyE.Size = new System.Drawing.Size(62, 20);
@@ -2807,7 +2811,7 @@
             // 
             // lblBonosPremiosE
             // 
-            this.lblBonosPremiosE.Location = new System.Drawing.Point(40, 219);
+            this.lblBonosPremiosE.Location = new System.Drawing.Point(15, 270);
             this.lblBonosPremiosE.Name = "lblBonosPremiosE";
             this.lblBonosPremiosE.Size = new System.Drawing.Size(101, 16);
             this.lblBonosPremiosE.TabIndex = 38;
@@ -2816,7 +2820,7 @@
             // 
             // lblGastosFijosZafyE
             // 
-            this.lblGastosFijosZafyE.Location = new System.Drawing.Point(43, 119);
+            this.lblGastosFijosZafyE.Location = new System.Drawing.Point(18, 170);
             this.lblGastosFijosZafyE.Name = "lblGastosFijosZafyE";
             this.lblGastosFijosZafyE.Size = new System.Drawing.Size(98, 13);
             this.lblGastosFijosZafyE.TabIndex = 37;
@@ -2825,7 +2829,7 @@
             // 
             // lblComisionDistE
             // 
-            this.lblComisionDistE.Location = new System.Drawing.Point(43, 37);
+            this.lblComisionDistE.Location = new System.Drawing.Point(18, 38);
             this.lblComisionDistE.Name = "lblComisionDistE";
             this.lblComisionDistE.Size = new System.Drawing.Size(98, 16);
             this.lblComisionDistE.TabIndex = 36;
@@ -2834,7 +2838,7 @@
             // 
             // lblPerdidaE
             // 
-            this.lblPerdidaE.Location = new System.Drawing.Point(46, 15);
+            this.lblPerdidaE.Location = new System.Drawing.Point(21, 16);
             this.lblPerdidaE.Name = "lblPerdidaE";
             this.lblPerdidaE.Size = new System.Drawing.Size(95, 13);
             this.lblPerdidaE.TabIndex = 35;
@@ -2869,9 +2873,9 @@
             this.gpbColocacion.Controls.Add(this.lblQ4);
             this.gpbColocacion.Controls.Add(this.lblQ2);
             this.gpbColocacion.Controls.Add(this.lblTasa);
-            this.gpbColocacion.Location = new System.Drawing.Point(876, 8);
+            this.gpbColocacion.Location = new System.Drawing.Point(745, 9);
             this.gpbColocacion.Name = "gpbColocacion";
-            this.gpbColocacion.Size = new System.Drawing.Size(257, 297);
+            this.gpbColocacion.Size = new System.Drawing.Size(410, 118);
             this.gpbColocacion.TabIndex = 0;
             this.gpbColocacion.TabStop = false;
             this.gpbColocacion.Text = "Colocación";
@@ -2879,10 +2883,10 @@
             // txtMontoCredito06
             // 
             this.txtMontoCredito06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito06.Location = new System.Drawing.Point(76, 246);
-            this.txtMontoCredito06.MaxLength = 9;
+            this.txtMontoCredito06.Location = new System.Drawing.Point(337, 78);
+            this.txtMontoCredito06.MaxLength = 7;
             this.txtMontoCredito06.Name = "txtMontoCredito06";
-            this.txtMontoCredito06.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito06.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito06.TabIndex = 110;
             this.txtMontoCredito06.Text = "0";
             this.txtMontoCredito06.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2894,19 +2898,19 @@
             // lblCredito06
             // 
             this.lblCredito06.AutoSize = true;
-            this.lblCredito06.Location = new System.Drawing.Point(6, 248);
+            this.lblCredito06.Location = new System.Drawing.Point(342, 62);
             this.lblCredito06.Name = "lblCredito06";
-            this.lblCredito06.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito06.Size = new System.Drawing.Size(26, 13);
             this.lblCredito06.TabIndex = 36;
-            this.lblCredito06.Text = "Crédito 06 $";
+            this.lblCredito06.Text = "C06";
             // 
             // txtMontoCredito05
             // 
             this.txtMontoCredito05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito05.Location = new System.Drawing.Point(76, 218);
-            this.txtMontoCredito05.MaxLength = 9;
+            this.txtMontoCredito05.Location = new System.Drawing.Point(291, 78);
+            this.txtMontoCredito05.MaxLength = 7;
             this.txtMontoCredito05.Name = "txtMontoCredito05";
-            this.txtMontoCredito05.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito05.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito05.TabIndex = 109;
             this.txtMontoCredito05.Text = "0";
             this.txtMontoCredito05.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2918,10 +2922,10 @@
             // txtMontoCredito04
             // 
             this.txtMontoCredito04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito04.Location = new System.Drawing.Point(76, 191);
-            this.txtMontoCredito04.MaxLength = 9;
+            this.txtMontoCredito04.Location = new System.Drawing.Point(245, 78);
+            this.txtMontoCredito04.MaxLength = 7;
             this.txtMontoCredito04.Name = "txtMontoCredito04";
-            this.txtMontoCredito04.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito04.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito04.TabIndex = 108;
             this.txtMontoCredito04.Text = "0";
             this.txtMontoCredito04.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2933,10 +2937,10 @@
             // txtMontoCredito03
             // 
             this.txtMontoCredito03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito03.Location = new System.Drawing.Point(76, 164);
-            this.txtMontoCredito03.MaxLength = 9;
+            this.txtMontoCredito03.Location = new System.Drawing.Point(199, 78);
+            this.txtMontoCredito03.MaxLength = 7;
             this.txtMontoCredito03.Name = "txtMontoCredito03";
-            this.txtMontoCredito03.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito03.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito03.TabIndex = 107;
             this.txtMontoCredito03.Text = "0";
             this.txtMontoCredito03.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2948,10 +2952,10 @@
             // txtMontoCredito02
             // 
             this.txtMontoCredito02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito02.Location = new System.Drawing.Point(76, 137);
-            this.txtMontoCredito02.MaxLength = 9;
+            this.txtMontoCredito02.Location = new System.Drawing.Point(153, 78);
+            this.txtMontoCredito02.MaxLength = 7;
             this.txtMontoCredito02.Name = "txtMontoCredito02";
-            this.txtMontoCredito02.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito02.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito02.TabIndex = 106;
             this.txtMontoCredito02.Text = "0";
             this.txtMontoCredito02.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2963,10 +2967,10 @@
             // txtMontoCredito01
             // 
             this.txtMontoCredito01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMontoCredito01.Location = new System.Drawing.Point(76, 110);
-            this.txtMontoCredito01.MaxLength = 9;
+            this.txtMontoCredito01.Location = new System.Drawing.Point(107, 78);
+            this.txtMontoCredito01.MaxLength = 7;
             this.txtMontoCredito01.Name = "txtMontoCredito01";
-            this.txtMontoCredito01.Size = new System.Drawing.Size(62, 20);
+            this.txtMontoCredito01.Size = new System.Drawing.Size(40, 20);
             this.txtMontoCredito01.TabIndex = 105;
             this.txtMontoCredito01.Text = "0";
             this.txtMontoCredito01.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -2978,61 +2982,62 @@
             // lblCredito05
             // 
             this.lblCredito05.AutoSize = true;
-            this.lblCredito05.Location = new System.Drawing.Point(6, 220);
+            this.lblCredito05.Location = new System.Drawing.Point(296, 62);
             this.lblCredito05.Name = "lblCredito05";
-            this.lblCredito05.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito05.Size = new System.Drawing.Size(26, 13);
             this.lblCredito05.TabIndex = 24;
-            this.lblCredito05.Text = "Crédito 05 $";
+            this.lblCredito05.Text = "C05";
             // 
             // lblCredito04
             // 
             this.lblCredito04.AutoSize = true;
-            this.lblCredito04.Location = new System.Drawing.Point(6, 193);
+            this.lblCredito04.Location = new System.Drawing.Point(250, 62);
             this.lblCredito04.Name = "lblCredito04";
-            this.lblCredito04.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito04.Size = new System.Drawing.Size(26, 13);
             this.lblCredito04.TabIndex = 23;
-            this.lblCredito04.Text = "Crédito 04 $";
+            this.lblCredito04.Text = "C04";
             // 
             // lblCredito03
             // 
             this.lblCredito03.AutoSize = true;
-            this.lblCredito03.Location = new System.Drawing.Point(6, 166);
+            this.lblCredito03.Location = new System.Drawing.Point(206, 62);
             this.lblCredito03.Name = "lblCredito03";
-            this.lblCredito03.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito03.Size = new System.Drawing.Size(26, 13);
             this.lblCredito03.TabIndex = 22;
-            this.lblCredito03.Text = "Crédito 03 $";
+            this.lblCredito03.Text = "C03";
             // 
             // lblCredito02
             // 
             this.lblCredito02.AutoSize = true;
-            this.lblCredito02.Location = new System.Drawing.Point(6, 139);
+            this.lblCredito02.Location = new System.Drawing.Point(158, 62);
             this.lblCredito02.Name = "lblCredito02";
-            this.lblCredito02.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito02.Size = new System.Drawing.Size(26, 13);
             this.lblCredito02.TabIndex = 21;
-            this.lblCredito02.Text = "Crédito 02 $";
+            this.lblCredito02.Text = "C02";
             // 
             // lblCredito01
             // 
             this.lblCredito01.AutoSize = true;
-            this.lblCredito01.Location = new System.Drawing.Point(6, 112);
+            this.lblCredito01.Location = new System.Drawing.Point(112, 62);
             this.lblCredito01.Name = "lblCredito01";
-            this.lblCredito01.Size = new System.Drawing.Size(64, 13);
+            this.lblCredito01.Size = new System.Drawing.Size(26, 13);
             this.lblCredito01.TabIndex = 20;
-            this.lblCredito01.Text = "Crédito 01 $";
+            this.lblCredito01.Text = "C01";
             // 
             // lblMonto
             // 
-            this.lblMonto.Location = new System.Drawing.Point(76, 85);
+            this.lblMonto.AutoSize = true;
+            this.lblMonto.Location = new System.Drawing.Point(6, 80);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(62, 13);
+            this.lblMonto.Size = new System.Drawing.Size(95, 13);
             this.lblMonto.TabIndex = 19;
-            this.lblMonto.Text = "Montos";
-            this.lblMonto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMonto.Text = "Montos Créditos $:";
+            this.lblMonto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtTasa12Q
             // 
             this.txtTasa12Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa12Q.Location = new System.Drawing.Point(218, 50);
+            this.txtTasa12Q.Location = new System.Drawing.Point(272, 27);
             this.txtTasa12Q.MaxLength = 3;
             this.txtTasa12Q.Name = "txtTasa12Q";
             this.txtTasa12Q.Size = new System.Drawing.Size(27, 20);
@@ -3047,7 +3052,7 @@
             // txtTasa10Q
             // 
             this.txtTasa10Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa10Q.Location = new System.Drawing.Point(185, 50);
+            this.txtTasa10Q.Location = new System.Drawing.Point(239, 27);
             this.txtTasa10Q.MaxLength = 3;
             this.txtTasa10Q.Name = "txtTasa10Q";
             this.txtTasa10Q.Size = new System.Drawing.Size(27, 20);
@@ -3062,7 +3067,7 @@
             // txtTasa08Q
             // 
             this.txtTasa08Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa08Q.Location = new System.Drawing.Point(152, 50);
+            this.txtTasa08Q.Location = new System.Drawing.Point(206, 27);
             this.txtTasa08Q.MaxLength = 3;
             this.txtTasa08Q.Name = "txtTasa08Q";
             this.txtTasa08Q.Size = new System.Drawing.Size(27, 20);
@@ -3077,7 +3082,7 @@
             // txtTasa06Q
             // 
             this.txtTasa06Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa06Q.Location = new System.Drawing.Point(120, 50);
+            this.txtTasa06Q.Location = new System.Drawing.Point(173, 27);
             this.txtTasa06Q.MaxLength = 3;
             this.txtTasa06Q.Name = "txtTasa06Q";
             this.txtTasa06Q.Size = new System.Drawing.Size(27, 20);
@@ -3092,7 +3097,7 @@
             // txtTasa04Q
             // 
             this.txtTasa04Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa04Q.Location = new System.Drawing.Point(87, 50);
+            this.txtTasa04Q.Location = new System.Drawing.Point(140, 27);
             this.txtTasa04Q.MaxLength = 3;
             this.txtTasa04Q.Name = "txtTasa04Q";
             this.txtTasa04Q.Size = new System.Drawing.Size(27, 20);
@@ -3107,7 +3112,7 @@
             // txtTasa02Q
             // 
             this.txtTasa02Q.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTasa02Q.Location = new System.Drawing.Point(54, 50);
+            this.txtTasa02Q.Location = new System.Drawing.Point(107, 27);
             this.txtTasa02Q.MaxLength = 3;
             this.txtTasa02Q.Name = "txtTasa02Q";
             this.txtTasa02Q.Size = new System.Drawing.Size(27, 20);
@@ -3122,7 +3127,7 @@
             // lblQ12
             // 
             this.lblQ12.AutoSize = true;
-            this.lblQ12.Location = new System.Drawing.Point(218, 34);
+            this.lblQ12.Location = new System.Drawing.Point(272, 11);
             this.lblQ12.Name = "lblQ12";
             this.lblQ12.Size = new System.Drawing.Size(27, 13);
             this.lblQ12.TabIndex = 10;
@@ -3131,7 +3136,7 @@
             // lblQ10
             // 
             this.lblQ10.AutoSize = true;
-            this.lblQ10.Location = new System.Drawing.Point(185, 34);
+            this.lblQ10.Location = new System.Drawing.Point(239, 11);
             this.lblQ10.Name = "lblQ10";
             this.lblQ10.Size = new System.Drawing.Size(27, 13);
             this.lblQ10.TabIndex = 9;
@@ -3140,7 +3145,7 @@
             // lblQ6
             // 
             this.lblQ6.AutoSize = true;
-            this.lblQ6.Location = new System.Drawing.Point(126, 34);
+            this.lblQ6.Location = new System.Drawing.Point(179, 11);
             this.lblQ6.Name = "lblQ6";
             this.lblQ6.Size = new System.Drawing.Size(21, 13);
             this.lblQ6.TabIndex = 8;
@@ -3149,7 +3154,7 @@
             // lblQ8
             // 
             this.lblQ8.AutoSize = true;
-            this.lblQ8.Location = new System.Drawing.Point(158, 34);
+            this.lblQ8.Location = new System.Drawing.Point(212, 11);
             this.lblQ8.Name = "lblQ8";
             this.lblQ8.Size = new System.Drawing.Size(21, 13);
             this.lblQ8.TabIndex = 7;
@@ -3158,7 +3163,7 @@
             // lblQ4
             // 
             this.lblQ4.AutoSize = true;
-            this.lblQ4.Location = new System.Drawing.Point(93, 34);
+            this.lblQ4.Location = new System.Drawing.Point(146, 11);
             this.lblQ4.Name = "lblQ4";
             this.lblQ4.Size = new System.Drawing.Size(21, 13);
             this.lblQ4.TabIndex = 6;
@@ -3167,7 +3172,7 @@
             // lblQ2
             // 
             this.lblQ2.AutoSize = true;
-            this.lblQ2.Location = new System.Drawing.Point(60, 34);
+            this.lblQ2.Location = new System.Drawing.Point(113, 11);
             this.lblQ2.Name = "lblQ2";
             this.lblQ2.Size = new System.Drawing.Size(21, 13);
             this.lblQ2.TabIndex = 4;
@@ -3176,11 +3181,11 @@
             // lblTasa
             // 
             this.lblTasa.AutoSize = true;
-            this.lblTasa.Location = new System.Drawing.Point(6, 52);
+            this.lblTasa.Location = new System.Drawing.Point(16, 29);
             this.lblTasa.Name = "lblTasa";
-            this.lblTasa.Size = new System.Drawing.Size(42, 13);
+            this.lblTasa.Size = new System.Drawing.Size(85, 13);
             this.lblTasa.TabIndex = 2;
-            this.lblTasa.Text = "Tasa %";
+            this.lblTasa.Text = "Tasas Interes %:";
             // 
             // lblSesionId
             // 
@@ -3231,7 +3236,7 @@
             // 
             this.pbProcesando.Image = ((System.Drawing.Image)(resources.GetObject("pbProcesando.Image")));
             this.pbProcesando.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbProcesando.InitialImage")));
-            this.pbProcesando.Location = new System.Drawing.Point(205, 41);
+            this.pbProcesando.Location = new System.Drawing.Point(205, 24);
             this.pbProcesando.Name = "pbProcesando";
             this.pbProcesando.Size = new System.Drawing.Size(239, 42);
             this.pbProcesando.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -3239,6 +3244,26 @@
             this.pbProcesando.TabStop = false;
             this.pbProcesando.UseWaitCursor = true;
             this.pbProcesando.Visible = false;
+            // 
+            // tabConfigRed
+            // 
+            this.tabConfigRed.Controls.Add(this.gpbComisiones);
+            this.tabConfigRed.Location = new System.Drawing.Point(4, 22);
+            this.tabConfigRed.Name = "tabConfigRed";
+            this.tabConfigRed.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConfigRed.Size = new System.Drawing.Size(1252, 555);
+            this.tabConfigRed.TabIndex = 2;
+            this.tabConfigRed.Text = "Configuración de Red";
+            this.tabConfigRed.UseVisualStyleBackColor = true;
+            // 
+            // gpbComisiones
+            // 
+            this.gpbComisiones.Location = new System.Drawing.Point(6, 15);
+            this.gpbComisiones.Name = "gpbComisiones";
+            this.gpbComisiones.Size = new System.Drawing.Size(471, 291);
+            this.gpbComisiones.TabIndex = 51;
+            this.gpbComisiones.TabStop = false;
+            this.gpbComisiones.Text = "Comisiones";
             // 
             // FormPrincipal
             // 
@@ -3281,6 +3306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.flujoDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFlujoDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProcesando)).EndInit();
+            this.tabConfigRed.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3311,7 +3337,6 @@
         private System.Windows.Forms.Label lblCredito03;
         private System.Windows.Forms.Label lblCredito02;
         private System.Windows.Forms.Label lblCredito01;
-        private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.GroupBox gpbEgresos;
         private System.Windows.Forms.TextBox txtMontoCredito05;
         private System.Windows.Forms.TextBox txtMontoCredito04;
@@ -3514,6 +3539,9 @@
         private System.Windows.Forms.Button btnInscribirDistribuidoras;
         private System.Windows.Forms.Label lblInscribirDistribuidoras;
         private System.Windows.Forms.Button btnDetalle;
+        private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.TabPage tabConfigRed;
+        private System.Windows.Forms.GroupBox gpbComisiones;
     }
 }
 

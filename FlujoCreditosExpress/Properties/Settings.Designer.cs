@@ -2085,5 +2085,125 @@ namespace FlujoCreditosExpress.Properties {
                 this["ProsLNAnt"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double CantMiembrosH {
+            get {
+                return ((double)(this["CantMiembrosH"]));
+            }
+            set {
+                this["CantMiembrosH"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double CantMiembrosN {
+            get {
+                return ((double)(this["CantMiembrosN"]));
+            }
+            set {
+                this["CantMiembrosN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double CantMiembrosB {
+            get {
+                return ((double)(this["CantMiembrosB"]));
+            }
+            set {
+                this["CantMiembrosB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double BisnietasProd {
+            get {
+                return ((double)(this["BisnietasProd"]));
+            }
+            set {
+                this["BisnietasProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double NietasProd {
+            get {
+                return ((double)(this["NietasProd"]));
+            }
+            set {
+                this["NietasProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double HijasProd {
+            get {
+                return ((double)(this["HijasProd"]));
+            }
+            set {
+                this["HijasProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double HijasPerm {
+            get {
+                return ((double)(this["HijasPerm"]));
+            }
+            set {
+                this["HijasPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double NietasPerm {
+            get {
+                return ((double)(this["NietasPerm"]));
+            }
+            set {
+                this["NietasPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double BisnietasPerm {
+            get {
+                return ((double)(this["BisnietasPerm"]));
+            }
+            set {
+                this["BisnietasPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsConfigMod {
+            get {
+                return ((bool)(this["IsConfigMod"]));
+            }
+            set {
+                this["IsConfigMod"] = value;
+            }
+        }
     }
 }

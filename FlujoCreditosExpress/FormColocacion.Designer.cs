@@ -749,6 +749,7 @@
             this.txtMGastosXPublicidad.TabIndex = 22;
             this.txtMGastosXPublicidad.Text = "0";
             this.txtMGastosXPublicidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMGastosXPublicidad.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtMGastosXPublicidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtMGastosXPublicidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtMGastosXPublicidad.Leave += new System.EventHandler(this.clearZeros);
@@ -772,6 +773,7 @@
             this.txtMGastosVarPROSA.TabIndex = 19;
             this.txtMGastosVarPROSA.Text = "0";
             this.txtMGastosVarPROSA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMGastosVarPROSA.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtMGastosVarPROSA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtMGastosVarPROSA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtMGastosVarPROSA.Leave += new System.EventHandler(this.clearZeros);
@@ -795,6 +797,7 @@
             this.txtMGastosFijosPROSA.TabIndex = 18;
             this.txtMGastosFijosPROSA.Text = "0";
             this.txtMGastosFijosPROSA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMGastosFijosPROSA.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtMGastosFijosPROSA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtMGastosFijosPROSA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtMGastosFijosPROSA.Leave += new System.EventHandler(this.clearZeros);
@@ -818,6 +821,7 @@
             this.txtMGastosVarZafy.TabIndex = 21;
             this.txtMGastosVarZafy.Text = "0";
             this.txtMGastosVarZafy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMGastosVarZafy.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtMGastosVarZafy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtMGastosVarZafy.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtMGastosVarZafy.Leave += new System.EventHandler(this.clearZeros);
@@ -841,6 +845,7 @@
             this.txtPRetiros.TabIndex = 24;
             this.txtPRetiros.Text = "0";
             this.txtPRetiros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPRetiros.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtPRetiros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtPRetiros.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtPRetiros.Leave += new System.EventHandler(this.clearZeros);
@@ -864,6 +869,7 @@
             this.txtMGastosFijosZafy.TabIndex = 20;
             this.txtMGastosFijosZafy.Text = "0";
             this.txtMGastosFijosZafy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMGastosFijosZafy.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtMGastosFijosZafy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtMGastosFijosZafy.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtMGastosFijosZafy.Leave += new System.EventHandler(this.clearZeros);
@@ -887,6 +893,7 @@
             this.txtPBonosPremios.TabIndex = 23;
             this.txtPBonosPremios.Text = "0";
             this.txtPBonosPremios.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPBonosPremios.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtPBonosPremios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtPBonosPremios.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtPBonosPremios.Leave += new System.EventHandler(this.clearZeros);
@@ -910,6 +917,7 @@
             this.txtPComisionDist.TabIndex = 17;
             this.txtPComisionDist.Text = "0";
             this.txtPComisionDist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPComisionDist.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtPComisionDist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtPComisionDist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtPComisionDist.Leave += new System.EventHandler(this.clearZeros);
@@ -933,6 +941,7 @@
             this.txtPPerdida.TabIndex = 16;
             this.txtPPerdida.Text = "0";
             this.txtPPerdida.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPPerdida.TextChanged += new System.EventHandler(this.CheckConfig);
             this.txtPPerdida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
             this.txtPPerdida.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtPPerdida.Leave += new System.EventHandler(this.clearZeros);

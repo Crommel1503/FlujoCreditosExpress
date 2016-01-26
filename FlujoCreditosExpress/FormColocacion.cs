@@ -33,17 +33,21 @@ namespace FlujoCreditosExpress
         double creditos2QCD = 0;
         double creditos2QMM = 0;
         double creditos2QCZ = 0;
-        double creditos2QMC = 0;
         double creditos2QCDT = 0;
         double creditos2QMMT = 0;
         double creditos2QCZT = 0;
         double creditos2QMCT = 0;
+        double creditos2QMCH = 0;
+        double creditos2QMCN = 0;
+        double creditos2QMCB = 0;
         double creditos4Q = 0;
         double creditos4QD = 0;
         double creditos4QCD = 0;
         double creditos4QMM = 0;
         double creditos4QCZ = 0;
-        double creditos4QMC = 0;
+        double creditos4QMCH = 0;
+        double creditos4QMCN = 0;
+        double creditos4QMCB = 0;
         double creditos4QCDT = 0;
         double creditos4QMMT = 0;
         double creditos4QCZT = 0;
@@ -54,24 +58,36 @@ namespace FlujoCreditosExpress
         double creditos6QMMT = 0;
         double creditos6QCZT = 0;
         double creditos6QMCT = 0;
+        double creditos6QMCH = 0;
+        double creditos6QMCN = 0;
+        double creditos6QMCB = 0;
         double creditos8Q = 0;
         double creditos8QD = 0;
         double creditos8QCDT = 0;
         double creditos8QMMT = 0;
         double creditos8QCZT = 0;
         double creditos8QMCT = 0;
+        double creditos8QMCH = 0;
+        double creditos8QMCN = 0;
+        double creditos8QMCB = 0;
         double creditos10Q = 0;
         double creditos10QD = 0;
         double creditos10QCDT = 0;
         double creditos10QMMT = 0;
         double creditos10QCZT = 0;
         double creditos10QMCT = 0;
+        double creditos10QMCH = 0;
+        double creditos10QMCN = 0;
+        double creditos10QMCB = 0;
         double creditos12Q = 0;
         double creditos12QD = 0;
         double creditos12QCDT = 0;
         double creditos12QMMT = 0;
         double creditos12QCZT = 0;
         double creditos12QMCT = 0;
+        double creditos12QMCH = 0;
+        double creditos12QMCN = 0;
+        double creditos12QMCB = 0;
         double creditosI = 0;
         double creditosRestantesN = 0;
         double creditosRestantesA = 0;
@@ -94,15 +110,24 @@ namespace FlujoCreditosExpress
         double clientesMM2Credito = 0;
         double clientesZ2Credito = 0;
         double clientesMC2Credito = 0;
+        double clientesMCH2Credito = 0;
+        double clientesMCN2Credito = 0;
+        double clientesMCB2Credito = 0;
         double clientesT2Credito = 0;
         double clientesDP2C = 0;
         double clientesMMP2C = 0;
         double clientesZafyP2C = 0;
         double clientesMCP2C = 0;
+        double clientesMCHP2C = 0;
+        double clientesMCNP2C = 0;
+        double clientesMCBP2C = 0;
         double clientesDP2CPerm = 0;
         double clientesMMP2CPerm = 0;
         double clientesZP2CPerm = 0;
         double clientesMCP2CPerm = 0;
+        double clientesMCHP2CPerm = 0;
+        double clientesMCNP2CPerm = 0;
+        double clientesMCBP2CPerm = 0;
         double clientesPermanencia = 0;
         double c1 = Properties.Settings.Default.MontoCredito01;
         double c2 = Properties.Settings.Default.MontoCredito02;
@@ -127,6 +152,7 @@ namespace FlujoCreditosExpress
         double retiroE = Properties.Settings.Default.RetirosE;
         double carteraTotal = Properties.Settings.Default.CarteraTotal;
         bool isApCapCte = false;
+        bool isProssesed = false;
         FlujoDBDataSet.T_ConfiguracionesRow tConfiguracionesRow;
         double distribuidoras;
         double ctesDistAnt;
@@ -136,7 +162,13 @@ namespace FlujoCreditosExpress
         double ctesCZAnt;
         double ctesCZ;
         double ctesMCAnt;
+        double ctesMCHAnt;
+        double ctesMCNAnt;
+        double ctesMCBAnt;
         double ctesMC;
+        double ctesMCH;
+        double ctesMCN;
+        double ctesMCB;
 
         #endregion
 
@@ -150,8 +182,10 @@ namespace FlujoCreditosExpress
         {
             t_ConfiguracionesTableAdapter1.Fill(flujoDBDataSet1.T_Configuraciones);
             t_AmortizacionesTableAdapter1.Fill(flujoDBDataSet1.T_Amortizaciones);
+            this.GetProperties();
             this.LoadData(sender, e);
             this.SaveInitialConfig(sender, e);
+            Properties.Settings.Default.IsConfigMod = false;
 
             if (Properties.Settings.Default.IsAutomatic && periodoActual != 5)
             {
@@ -159,12 +193,24 @@ namespace FlujoCreditosExpress
             }
             else if (Properties.Settings.Default.IsAutomatic)
             {
-                MessageBox.Show("Se requiere más información para continuar. " +
+                if(Properties.Settings.Default.IsToFinish)
+                {
+                    btnSaveColocacion_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Se requiere más información para continuar. " +
                     "\nEs necesario completar la colocación de segundos créditos", "Alerta");
-                txtNCantPeriodos.Value = 
-                    decimal.Parse((Properties.Settings.Default.CantPeriodos - Properties.Settings.Default.CantPP).ToString());
-                Properties.Settings.Default.CantPP = 0;
-                txtNC03Q06.Select();
+                    txtNCantPeriodos.Value =
+                        decimal.Parse((Properties.Settings.Default.CantPeriodos - Properties.Settings.Default.CantPP).ToString());
+                    Properties.Settings.Default.CantPP = 0;
+                    if (periodoActual == 5)
+                    {
+                        Properties.Settings.Default.CantPeriodos = 1;
+                    }
+
+                    txtNC03Q06.Select();
+                }   
             }
         }
 
@@ -184,6 +230,9 @@ namespace FlujoCreditosExpress
                 double clientesMMP = Properties.Settings.Default.ClientesMMP / 100;
                 double clientesZafyP = Properties.Settings.Default.ClientesZafyP / 100;
                 double clientesMCP = Properties.Settings.Default.ClientesMCP / 100;
+                double clientesMCHP = Properties.Settings.Default.HijasP / 100;
+                double clientesMCNP = Properties.Settings.Default.NietasP / 100;
+                double clientesMCBP = Properties.Settings.Default.BisnietasP / 100;
                 double carteraTotal = Properties.Settings.Default.CarteraTotal;
                 double ctesDistPProd = Properties.Settings.Default.CtesDistPProd / 100;
                 double ctesMMPProd = Properties.Settings.Default.CtesMMPProd / 100;
@@ -245,7 +294,37 @@ namespace FlujoCreditosExpress
                         {
                             clientesMCP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
                         }
-                        
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 2).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q02'" +
@@ -267,15 +346,21 @@ namespace FlujoCreditosExpress
                             creditos2QCD = Math.Round(creditos2QCDT * permanenciaD);
                             creditos2QMM = Math.Round(creditos2QMMT * permanenciaMM);
                             creditos2QCZ = Math.Round(creditos2QCZT * permanenciaCZ);
-                            creditos2QMC = Math.Round(creditos2QMCT * permanenciaMC);
+                            creditos2QMCH = Math.Round((creditos2QMCT * clientesMCHP2CPerm));
+                            creditos2QMCN = Math.Round((creditos2QMCT * clientesMCNP2CPerm));
+                            creditos2QMCB = Math.Round((creditos2QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
-                            creditos2Q = Math.Round(creditos2QD + creditos2QCD + creditos2QMM + creditos2QCZ + creditos2QMC);
-
+                            
                             dist2Credito += creditos2QD;
                             clientesD2Credito += creditos2QCD;
                             clientesMM2Credito += creditos2QMM;
                             clientesZ2Credito += creditos2QCZ;
-                            clientesMC2Credito += creditos2QMC;
+                            clientesMCH2Credito += Math.Round(creditos2QMCH * permanenciaMC);
+                            clientesMCN2Credito += Math.Round(creditos2QMCN * permanenciaMC);
+                            clientesMCB2Credito += Math.Round(creditos2QMCB * permanenciaMC);
+                            clientesMC2Credito += (clientesMCH2Credito + clientesMCN2Credito + clientesMCB2Credito);
+                            creditos2Q = Math.Round(creditos2QD + creditos2QCD + creditos2QMM + creditos2QCZ + 
+                                (Math.Round(creditos2QMCH * permanenciaMC) + Math.Round(creditos2QMCN * permanenciaMC) + Math.Round(creditos2QMCB * permanenciaMC)));
                             clientesT2Credito += creditos2Q;
 
                             clientesDP2C = clientesD2Credito > 0 ?
@@ -286,6 +371,12 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ?
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                     }
 
@@ -344,6 +435,36 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBP'" +
+                            " AND TipoDato = 'P" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q04'" +
                             " AND TipoDato = 'N" + (periodoActual - 4).ToString().PadLeft(3, '0') + "C'");
 
@@ -363,15 +484,22 @@ namespace FlujoCreditosExpress
                             creditos4QCD = Math.Round(creditos4QCDT * permanenciaD);
                             creditos4QMM = Math.Round(creditos4QMMT * permanenciaMM);
                             creditos4QCZ = Math.Round(creditos4QCZT * permanenciaCZ);
-                            creditos4QMC = Math.Round(creditos4QMCT * permanenciaMC);
+                            creditos4QMCH = Math.Round((creditos4QMCT * clientesMCHP2CPerm));
+                            creditos4QMCN = Math.Round((creditos4QMCT * clientesMCNP2CPerm));
+                            creditos4QMCB = Math.Round((creditos4QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
-                            creditos4Q = Math.Round(creditos4QD + creditos4QCD + creditos4QMM + creditos4QCZ + creditos4QMC);
+                            
 
                             dist2Credito += creditos4QD;
                             clientesD2Credito += creditos4QCD;
                             clientesMM2Credito += creditos4QMM;
                             clientesZ2Credito += creditos4QCZ;
-                            clientesMC2Credito += creditos4QMC;
+                            clientesMCH2Credito += Math.Round(creditos4QMCH * permanenciaMC);
+                            clientesMCN2Credito += Math.Round(creditos4QMCN * permanenciaMC);
+                            clientesMCB2Credito += Math.Round(creditos4QMCB * permanenciaMC);
+                            clientesMC2Credito += (clientesMCH2Credito + clientesMCN2Credito + clientesMCB2Credito);
+                            creditos4Q = Math.Round(creditos4QD + creditos4QCD + creditos4QMM + creditos4QCZ + 
+                                (Math.Round(creditos4QMCH * permanenciaMC) + Math.Round(creditos4QMCN * permanenciaMC) + Math.Round(creditos4QMCB * permanenciaMC)));
                             clientesT2Credito += creditos4Q;
                             
                             clientesDP2C = clientesD2Credito > 0 ? 
@@ -382,13 +510,19 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ? 
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                         //Fin de créditos de 4Q
 
                         //Obtiene créditos de 6 quincenas
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
+                            " AND Campo = 'CDPer'" +
                             " AND TipoDato = 'N" + (periodoActual - 6).ToString().PadLeft(3, '0') + "C'");
 
                         foreach (DataRow dr in drL)
@@ -438,6 +572,36 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 6).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 6).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 6).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q06'" +
                             " AND TipoDato = 'N" + (periodoActual - 6).ToString().PadLeft(3, '0') + "C'");
 
@@ -454,6 +618,9 @@ namespace FlujoCreditosExpress
                             creditos6QMMT = Math.Round(((creditos6Q - creditos6QD) * clientesMMP2CPerm));
                             creditos6QCZT = Math.Round(((creditos6Q - creditos6QD) * clientesZP2CPerm));
                             creditos6QMCT = Math.Round(((creditos6Q - creditos6QD) * clientesMCP2CPerm));
+                            creditos6QMCH = Math.Round((creditos6QMCT * clientesMCHP2CPerm));
+                            creditos6QMCN = Math.Round((creditos6QMCT * clientesMCNP2CPerm));
+                            creditos6QMCB = Math.Round((creditos6QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
                             creditos6Q = Math.Round(creditos6QD + creditos6QCDT + creditos6QMMT + creditos6QCZT + creditos6QMCT);
 
@@ -462,6 +629,9 @@ namespace FlujoCreditosExpress
                             clientesMM2Credito += creditos6QMMT;
                             clientesZ2Credito += creditos6QCZT;
                             clientesMC2Credito += creditos6QMCT;
+                            clientesMCH2Credito += creditos6QMCH;
+                            clientesMCN2Credito += creditos6QMCN;
+                            clientesMCB2Credito += creditos6QMCB;
                             clientesT2Credito += creditos6Q;
 
                             clientesDP2C = clientesD2Credito > 0 ?
@@ -472,13 +642,19 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ?
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                         //Fin de créditos de 6Q
 
                         //Obtiene créditos de 8 quincenas
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
+                            " AND Campo = 'CDPer'" +
                             " AND TipoDato = 'N" + (periodoActual - 8).ToString().PadLeft(3, '0') + "C'");
 
                         foreach (DataRow dr in drL)
@@ -528,6 +704,36 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 8).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 8).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 8).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q08'" +
                             " AND TipoDato = 'N" + (periodoActual - 8).ToString().PadLeft(3, '0') + "C'");
 
@@ -544,6 +750,9 @@ namespace FlujoCreditosExpress
                             creditos8QMMT = Math.Round(((creditos8Q - creditos8QD) * clientesMMP2CPerm));
                             creditos8QCZT = Math.Round(((creditos8Q - creditos8QD) * clientesZP2CPerm));
                             creditos8QMCT = Math.Round(((creditos8Q - creditos8QD) * clientesMCP2CPerm));
+                            creditos8QMCH = Math.Round((creditos8QMCT * clientesMCHP2CPerm));
+                            creditos8QMCN = Math.Round((creditos8QMCT * clientesMCNP2CPerm));
+                            creditos8QMCB = Math.Round((creditos8QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
                             creditos8Q = Math.Round(creditos8QD + creditos8QCDT + creditos8QMMT + creditos8QCZT + creditos8QMCT);
 
@@ -552,6 +761,9 @@ namespace FlujoCreditosExpress
                             clientesMM2Credito += creditos8QMMT;
                             clientesZ2Credito += creditos8QCZT;
                             clientesMC2Credito += creditos8QMCT;
+                            clientesMCH2Credito += creditos8QMCH;
+                            clientesMCN2Credito += creditos8QMCN;
+                            clientesMCB2Credito += creditos8QMCB;
                             clientesT2Credito += creditos8Q;
 
                             clientesDP2C = clientesD2Credito > 0 ?
@@ -562,13 +774,19 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ?
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                         //Fin de créditos de 8Q
 
                         //Obtiene créditos de 10 quincenas
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
+                            " AND Campo = 'CDPer'" +
                             " AND TipoDato = 'N" + (periodoActual - 10).ToString().PadLeft(3, '0') + "C'");
 
                         foreach (DataRow dr in drL)
@@ -618,6 +836,36 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 10).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 10).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 10).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q10'" +
                             " AND TipoDato = 'N" + (periodoActual - 10).ToString().PadLeft(3, '0') + "C'");
 
@@ -634,6 +882,9 @@ namespace FlujoCreditosExpress
                             creditos10QMMT = Math.Round(((creditos10Q - creditos10QD) * clientesMMP2CPerm));
                             creditos10QCZT = Math.Round(((creditos10Q - creditos10QD) * clientesZP2CPerm));
                             creditos10QMCT = Math.Round(((creditos10Q - creditos10QD) * clientesMCP2CPerm));
+                            creditos10QMCH = Math.Round((creditos10QMCT * clientesMCHP2CPerm));
+                            creditos10QMCN = Math.Round((creditos10QMCT * clientesMCNP2CPerm));
+                            creditos10QMCB = Math.Round((creditos10QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
                             creditos10Q = Math.Round(creditos10QD + creditos10QCDT + creditos10QMMT + creditos10QCZT + creditos10QMCT);
 
@@ -642,6 +893,9 @@ namespace FlujoCreditosExpress
                             clientesMM2Credito += creditos10QMMT;
                             clientesZ2Credito += creditos10QCZT;
                             clientesMC2Credito += creditos10QMCT;
+                            clientesMCH2Credito += creditos10QMCH;
+                            clientesMCN2Credito += creditos10QMCN;
+                            clientesMCB2Credito += creditos10QMCB;
                             clientesT2Credito += creditos10Q;
 
                             clientesDP2C = clientesD2Credito > 0 ?
@@ -652,13 +906,19 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ?
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                         //Fin de créditos de 10Q
 
                         //Obtiene créditos de 12 quincenas
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
-                            " AND Campo = 'CD'" +
+                            " AND Campo = 'CDPer'" +
                             " AND TipoDato = 'N" + (periodoActual - 12).ToString().PadLeft(3, '0') + "C'");
 
                         foreach (DataRow dr in drL)
@@ -708,6 +968,36 @@ namespace FlujoCreditosExpress
 
                         drL = flujoDBDataSet1.T_Configuraciones.Select(
                             " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCHPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 12).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCHP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCNPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 12).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCNP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
+                            " AND Campo = 'CtesMCBPerm'" +
+                            " AND TipoDato = 'P" + (periodoActual - 12).ToString().PadLeft(3, '0') + "C'");
+
+                        foreach (DataRow dr in drL)
+                        {
+                            clientesMCBP2CPerm = double.Parse(dr["Valor"].ToString()) / 100;
+                        }
+
+                        drL = flujoDBDataSet1.T_Configuraciones.Select(
+                            " SesionId = " + Properties.Settings.Default.SessionId +
                             " AND Campo LIKE '%Q12'" +
                             " AND TipoDato = 'N" + (periodoActual - 12).ToString().PadLeft(3, '0') + "C'");
 
@@ -724,6 +1014,9 @@ namespace FlujoCreditosExpress
                             creditos12QMMT = Math.Round(((creditos12Q - creditos12QD) * clientesMMP2CPerm));
                             creditos12QCZT = Math.Round(((creditos12Q - creditos12QD) * clientesZP2CPerm));
                             creditos12QMCT = Math.Round(((creditos12Q - creditos12QD) * clientesMCP2CPerm));
+                            creditos12QMCH = Math.Round((creditos12QMCT * clientesMCHP2CPerm));
+                            creditos12QMCN = Math.Round((creditos12QMCT * clientesMCNP2CPerm));
+                            creditos12QMCB = Math.Round((creditos12QMCT * clientesMCBP2CPerm));
                             //___________________________________________________________________________________________________
                             creditos12Q = Math.Round(creditos12QD + creditos12QCDT + creditos12QMMT + creditos12QCZT + creditos12QMCT);
 
@@ -732,6 +1025,9 @@ namespace FlujoCreditosExpress
                             clientesMM2Credito += creditos12QMMT;
                             clientesZ2Credito += creditos12QCZT;
                             clientesMC2Credito += creditos12QMCT;
+                            clientesMCH2Credito += creditos12QMCH;
+                            clientesMCN2Credito += creditos12QMCN;
+                            clientesMCB2Credito += creditos12QMCB;
                             clientesT2Credito += creditos12Q;
 
                             clientesDP2C = clientesD2Credito > 0 ?
@@ -742,6 +1038,12 @@ namespace FlujoCreditosExpress
                                 (clientesZ2Credito / (clientesT2Credito - dist2Credito)) : 0;
                             clientesMCP2C = clientesMC2Credito > 0 ?
                                 (clientesMC2Credito / (clientesT2Credito - dist2Credito)) : 0;
+                            clientesMCHP2C = clientesMCH2Credito > 0 ?
+                                (clientesMCH2Credito / clientesMC2Credito) : 0;
+                            clientesMCNP2C = clientesMCN2Credito > 0 ?
+                                (clientesMCN2Credito / clientesMC2Credito) : 0;
+                            clientesMCBP2C = clientesMCB2Credito > 0 ?
+                                (clientesMCB2Credito / clientesMC2Credito) : 0;
                         }
                         //Fin de créditos de 12Q
 
@@ -808,7 +1110,16 @@ namespace FlujoCreditosExpress
 
                     ctesMCAnt = Math.Round(((carteraTotal - (distribuidoras - dist)) * clientesMCP) -
                         (creditos2QMCT + creditos4QMCT + creditos6QMCT + creditos8QMCT + creditos10QMCT + creditos12QMCT));
+                    ctesMCHAnt = Math.Round((((carteraTotal - (distribuidoras - dist)) * clientesMCP) * clientesMCHP) -
+                        (creditos2QMCH + creditos4QMCH + creditos6QMCH + creditos8QMCH + creditos10QMCH + creditos12QMCH));
+                    ctesMCNAnt = Math.Round((((carteraTotal - (distribuidoras - dist)) * clientesMCP) * clientesMCNP) -
+                        (creditos2QMCN + creditos4QMCN + creditos6QMCN + creditos8QMCN + creditos10QMCN + creditos12QMCN));
+                    ctesMCBAnt = Math.Round((((carteraTotal - (distribuidoras - dist)) * clientesMCP) * clientesMCBP) -
+                        (creditos2QMCB + creditos4QMCB + creditos6QMCB + creditos8QMCB + creditos10QMCB + creditos12QMCB));
                     ctesMC = Properties.Settings.Default.CantMiembros;
+                    ctesMCH = Properties.Settings.Default.CantMiembrosH;
+                    ctesMCN = Properties.Settings.Default.CantMiembrosN;
+                    ctesMCB = Properties.Settings.Default.CantMiembrosB;
 
                     clientesNuevos = Math.Truncate(
                         dist + ctesDist + ctesMM + ctesCZ + ctesMC);
@@ -817,7 +1128,10 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.CtesMMPProd = (ctesMM / (clientesNuevos - dist)) * 100;
                     Properties.Settings.Default.CtesCZPProd = (ctesCZ / (clientesNuevos - dist)) * 100;
                     Properties.Settings.Default.CtesMCPProd = (ctesMC / (clientesNuevos - dist)) * 100;
-                    
+                    Properties.Settings.Default.HijasProd = (ctesMCH / ctesMC) * 100;
+                    Properties.Settings.Default.NietasProd = (ctesMCN / ctesMC) * 100;
+                    Properties.Settings.Default.BisnietasProd = (ctesMCB / ctesMC) * 100;
+
                     Properties.Settings.Default.DistribuidorasAnt = dist;
                     Properties.Settings.Default.ClientesDistP = 
                         ((ctesDist + clientesD2Credito + ctesDistAnt) / 
@@ -831,9 +1145,22 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.ClientesMCP = 
                         ((ctesMC + clientesMC2Credito + ctesMCAnt) / 
                         ((clientesNuevos + clientesT2Credito + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                    if (ctesMC > 0)
+                    {
+                        Properties.Settings.Default.HijasP =
+                            ((ctesMCH + clientesMCH2Credito + ctesMCHAnt) /
+                            (ctesMC + clientesMC2Credito + ctesMCAnt)) * 100;
+                        Properties.Settings.Default.NietasP =
+                            ((ctesMCN + clientesMCN2Credito + ctesMCNAnt) /
+                            (ctesMC + clientesMC2Credito + ctesMCAnt)) * 100;
+                        Properties.Settings.Default.BisnietasP =
+                            ((ctesMCB + clientesMCB2Credito + ctesMCBAnt) /
+                            (ctesMC + clientesMC2Credito + ctesMCAnt)) * 100;
+                    }
+                    
 
                     //Identifica a las hijas, madres y nietas.
-                                        
+
                     incremento = (clientesNuevos / clientesPeriodoAnt);
 
                     if (capital < 0)
@@ -1160,6 +1487,38 @@ namespace FlujoCreditosExpress
         }
 
         /// <summary>
+        /// Guarda las propiedades definidas en la ventana.
+        /// </summary>
+        private void SetProperties()
+        {
+            Properties.Settings.Default.PerdidaE = double.Parse(txtPPerdida.Text);
+            Properties.Settings.Default.ComisionDistE = double.Parse(txtPComisionDist.Text);
+            Properties.Settings.Default.GastosFijosPROSAE = double.Parse(txtMGastosFijosPROSA.Text);
+            Properties.Settings.Default.GastosVarPROSAE = double.Parse(txtMGastosVarPROSA.Text);
+            Properties.Settings.Default.GastosFijosZafyE = double.Parse(txtMGastosFijosZafy.Text);
+            Properties.Settings.Default.GastosVarZafyE = double.Parse(txtMGastosVarZafy.Text);
+            Properties.Settings.Default.GastosXPublicidadE = double.Parse(txtMGastosXPublicidad.Text);
+            Properties.Settings.Default.BonosPremiosE = double.Parse(txtPBonosPremios.Text);
+            Properties.Settings.Default.RetirosE = double.Parse(txtPRetiros.Text);
+        }
+
+        /// <summary>
+        /// Obtiene las propiedades definidas en la ventana.
+        /// </summary>
+        private void GetProperties()
+        {
+            txtPPerdida.Text = Properties.Settings.Default.PerdidaE.ToString();
+            txtPComisionDist.Text = Properties.Settings.Default.ComisionDistE.ToString();
+            txtMGastosFijosPROSA.Text = Properties.Settings.Default.GastosFijosPROSAE.ToString();
+            txtMGastosVarPROSA.Text = Properties.Settings.Default.GastosVarPROSAE.ToString();
+            txtMGastosFijosZafy.Text = Properties.Settings.Default.GastosFijosZafyE.ToString();
+            txtMGastosVarZafy.Text = Properties.Settings.Default.GastosVarZafyE.ToString();
+            txtMGastosXPublicidad.Text = Properties.Settings.Default.GastosXPublicidadE.ToString();
+            txtPBonosPremios.Text = Properties.Settings.Default.BonosPremiosE.ToString();
+            txtPRetiros.Text = Properties.Settings.Default.RetirosE.ToString();
+        }
+
+        /// <summary>
         /// Guarda la colocación en la base de datos.
         /// </summary>
         /// <param name="sender">El objeto que llama la función</param>
@@ -1278,8 +1637,8 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
-                    tConfiguracionesRow["Campo"] = "CDT";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.DistribuidorasAnt + dist2Credito;
+                    tConfiguracionesRow["Campo"] = "CDPer";
+                    tConfiguracionesRow["Valor"] = dist2Credito;
                     tConfiguracionesRow["TipoDato"] =
                         "N" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1320,21 +1679,40 @@ namespace FlujoCreditosExpress
                         ctesMM = Math.Round((creditosCN - dist) * (Properties.Settings.Default.CtesMMPProd / 100));
                         ctesCZ = Math.Round((creditosCN - dist) * (Properties.Settings.Default.CtesCZPProd / 100));
                         ctesMC = Math.Round((creditosCN - dist) * (Properties.Settings.Default.CtesMCPProd / 100));
+                        ctesMCH = Math.Round(ctesMC * (Properties.Settings.Default.HijasProd / 100));
+                        ctesMCN = Math.Round(ctesMC * (Properties.Settings.Default.NietasProd / 100));
+                        ctesMCB = Math.Round(ctesMC * (Properties.Settings.Default.BisnietasProd / 100));
 
                         double ctesDistPerm = Math.Round((creditosCA - dist2Credito) * clientesDP2C);
                         double ctesMMPerm = Math.Round((creditosCA - dist2Credito) * clientesMMP2C);
                         double ctesCZPerm = Math.Round((creditosCA - dist2Credito) * clientesZafyP2C);
                         double ctesMCPerm = Math.Round((creditosCA - dist2Credito) * clientesMCP2C);
+                        double ctesMCHPerm = Math.Round(ctesMCPerm * clientesMCHP2C);
+                        double ctesMCNPerm = Math.Round(ctesMCPerm * clientesMCNP2C);
+                        double ctesMCBPerm = Math.Round(ctesMCPerm * clientesMCBP2C);
 
                         Properties.Settings.Default.CtesDistPProd = (ctesDist / (creditosCN - dist)) * 100;
                         Properties.Settings.Default.CtesMMPProd = (ctesMM / (creditosCN - dist)) * 100;
                         Properties.Settings.Default.CtesCZPProd = (ctesCZ / (creditosCN - dist)) * 100;
                         Properties.Settings.Default.CtesMCPProd = (ctesMC / (creditosCN - dist)) * 100;
+                        if(ctesMC > 0)
+                        {
+                            Properties.Settings.Default.HijasProd = (ctesMCH / ctesMC) * 100;
+                            Properties.Settings.Default.NietasProd = (ctesMCN / ctesMC) * 100;
+                            Properties.Settings.Default.BisnietasProd = (ctesMCB / ctesMC) * 100;
+                        }
+                        
 
                         Properties.Settings.Default.CtesDistPPerm = (ctesDistPerm / (creditosCA - dist2Credito)) * 100;
                         Properties.Settings.Default.CtesMMPPerm = (ctesMMPerm / (creditosCA - dist2Credito)) * 100;
                         Properties.Settings.Default.CtesCZPPerm = (ctesCZPerm / (creditosCA - dist2Credito)) * 100;
                         Properties.Settings.Default.CtesMCPPerm = (ctesMCPerm / (creditosCA - dist2Credito)) * 100;
+                        if(ctesMCPerm > 0)
+                        {
+                            Properties.Settings.Default.HijasPerm = (ctesMCHPerm / ctesMCPerm) * 100;
+                            Properties.Settings.Default.NietasPerm = (ctesMCNPerm / ctesMCPerm) * 100;
+                            Properties.Settings.Default.BisnietasPerm = (ctesMCBPerm / ctesMCPerm) * 100;
+                        }
 
                         Properties.Settings.Default.ClientesDistP = 
                             ((ctesDist + ctesDistPerm + ctesDistAnt) / 
@@ -1348,6 +1726,18 @@ namespace FlujoCreditosExpress
                         Properties.Settings.Default.ClientesMCP = 
                             ((ctesMC + ctesMCPerm + ctesMCAnt) / 
                             ((ctesTotales + (carteraTotal - clientes2Credito)) - distribuidoras)) * 100;
+                        if((ctesMC + ctesMCPerm + ctesMCAnt) > 0)
+                        {
+                            Properties.Settings.Default.HijasP =
+                                ((ctesMCH + ctesMCHPerm + ctesMCHAnt) /
+                                    (ctesMC + ctesMCPerm + ctesMCAnt)) * 100;
+                            Properties.Settings.Default.NietasP =
+                                ((ctesMCN + ctesMCNPerm + ctesMCNAnt) /
+                                    (ctesMC + ctesMCPerm + ctesMCAnt)) * 100;
+                            Properties.Settings.Default.BisnietasP =
+                                ((ctesMCB + ctesMCBPerm + ctesMCBAnt) /
+                                    (ctesMC + ctesMCPerm + ctesMCAnt)) * 100;
+                        }
                     }
 
                     //Guarda las proporciones de los clientes para el período
@@ -1357,7 +1747,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesDP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesDistPProd;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesDistPProd > 0 ? Properties.Settings.Default.CtesDistPProd : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1373,7 +1763,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMMP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMMPProd;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMMPProd > 0 ? Properties.Settings.Default.CtesMMPProd : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1389,7 +1779,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesZP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesCZPProd;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesCZPProd > 0 ? Properties.Settings.Default.CtesCZPProd : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1405,7 +1795,55 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMC";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMCPProd;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMCPProd > 0 ? Properties.Settings.Default.CtesMCPProd : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+                    
+                    //Clientes miembros de célula Hijos
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCHP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasProd > 0 ? Properties.Settings.Default.HijasProd : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Nietos
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCNP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasProd > 0 ? Properties.Settings.Default.NietasProd : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Bisnietos
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCBP";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasProd > 0 ? Properties.Settings.Default.BisnietasProd : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1421,7 +1859,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesDPPerm";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesDistPPerm;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesDistPPerm > 0 ? Properties.Settings.Default.CtesDistPPerm : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1437,7 +1875,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMMPPerm";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMMPPerm;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMMPPerm > 0 ? Properties.Settings.Default.CtesMMPPerm : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1453,7 +1891,7 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesZPPerm";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesCZPPerm;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesCZPPerm > 0 ? Properties.Settings.Default.CtesCZPPerm : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1469,7 +1907,55 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCPerm";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMCPPerm;
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.CtesMCPPerm > 0 ? Properties.Settings.Default.CtesMCPPerm : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Hijos permanencia
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCHPerm";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasPerm > 0 ? Properties.Settings.Default.HijasPerm : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Nietos permanencia
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCNPerm";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasPerm > 0 ? Properties.Settings.Default.NietasPerm : 0;
+                    tConfiguracionesRow["TipoDato"] =
+                        "P" +
+                        (Properties.Settings.Default.PeriodoActual > 0 ?
+                        Properties.Settings.Default.PeriodoActual.ToString().PadLeft(3, '0') : "000") +
+                        "C";
+                    tConfiguracionesRow["Estatus"] = "1";
+
+                    flujoDBDataSet1.T_Configuraciones.AddT_ConfiguracionesRow(tConfiguracionesRow);
+
+                    //Clientes miembros de célula Bisnietos permanencia
+                    configId++;
+                    tConfiguracionesRow = flujoDBDataSet1.T_Configuraciones.NewT_ConfiguracionesRow();
+                    tConfiguracionesRow["Id"] = configId;
+                    tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
+                    tConfiguracionesRow["Campo"] = "CtesMCBPerm";
+                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasPerm > 0 ? Properties.Settings.Default.BisnietasPerm : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1484,14 +1970,14 @@ namespace FlujoCreditosExpress
                     t_ConfiguracionesTableAdapter1.ClearBeforeFill = true;
                     
                     this.SaveFinalConfig();
-
-                    
                 }
+                this.isProssesed = true;
                 //Fin de colocación
                 this.Close();
             }
             catch (Exception ex)
             {
+                this.isProssesed = false;
                 MessageBox.Show(ex.Message.ToString(), "Colocación no guardada");
             }
         }
@@ -1670,25 +2156,7 @@ namespace FlujoCreditosExpress
             this.SumaCreditos(this);
 
             this.SumaColocacion(this);
-            /*
-            if (creditos2Q > 0)
-            {
-                if(creditosCN >= creditos2Q)
-                {
-                    creditosRestantesN = clientesNuevos - (creditosCN - creditos2Q);
-                    creditosRestantesA = clientesPermanencia - (creditosCA + creditos2Q);
-                }
-                else
-                {
-                    creditosRestantesN = clientesNuevos - creditosCN;
-                    creditosRestantesA = clientesPermanencia - creditosCA;
-                }
-            }
-            else
-            {
-                
-            }
-            */
+
             creditosRestantesN = clientesNuevos - creditosCN;
             creditosRestantesA = clientesPermanencia - creditosCA;
             
@@ -1977,6 +2445,22 @@ namespace FlujoCreditosExpress
         /// <param name="e">Los eventos</param>
         private void FormColocacion_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(double.Parse(txtNCreditosT.Text) == 0 && !Properties.Settings.Default.IsToFinish)
+            {
+                if(DialogResult.No == MessageBox.Show("Aún no se han colocado créditos, \n¿Desea cerrar la ventana?",
+                            "Créditos no colocados", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                if(!isProssesed)
+                {
+                    this.btnSaveColocacion_Click(sender, e);
+                }                
+            }
+
             if (Properties.Settings.Default.CantPeriodos > 1)
             {
                 Properties.Settings.Default.IsAutomatic = true;
@@ -1988,8 +2472,14 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.IsAutomatic = false;
                 }
             }
+            this.SetProperties();
+            Properties.Settings.Default.Save();
         }
-
         #endregion
+
+        private void CheckConfig(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.IsConfigMod = true;
+        }
     }
 }
