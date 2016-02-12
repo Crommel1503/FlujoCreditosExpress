@@ -55,7 +55,6 @@ namespace FlujoCreditosExpress
         double totalSalidasTotal;
         double saldoFinalTotal;
         int clienteId;
-
         #endregion
 
         #region Métodos Privados
@@ -91,12 +90,13 @@ namespace FlujoCreditosExpress
                 this.LoadConfig(sender, e);                                                         //Obtiene los valores por default para la configuración.
                 this.LoadToolTips(sender, e);                                                       //Carga los tooltips para los controles.
                 this.btnSaveConfig.Enabled = false;                                                 //Deshabilita el botón para guardar la configuración.
+                this.btnSaveConfigR.Enabled = false;                                                 //Deshabilita el botón para guardar la configuración.
                 this.StartPosition = FormStartPosition.CenterScreen;                                //Posiciona la pantalla en el centro de la pantalla.
                 this.saldoInicialTotal = 0;                                                         //Inicializa la variable para el saldo inicial total.
                 this.apCapitalITotal = 0;                                                           //Inicializa la variable para el aporte a capital total.
                 this.ivaInteresITotal = 0;                                                          //Inicializa la variable para el IVA del interés total.
                 this.seguroITotal = 0;                                                              //Inicializa la variable para el seguro total.
-                this.comisionXAperturaITotal = 0;                                                    //Inicializa la variable para la comisión por apertura total.
+                this.comisionXAperturaITotal = 0;                                                   //Inicializa la variable para la comisión por apertura total.
                 this.ingresoPROSAITotal = 0;                                                        //Inicializa la variable para el ingreso de PROSA total.
                 this.cobroXplasticoITotal = 0;                                                      //Inicializa la variable para el costo por el plastico para créditos nuevos.
                 this.capRecuperadoITotal = 0;                                                       //Inicializa la variable para el capital recuperado total.
@@ -116,6 +116,7 @@ namespace FlujoCreditosExpress
                 this.retirosETotal = 0;                                                             //Inicializa la variable para retiros total.
                 this.totalSalidasTotal = 0;                                                         //Inicializa la variable para total de salidas total.
                 this.saldoFinalTotal = 0;                                                           //Inicializa la variable para el saldo final total.
+
                 this.btnIniciarFlujo.Select();                                                      //Selecciona el botón de "Iniciar Flujo".
                 Properties.Settings.Default.PeriodoActual = 1;                                      //Asigna 1 al período actual.
                 Properties.Settings.Default.CantPeriodos = 1;                                       //Asigna 1 a la cantidad de períodos a procesar.
@@ -132,23 +133,39 @@ namespace FlujoCreditosExpress
                 Properties.Settings.Default.CantLideresH = 0;                                       //Asigna 0 a la cantidad de líderes Hijos.
                 Properties.Settings.Default.CantLideresN = 0;                                       //Asigna 0 a la cantidad de líderes Nietos.
                 Properties.Settings.Default.CantMiembros = 0;                                       //Asigna 0 a la cantidad de miembros de célula.
+                Properties.Settings.Default.CantMiembrosIni = 0;                                    //Asigna 0 a la cantidad de miembros de célula invitados.
                 Properties.Settings.Default.Distribuidoras = 0;                                     //Asigna 0 a la cantidad de distribuidoras.
                 Properties.Settings.Default.DistribuidorasAnt = 0;                                  //Asigna 0 a la cantidad de distribuidoras anteriores.
                 Properties.Settings.Default.ProsLIAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes iniciadoras.
                 Properties.Settings.Default.ProsLHAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes hijos.
                 Properties.Settings.Default.ProsLNAnt = 0;                                          //Asigna 0 a la cantidad de prospectos a líderes nietos.
-                Properties.Settings.Default.CantMiembrosH = 0;
-                Properties.Settings.Default.CantMiembrosN = 0;
-                Properties.Settings.Default.CantMiembrosB = 0;
-                Properties.Settings.Default.HijasP = 0;
-                Properties.Settings.Default.NietasP = 0;
-                Properties.Settings.Default.BisnietasP = 0;
-                Properties.Settings.Default.HijasProd = 0;
-                Properties.Settings.Default.NietasProd = 0;
-                Properties.Settings.Default.BisnietasProd = 0;
-                Properties.Settings.Default.HijasPerm = 0;
-                Properties.Settings.Default.NietasProd = 0;
-                Properties.Settings.Default.BisnietasPerm = 0;
+                Properties.Settings.Default.CantMiembrosH = 0;                                      //Asigna 0 a la cantidad de miembros hijos.
+                Properties.Settings.Default.CantMiembrosN = 0;                                      //Asigna 0 a la cantidad de miembros nietos.
+                Properties.Settings.Default.CantMiembrosB = 0;                                      //Asigna 0 a la cantidad de miembros bisnieto.
+                Properties.Settings.Default.HijasP = 0;                                             //Asigna 0 al porcentaje de hijas.
+                Properties.Settings.Default.NietasP = 0;                                            //Asigna 0 al porcentaje de nietas.
+                Properties.Settings.Default.BisnietasP = 0;                                         //Asigna 0 al porcentaje de bisnietas.
+                Properties.Settings.Default.HijasProd = 0;                                          //Asigna 0 al porcentaje de hijas producidas.
+                Properties.Settings.Default.NietasProd = 0;                                         //Asigna 0 al porcentaje de nietas producidas.
+                Properties.Settings.Default.BisnietasProd = 0;                                      //Asigna 0 al porcentaje de bisnietas producidas.
+                Properties.Settings.Default.HijasPerm = 0;                                          //Asigna 0 al porcentaje de permanencia de hijas.
+                Properties.Settings.Default.NietasProd = 0;                                         //Asigna 0 al porcentaje de permanencia de nietas.
+                Properties.Settings.Default.BisnietasPerm = 0;                                      //Asigna 0 al porcentaje de permanencia de bisnietas.
+                Properties.Settings.Default.ClientesMCPerm = 0;                                     //Asigna 0 a la permanencia de miembros de célula.
+                Properties.Settings.Default.ClientesMCHPerm = 0;                                    //Asigna 0 a la permanencia de miembros de célula hijas.
+                Properties.Settings.Default.ClientesMCNPerm = 0;                                    //Asigna 0 a la permanencia de miembros de célula nietas.
+                Properties.Settings.Default.ClientesMCBPerm = 0;                                    //Asigna 0 a la permanencia de miembros de célula bisnietas.
+                Properties.Settings.Default.LideresIBonoB = 0;
+                Properties.Settings.Default.LideresIBonoC = 0;
+                Properties.Settings.Default.LideresIBonoD = 0;
+                Properties.Settings.Default.LideresHBonoB = 0;
+                Properties.Settings.Default.LideresHBonoC = 0;
+                Properties.Settings.Default.LideresHBonoD = 0;
+                Properties.Settings.Default.LideresNBonoB = 0;
+                Properties.Settings.Default.LideresNBonoC = 0;
+                Properties.Settings.Default.LideresNBonoD = 0;
+                Properties.Settings.Default.ColocacionAcumuladaMC = 0;
+                Properties.Settings.Default.VolumenAcumuladoMC = 0;
                 Properties.Settings.Default.Save();                                                 //Guarda la configuracion de la configuración.
 
             }
@@ -261,6 +278,12 @@ namespace FlujoCreditosExpress
 
                 this.isConfigSaved = false;
             }
+            if (!btnSaveConfigR.Enabled)
+            {
+                btnSaveConfigR.Enabled = true;
+
+                this.isConfigSaved = false;
+            }
         }
 
         /// <summary>
@@ -282,7 +305,9 @@ namespace FlujoCreditosExpress
             toolTip1.SetToolTip(this.btnSiguienteFlujo, "Procesa el siguiente período");
             toolTip1.SetToolTip(this.btnTerminarFlujo, "Termina el flujo");
             toolTip1.SetToolTip(this.btnSaveConfig, "Guarda la configuración");
+            toolTip1.SetToolTip(this.btnSaveConfigR, "Guarda la configuración");
             toolTip1.SetToolTip(this.btnLoadDefaults, "Carga los valores por defecto para la configuración");
+            toolTip1.SetToolTip(this.btnLoadDefaultsR, "Carga los valores por defecto para la configuración");
             toolTip1.SetToolTip(this.btnIniciadoras, "Activa la opción de crear líderes de célula iniciadoras");
             toolTip1.SetToolTip(this.btnDetalle, "Muestra las estadisticas de la quincena procesada");
         }
@@ -299,9 +324,14 @@ namespace FlujoCreditosExpress
                 string[] cat = new string[] { "MCP", "MCC", "MCO" };
                 TextBox ctrl;
                 int porcentajeT;
+                int porcentajeDist = 0;
+                int porcentajeN1 = 0;
+                int porcentajeN2 = 0;
+                int porcentajeN3 = 0;
                 bool IsPorcentajeOK = true;
+                string msjErr = "";
                 string control = string.Empty;
-
+                //Verifica el porcentaje de la generación de miembros de célula
                 foreach (string item in cat)
                 {
                     porcentajeT = 0;
@@ -317,6 +347,7 @@ namespace FlujoCreditosExpress
                         {
                             ctrl.Focus();
                             IsPorcentajeOK = false;
+                            msjErr = "Error en el porcentaje de generación de miembros de célula";
                             break;
                         }
                     }
@@ -324,21 +355,85 @@ namespace FlujoCreditosExpress
                     {
                         break;
                     }
-                }                
+                }
+
+                //Verifica el porcentaje de clientes para el pago de comisiones
+                foreach (Control itemM in this.Controls)
+                {
+                    if(itemM.Name == "tabCContenedor")
+                    {
+                        foreach(Control itemS1 in itemM.Controls)
+                        {
+                            if(itemS1.Name == "tabConfigRed")
+                            {
+                                foreach (Control itemS2 in itemS1.Controls)
+                                {
+                                    if(itemS2.Name == "gpbComisiones")
+                                    {
+                                        foreach (Control itemS3 in itemS2.Controls)
+                                        {
+                                            if (itemS3 is TextBox)
+                                            {
+                                                if (itemS3.Name.Substring(0, 7) == "txtDist")
+                                                {
+                                                    porcentajeDist += int.Parse(itemS3.Text);
+                                                }
+                                                else if (itemS3.Name.Substring(0, 5) == "txtN1")
+                                                {
+                                                    porcentajeN1 += int.Parse(itemS3.Text);
+                                                }
+                                                else if (itemS3.Name.Substring(0, 5) == "txtN2")
+                                                {
+                                                    porcentajeN2 += int.Parse(itemS3.Text);
+                                                }
+                                                else if (itemS3.Name.Substring(0, 5) == "txtN3")
+                                                {
+                                                    porcentajeN3 += int.Parse(itemS3.Text);
+                                                }
+                                            }
+
+                                            if (porcentajeDist > 100 ||
+                                                porcentajeN1 > 100 ||
+                                                porcentajeN2 > 100 ||
+                                                porcentajeN3 > 100)
+                                            {
+                                                itemS3.Focus();
+                                                IsPorcentajeOK = false;
+                                                msjErr = "Error en el porcentaje de comisiones";
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (!IsPorcentajeOK)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!IsPorcentajeOK)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    if (!IsPorcentajeOK)
+                    {
+                        break;
+                    }
+                }
 
                 if (IsPorcentajeOK)
                 {
                     this.SetProperties();
                     Properties.Settings.Default.Save();
                     btnSaveConfig.Enabled = false;
+                    btnSaveConfigR.Enabled = false;
                     this.isConfigSaved = true;
                 }
                 else
                 {
-                    string es = control.Substring(17);
 
-                    MessageBox.Show("¡No puedes exceder el 100% de los líderes! del escenario " + 
-                        (es == "P" ? "pesimista" : es == "C" ? "conservador" : "optimista"), "Configuración no guardada");
+                    MessageBox.Show("¡No puedes exceder el 100% \n" + msjErr, "Configuración no guardada");
                 }
             }
             catch (Exception ex)
@@ -490,10 +585,15 @@ namespace FlujoCreditosExpress
                             //Se declaran variables temporales para los datos
                             double clientesNuevos = Properties.Settings.Default.ClientesNuevos;
                             double clientes2Credito = Properties.Settings.Default.Clientes2Credito;
+                            double dist2Credito = Properties.Settings.Default.Dist2Credito;
                             double carteraVigente = 0;
+                            double carteraVigenteN = 0;
+                            double carteraVigenteP = 0;
                             double saldoInicial = Properties.Settings.Default.Capital;
                             double apCapitalI = Properties.Settings.Default.ApCapital;
                             double capRecuperadoI = 0;
+                            double capRecuperadoN = 0;
+                            double capRecuperadoP = 0;
                             double intRecuperadoI = 0;
                             double ivaInteresI = Properties.Settings.Default.IVAInteresI / 100;
                             double seguroI = Properties.Settings.Default.SeguroI;
@@ -503,13 +603,15 @@ namespace FlujoCreditosExpress
                             double totalEntradas = 0;
                             double perdidaE = Properties.Settings.Default.PerdidaE / 100;
                             double colocacionE = Properties.Settings.Default.ColocacionE;
-                            double comisionesDistE = Properties.Settings.Default.ComisionDistE / 100;
+                            double colocacionN = Properties.Settings.Default.ColocacionN;
+                            double colocacionP = Properties.Settings.Default.ColocacionP;
+                            double comisionesE = Properties.Settings.Default.ComisionDistE / 100;
                             double gastosFijosPROSAE = Properties.Settings.Default.GastosFijosPROSAE;
                             double gastosVarPROSAE = Properties.Settings.Default.GastosVarPROSAE;
                             double gastosFijosZafyE = Properties.Settings.Default.GastosFijosZafyE;
                             double gastosVarZafyE = Properties.Settings.Default.GastosVarZafyE / 100;
                             double gastosXPublicidadE = Properties.Settings.Default.GastosXPublicidadE;
-                            double gastosXOutSourcingE = Properties.Settings.Default.GastosXOutSourcingE / 100;
+                            double gastosXISRE = 0;
                             double bonosPremiosE = Properties.Settings.Default.BonosPremiosE / 100;
                             double retirosE = Properties.Settings.Default.RetirosE / 100;
                             double totalSalidas = 0;
@@ -518,6 +620,128 @@ namespace FlujoCreditosExpress
                             int periodoFinal = 0;
                             double clientesDistP = Properties.Settings.Default.ClientesDistP / 100;
                             double capitalProporcionalDist = 0;
+                            //Variables para el cálculo de comisiones
+
+                            double pagoPronto = Properties.Settings.Default.PagoPronto / 100;
+                            double pagoTiempo = Properties.Settings.Default.PagoTiempo / 100;
+                            double pagoTardio1 = Properties.Settings.Default.PagoTardio1 / 100;
+                            double pagoTardio2 = Properties.Settings.Default.PagoTardio2 / 100;
+                            double pagoTardio3 = Properties.Settings.Default.PagoTardio3 / 100;
+                            double pagoTiempoCN1 = Properties.Settings.Default.PagoTiempoCN1 / 100;
+                            double pagoTiempoCN2 = Properties.Settings.Default.PagoTiempoCN2 / 100;
+                            double pagoTiempoCN3 = Properties.Settings.Default.PagoTiempoCN3 / 100;
+                            double pagoTardio1CN1 = Properties.Settings.Default.PagoTardio1CN1 / 100;
+                            double pagoTardio1CN2 = Properties.Settings.Default.PagoTardio1CN2 / 100;
+                            double pagoTardio1CN3 = Properties.Settings.Default.PagoTardio1CN3 / 100;
+                            double pagoTardio2CN1 = Properties.Settings.Default.PagoTardio2CN1 / 100;
+                            double pagoTardio2CN2 = Properties.Settings.Default.PagoTardio2CN2 / 100;
+                            double pagoTardio2CN3 = Properties.Settings.Default.PagoTardio2CN3 / 100;
+                            double pagoTardio3CN1 = Properties.Settings.Default.PagoTardio2CN1 / 100;
+                            double pagoTardio3CN2 = Properties.Settings.Default.PagoTardio2CN2 / 100;
+                            double pagoTardio3CN3 = Properties.Settings.Default.PagoTardio2CN3 / 100;
+                            double porColocacion = Properties.Settings.Default.PorColocacion / 100;
+                            double porCumplimiento = Properties.Settings.Default.PorCumplimiento / 100;
+                            double porCumplimientoPerc = Properties.Settings.Default.PorCumplimientoPerc / 100;
+                            double porCrecimiento = Properties.Settings.Default.PorCrecimiento / 100;
+                            double porCompletarCelula = Properties.Settings.Default.PorCompletarCelula / 100;
+                            double porColocacionValorMenor = Properties.Settings.Default.PorColocacionValorMenor / 100;
+                            double porColocacionMontoMenor = Properties.Settings.Default.PorColocacionMontoMenor * 1000;
+                            double porColocacionValorEntre = Properties.Settings.Default.PorColocacionValorEntre / 100;
+                            double porColocacionMontoDe = Properties.Settings.Default.PorColocacionMontoDe * 1000;
+                            double porColocacionMontoHasta = Properties.Settings.Default.PorColocacionMontoHasta * 1000;
+                            double porColocacionValorMayor = Properties.Settings.Default.PorColocacionValorMayor / 100;
+                            double porColocacionMontoMayor = Properties.Settings.Default.PorColocacionMontoMayor * 1000;
+                            double porVolumenValorMenor = Properties.Settings.Default.PorVolumenValorMenor / 100;
+                            double porVolumenVolumMenor = Properties.Settings.Default.PorVolumenVolumenMenor;
+                            double porVolumenValorEntre = Properties.Settings.Default.PorVolumenValorEntre / 100;
+                            double porVolumenVolumDe = Properties.Settings.Default.PorVolumenVolumenDe;
+                            double porVolumenVolumHasta = Properties.Settings.Default.PorVolumenVolumenHasta;
+                            double porVolumenValorMayor = Properties.Settings.Default.PorVolumenValorMayor / 100;
+                            double porVolumenVolumMayor = Properties.Settings.Default.PorVolumenVolumenMayor;
+
+                            //Porcentaje de miembros
+                            double pagoProntoPerc = Properties.Settings.Default.PagoProntoPerc / 100;
+                            double pagoTiempoPerc = Properties.Settings.Default.PagoTiempoPerc / 100;
+                            double pagoTardio1Perc = Properties.Settings.Default.PagoTardio1Perc / 100;
+                            double pagoTardio2Perc = Properties.Settings.Default.PagoTardio2Perc / 100;
+                            double pagoTardio3Perc = Properties.Settings.Default.PagoTardio3Perc / 100;
+                            double pagoTiempoCN1Perc = Properties.Settings.Default.PagoTiempoCN1Perc / 100;
+                            double pagoTiempoCN2Perc = Properties.Settings.Default.PagoTiempoCN2Perc / 100;
+                            double pagoTiempoCN3Perc = Properties.Settings.Default.PagoTiempoCN3Perc / 100;
+                            double pagoTardio1CN1Perc = Properties.Settings.Default.PagoTardio1CN1Perc / 100;
+                            double pagoTardio1CN2Perc = Properties.Settings.Default.PagoTardio1CN2Perc / 100;
+                            double pagoTardio1CN3Perc = Properties.Settings.Default.PagoTardio1CN3Perc / 100;
+                            double pagoTardio2CN1Perc = Properties.Settings.Default.PagoTardio2CN1Perc / 100;
+                            double pagoTardio2CN2Perc = Properties.Settings.Default.PagoTardio2CN2Perc / 100;
+                            double pagoTardio2CN3Perc = Properties.Settings.Default.PagoTardio2CN3Perc / 100;
+                            double pagoTardio3CN1Perc = Properties.Settings.Default.PagoTardio2CN1Perc / 100;
+                            double pagoTardio3CN2Perc = Properties.Settings.Default.PagoTardio2CN2Perc / 100;
+                            double pagoTardio3CN3Perc = Properties.Settings.Default.PagoTardio2CN3Perc / 100;
+                            //Cantidad de clientes
+                            double distribuidoras = Properties.Settings.Default.Distribuidoras;
+                            double lideresIniciadoras = Properties.Settings.Default.CantIniciadoras;
+                            double lideresIProd = Properties.Settings.Default.LideresIProd;
+                            double lideresHijas = Properties.Settings.Default.CantLideresH;
+                            double lideresHProd = Properties.Settings.Default.LideresHProd;
+                            double lideresNietas = Properties.Settings.Default.CantLideresN;
+                            double lideresNProd = Properties.Settings.Default.LideresNProd;
+                            double lideresIBonoB = Properties.Settings.Default.LideresIBonoB;
+                            double lideresIBonoC = Properties.Settings.Default.LideresIBonoC;
+                            double lideresIBonoD = Properties.Settings.Default.LideresIBonoD;
+                            double lideresHBonoB = Properties.Settings.Default.LideresHBonoB;
+                            double lideresHBonoC = Properties.Settings.Default.LideresHBonoC;
+                            double lideresHBonoD = Properties.Settings.Default.LideresHBonoD;
+                            double lideresNBonoB = Properties.Settings.Default.LideresNBonoB;
+                            double lideresNBonoC = Properties.Settings.Default.LideresNBonoC;
+                            double lideresNBonoD = Properties.Settings.Default.LideresNBonoD;
+                            double clientesMCT = 0;
+                            double mcHT = 0;
+                            double mcNT = 0;
+                            double mcBT = 0;
+                            double capRecuperadoMCN = 0;
+                            double capRecHMCN = 0;
+                            double capRecNMCN = 0;
+                            double capRecBMCN = 0;
+                            double capRecuperadoMCP = 0;
+                            double capRecHMCP = 0;
+                            double capRecNMCP = 0;
+                            double capRecBMCP = 0;
+                            double colocacionMCN = 0;
+                            double colocacionMCP = 0;
+                            double mcIProd = Properties.Settings.Default.CantMiembrosIni;
+                            double mcProd = Properties.Settings.Default.CantMiembros;
+                            double mcHProd = Properties.Settings.Default.CantMiembrosH;
+                            double mcNProd = Properties.Settings.Default.CantMiembrosN;
+                            double mcBProd = Properties.Settings.Default.CantMiembrosB;
+                            double clientesMCPerm = 0;
+                            double mcHPerm = 0;
+                            double mcNPerm = 0;
+                            double mcBPerm = 0;
+                            double clientesMCPermT = 0;
+                            double mcHPermT = 0;
+                            double mcNPermT = 0;
+                            double mcBPermT = 0;
+                            //Variables para los bonos y comiciones
+                            double bonoA = 0;
+                            double bonoB = 0;
+                            double bonoC = 0;
+                            double bonoD = 0;
+                            double bonoE = 0;
+                            double bonoF = 0;
+                            double bonoG = 0;
+                            double comisionA1 = 0;
+                            double comisionA2 = 0;
+                            double comisionA3 = 0;
+                            double comisionB = 0;
+                            double c3mli = 0;
+                            double c6mli = 0;
+                            double c9mli = 0;
+                            double c3mlh = 0;
+                            double c6mlh = 0;
+                            double c9mlh = 0;
+                            double c3mln = 0;
+                            double c6mln = 0;
+                            double c9mln = 0;
 
                             //Obtiene los ingresos
                             foreach (DataRow dRow in dRowList)
@@ -530,37 +754,221 @@ namespace FlujoCreditosExpress
                                     capRecuperadoI += double.Parse(dRow["Capital"].ToString());
                                     intRecuperadoI += double.Parse(dRow["Interes"].ToString());
                                     carteraVigente++;
+
+                                    if (int.Parse(dRow["MontoCredito"].ToString()) <= Properties.Settings.Default.MontoCredito02)
+                                    {
+                                        capRecuperadoN += double.Parse(dRow["Capital"].ToString());
+                                        carteraVigenteN++;
+                                    }
+                                    else
+                                    {
+                                        capRecuperadoP += double.Parse(dRow["Capital"].ToString());
+                                        carteraVigenteP++;
+                                    }
                                 }
                             }
 
-                            capRecuperadoI = capRecuperadoI - (capRecuperadoI * perdidaE);
+                            clientesMCT = Math.Round((carteraVigente - distribuidoras) * (Properties.Settings.Default.ClientesMCP / 100));
+                            mcHT = Math.Round(clientesMCT * (Properties.Settings.Default.HijasP / 100));
+                            mcNT = Math.Round(clientesMCT * (Properties.Settings.Default.NietasP / 100));
+                            mcBT = Math.Round(clientesMCT * (Properties.Settings.Default.BisnietasP / 100));
+                            clientesMCPerm = Math.Round((clientes2Credito - dist2Credito) * (Properties.Settings.Default.CtesMCPPerm / 100));
+                            mcHPerm = Math.Round(clientesMCPerm * (Properties.Settings.Default.HijasPerm / 100));
+                            mcNPerm = Math.Round(clientesMCPerm * (Properties.Settings.Default.NietasPerm / 100));
+                            mcBPerm = Math.Round(clientesMCPerm * (Properties.Settings.Default.BisnietasPerm / 100));
+                            clientesMCPermT = Properties.Settings.Default.ClientesMCPerm;
+                            mcHPermT = Properties.Settings.Default.ClientesMCHPerm;
+                            mcNPermT = Properties.Settings.Default.ClientesMCNPerm;
+                            mcBPermT = Properties.Settings.Default.ClientesMCBPerm;
+                            c3mli = (mcHT / 3) < lideresIniciadoras ? 0 :
+                                lideresIniciadoras > 0 ? (lideresIniciadoras - (lideresIBonoB + lideresIProd)) : 0;
+                            c6mli = (mcHT / 6) < lideresIniciadoras ? 0 :
+                                lideresIniciadoras > 0 ? (lideresIniciadoras - (lideresIBonoC + lideresIProd)) : 0;
+                            c9mli = (mcHT / 9) < lideresIniciadoras ? 0 :
+                                lideresIniciadoras > 0 ? (lideresIniciadoras - (lideresIBonoC + lideresIProd)) : 0;
+                            c3mlh = (mcNT / 3) < lideresHijas ? 0 :
+                                lideresHijas > 0 ? (lideresHijas - (lideresHBonoB + lideresHProd)) : 0;
+                            c6mlh = (mcNT / 6) < lideresHijas ? 0 :
+                                lideresHijas > 0 ? (lideresHijas - (lideresHBonoC + lideresHProd)) : 0;
+                            c9mlh = (mcNT / 9) < lideresHijas ? 0 :
+                                lideresHijas > 0 ? (lideresHijas - (lideresHBonoC + lideresHProd)) : 0;
+                            c3mln = (mcBT / 3) < lideresNietas ? 0 :
+                                lideresNietas > 0 ? (lideresNietas - (lideresNBonoB + lideresNProd)) : 0;
+                            c6mln = (mcBT / 6) < lideresNietas ? 0 :
+                                lideresNietas > 0 ? (lideresNietas - (lideresNBonoC + lideresNProd)) : 0;
+                            c9mln = (mcBT / 9) < lideresNietas ? 0 :
+                                lideresNietas > 0 ? (lideresNietas - (lideresNBonoC + lideresNProd)) : 0;
+
+                            Properties.Settings.Default.LideresIBonoB += c3mli;
+                            Properties.Settings.Default.LideresIBonoC += c6mli;
+                            Properties.Settings.Default.LideresIBonoD += c9mli;
+                            Properties.Settings.Default.LideresHBonoB += c3mlh;
+                            Properties.Settings.Default.LideresHBonoC += c6mlh;
+                            Properties.Settings.Default.LideresHBonoD += c9mlh;
+                            Properties.Settings.Default.LideresNBonoB += c3mln;
+                            Properties.Settings.Default.LideresNBonoC += c6mln;
+                            Properties.Settings.Default.LideresNBonoD += c9mln;
+
+                            capRecuperadoMCN = carteraVigenteN == 0 ? 0 :
+                                ((clientesMCT * capRecuperadoN) / carteraVigenteN) * porCumplimientoPerc;
+                            capRecHMCN = clientesMCT == 0 ? 0 :
+                                (mcHT * capRecuperadoMCN) / clientesMCT;
+                            capRecNMCN = clientesMCT == 0 ? 0 :
+                                (mcNT * capRecuperadoMCN) / clientesMCT;
+                            capRecBMCN = clientesMCT == 0 ? 0 :
+                                (mcBT * capRecuperadoMCN) / clientesMCT;
+                            capRecuperadoMCP = carteraVigenteP == 0 ? 0 :
+                                ((clientesMCPermT * capRecuperadoP) / carteraVigenteP) * porCumplimientoPerc;
+                            capRecHMCP = clientesMCPermT == 0 ? 0 :
+                                (mcHPermT * capRecuperadoMCP) / clientesMCPermT;
+                            capRecNMCP = clientesMCPermT == 0 ? 0 :
+                                (mcNPermT * capRecuperadoMCP) / clientesMCPermT;
+                            capRecBMCP = clientesMCPermT == 0 ? 0 :
+                                (mcBPermT * capRecuperadoMCP) / clientesMCPermT;
+                            colocacionMCN = clientesNuevos == 0 ? 0 :
+                                (colocacionN * mcProd) / clientesNuevos;
+                            colocacionMCP = clientes2Credito == 0 ? 0 :
+                                (colocacionP * clientesMCPerm) / clientes2Credito;
+
+                            capRecuperadoI = capRecuperadoI - (capRecuperadoMCN + capRecuperadoMCP);
+                            capRecuperadoI = (capRecuperadoI - (capRecuperadoI * perdidaE)) +
+                               (capRecuperadoMCN + capRecuperadoMCP);
+                            capRecuperadoN = (capRecuperadoN - (capRecuperadoN * perdidaE)) +
+                               capRecuperadoMCN;
+                            capRecuperadoP = (capRecuperadoP - (capRecuperadoP * perdidaE)) +
+                               capRecuperadoMCP;
                             intRecuperadoI = intRecuperadoI - (intRecuperadoI * perdidaE);
                             ivaInteresI = ivaInteresI * intRecuperadoI;
                             seguroI = seguroI * carteraVigente;
                             comisionXAperturaI = comisionXAperturaI * colocacionE;
                             ingresoPROSAI = ingresoPROSAI * (clientesNuevos + clientes2Credito);
                             cobroXPlasticoI = cobroXPlasticoI * clientesNuevos;
-
+                            
                             //Obtiene los egresos
                             if (rBtnCapitalInteres.Checked)
                             {
-                                capitalProporcionalDist = (capRecuperadoI + intRecuperadoI + ivaInteresI + seguroI + comisionXAperturaI) * clientesDistP;
-                                comisionesDistE = capitalProporcionalDist * comisionesDistE;
+                                capitalProporcionalDist = 
+                                    (capRecuperadoI + intRecuperadoI + ivaInteresI + seguroI + comisionXAperturaI) * clientesDistP;
+                                comisionesE = capitalProporcionalDist * comisionesE;
                             }
                             else if (rBtnCapital.Checked)
                             {
                                 capitalProporcionalDist = (capRecuperadoI + seguroI + comisionXAperturaI) * clientesDistP;
-                                comisionesDistE = capitalProporcionalDist * comisionesDistE;
+                                comisionesE = capitalProporcionalDist * comisionesE;
                             }
                             gastosVarPROSAE = gastosVarPROSAE * clientesNuevos;
                             gastosVarZafyE = gastosVarZafyE * (capRecuperadoI + intRecuperadoI);
-                            gastosXOutSourcingE = gastosXOutSourcingE * comisionesDistE;
+                            gastosXISRE = ((gastosXISRE * comisionesE) * 1.16d) + (comisionesE * .16d);
                             bonosPremiosE = intRecuperadoI * bonosPremiosE;
                             retirosE = retirosE * (capRecuperadoI + intRecuperadoI);
 
-                            totalEntradas = Math.Ceiling(saldoInicial + apCapitalI + ivaInteresI + seguroI + comisionXAperturaI + ingresoPROSAI + cobroXPlasticoI + capRecuperadoI + intRecuperadoI);
-                            totalSalidas = Math.Ceiling(colocacionE + comisionesDistE + ivaInteresI + seguroI + gastosFijosPROSAE + gastosVarPROSAE + gastosFijosZafyE + gastosVarZafyE + gastosXPublicidadE + bonosPremiosE + retirosE);
+                            totalEntradas = 
+                                Math.Ceiling(saldoInicial + apCapitalI + ivaInteresI + seguroI + comisionXAperturaI + ingresoPROSAI + cobroXPlasticoI + capRecuperadoI + intRecuperadoI);
+                            totalSalidas = 
+                                Math.Ceiling(colocacionE + comisionesE + ivaInteresI + seguroI + gastosFijosPROSAE + gastosVarPROSAE + gastosFijosZafyE + gastosVarZafyE + gastosXPublicidadE + bonosPremiosE + retirosE);
                             saldoFinal = Math.Ceiling(totalEntradas - totalSalidas);
+
+                            //Obtiene los bonos y las comisiones
+                            
+                            bonoA = colocacionMCN * porColocacion;
+                            bonoB = mcProd == 0 ? 0 : 
+                                ((((c3mli * 3) * colocacionMCN) / mcProd) * porCrecimiento) +
+                                ((((c3mlh * 3) * colocacionMCN) / mcProd) * porCrecimiento) +
+                                ((((c3mln * 3) * colocacionMCN) / mcProd) * porCrecimiento);
+                            bonoC = mcProd == 0 ? 0 :
+                                ((((c6mli * 6) * colocacionMCN) / mcProd) * porCrecimiento) +
+                                ((((c6mlh * 6) * colocacionMCN) / mcProd) * porCrecimiento) +
+                                ((((c6mln * 6) * colocacionMCN) / mcProd) * porCrecimiento);
+                            bonoD = mcProd == 0 ? 0 :
+                                ((((c9mli * 9) * colocacionMCN) / mcProd) * porCompletarCelula) +
+                                ((((c9mlh * 9) * colocacionMCN) / mcProd) * porCompletarCelula) +
+                                ((((c9mln * 9) * colocacionMCN) / mcProd) * porCompletarCelula);
+                            bonoE = (capRecuperadoMCN + capRecuperadoMCP) * porCumplimiento;
+
+                            if ((periodoActual % 6) == 0)
+                            {
+                                Properties.Settings.Default.ColocacionAcumuladaMC += (colocacionMCN + colocacionMCP);
+                                Properties.Settings.Default.VolumenAcumuladoMC = clientesMCT;
+                                double colocacionAcumMC = Properties.Settings.Default.ColocacionAcumuladaMC;
+                                double volumenAcumMC = Properties.Settings.Default.VolumenAcumuladoMC;
+                                double colocacionAVal = 0;
+                                double volumenAVal = 0;
+                                double cantLideresCol = 0;
+                                double cantLideresVol = 0;
+
+                                //Valida el porcentaje por el volumen de colocación.
+                                if (colocacionAcumMC < porColocacionMontoMenor)
+                                {
+                                    colocacionAVal = porColocacionValorMenor;
+                                    cantLideresCol = Math.Truncate(colocacionAcumMC / porColocacionMontoMenor);
+                                }
+                                if (colocacionAcumMC >= porColocacionMontoDe && colocacionAcumMC <= porColocacionMontoHasta)
+                                {
+                                    colocacionAVal = porColocacionValorEntre;
+                                    cantLideresCol = Math.Truncate(colocacionAcumMC / porColocacionMontoHasta);
+                                }
+                                if (colocacionAcumMC > porColocacionMontoMayor)
+                                {
+                                    colocacionAVal = porColocacionValorMayor;
+                                    cantLideresCol = Math.Truncate(colocacionAcumMC / porColocacionMontoMayor);
+                                }
+                                //Valida el porcentaje por el volumen de miembros
+                                if (volumenAcumMC < porVolumenVolumMenor)
+                                {
+                                    volumenAVal = porVolumenValorMenor;
+                                    cantLideresVol = Math.Truncate(volumenAcumMC / porVolumenVolumMenor);
+                                }
+                                if (volumenAcumMC >= porVolumenVolumDe && volumenAcumMC <= porVolumenVolumHasta)
+                                {
+                                    volumenAVal = porVolumenValorEntre;
+                                    cantLideresVol = Math.Truncate(volumenAcumMC / porVolumenVolumHasta);
+                                }
+                                if (volumenAcumMC > porVolumenVolumMayor)
+                                {
+                                    volumenAVal = porVolumenValorMayor;
+                                    cantLideresVol = Math.Truncate(volumenAcumMC / porVolumenVolumMayor);
+                                }
+
+                                bonoF = colocacionAcumMC * colocacionAVal;
+                                bonoG = colocacionAcumMC * volumenAVal;
+                                Properties.Settings.Default.ColocacionAcumuladaMC = 0;
+                                Properties.Settings.Default.VolumenAcumuladoMC = 0;
+                            }
+                            else
+                            {
+                                Properties.Settings.Default.ColocacionAcumuladaMC += (colocacionMCN + colocacionMCP);
+                                Properties.Settings.Default.VolumenAcumuladoMC = clientesMCT;
+                            }
+
+                            comisionA1 =
+                                ((capRecHMCN + capRecHMCP) * pagoTiempoCN1Perc) * pagoTiempoCN1 +
+                                ((capRecHMCN + capRecHMCP) * pagoTardio1CN1Perc) * pagoTardio1CN1 +
+                                ((capRecHMCN + capRecHMCP) * pagoTardio2CN1Perc) * pagoTardio2CN1 +
+                                ((capRecHMCN + capRecHMCP) * pagoTardio3CN1Perc) * pagoTardio3CN1;
+                            comisionA2 =
+                                ((capRecNMCN + capRecNMCP) * pagoTiempoCN2Perc) * pagoTiempoCN2 +
+                                ((capRecNMCN + capRecNMCP) * pagoTardio1CN2Perc) * pagoTardio1CN2 +
+                                ((capRecNMCN + capRecNMCP) * pagoTardio2CN2Perc) * pagoTardio2CN2 +
+                                ((capRecNMCN + capRecNMCP) * pagoTardio3CN2Perc) * pagoTardio3CN2;
+                            comisionA3 =
+                                ((capRecBMCN + capRecBMCP) * pagoTiempoCN3Perc) * pagoTiempoCN3 +
+                                ((capRecBMCN + capRecBMCP) * pagoTardio1CN3Perc) * pagoTardio1CN3 +
+                                ((capRecBMCN + capRecBMCP) * pagoTardio2CN3Perc) * pagoTardio2CN3 +
+                                ((capRecBMCN + capRecBMCP) * pagoTardio3CN3Perc) * pagoTardio3CN3;
+
+                            comisionB =
+                                ((capitalProporcionalDist) * pagoProntoPerc) * pagoPronto +
+                                ((capitalProporcionalDist) * pagoTiempoPerc) * pagoTiempo +
+                                ((capitalProporcionalDist) * pagoTardio1Perc) * pagoTardio1 +
+                                ((capitalProporcionalDist) * pagoTardio2Perc) * pagoTardio2 +
+                                ((capitalProporcionalDist) * pagoTardio3Perc) * pagoTardio3;
+
+                            bonosPremiosE += (bonoA + bonoB + bonoC + bonoD + bonoE + bonoF + bonoG);
+                            comisionesE += (comisionA1 + comisionA2 + comisionA3 + comisionB);
+
+                            bonosPremiosE = bonosPremiosE > 0 ? bonosPremiosE : 0;
+                            comisionesE = comisionesE > 0 ? comisionesE : 0;
+
                             flujoData = new ArrayList();
                             flujoData.Add(saldoInicial);        //00
                             flujoData.Add(apCapitalI);          //01
@@ -574,7 +982,7 @@ namespace FlujoCreditosExpress
                             flujoData.Add(totalEntradas);       //09
                             flujoData.Add(string.Empty);        //10
                             flujoData.Add(colocacionE);         //11
-                            flujoData.Add(comisionesDistE);     //12
+                            flujoData.Add(comisionesE);         //12
                             flujoData.Add(ivaInteresI);         //13
                             flujoData.Add(seguroI);             //14
                             flujoData.Add(gastosFijosPROSAE);   //15
@@ -582,13 +990,14 @@ namespace FlujoCreditosExpress
                             flujoData.Add(gastosFijosZafyE);    //17
                             flujoData.Add(gastosVarZafyE);      //18
                             flujoData.Add(gastosXPublicidadE);  //19
-                            flujoData.Add(gastosXOutSourcingE); //20
+                            flujoData.Add(gastosXISRE); //20
                             flujoData.Add(bonosPremiosE);       //21
                             flujoData.Add(retirosE);            //22
                             flujoData.Add(totalSalidas);        //23
                             flujoData.Add(string.Empty);        //24
                             flujoData.Add(saldoFinal);          //25
 
+                            
                             //Llena la tabla con los titulos
                             if (periodoActual == 1 && dgvFlujoT.Rows.Count == 0)
                             {
@@ -654,7 +1063,7 @@ namespace FlujoCreditosExpress
                                 this.cobroXplasticoITotal += cobroXPlasticoI;
                                 this.totalEntradasTotal += totalEntradas;
                                 this.colocacionETotal += colocacionE;
-                                this.comisionesDistETotal += comisionesDistE;
+                                this.comisionesDistETotal += comisionesE;
                                 this.ivaInteresETotal += ivaInteresI;
                                 this.seguroETotal += seguroETotal;
                                 this.gastosFijosPROSAETotal += gastosFijosPROSAE;
@@ -662,7 +1071,7 @@ namespace FlujoCreditosExpress
                                 this.gastosFijosZafyETotal += gastosFijosZafyE;
                                 this.gastosVarZafyETotal += gastosVarZafyE;
                                 this.gastosXPublicidadETotal += gastosXPublicidadE;
-                                this.gastosXOutSourcingETotal += gastosXOutSourcingE;
+                                this.gastosXOutSourcingETotal += gastosXISRE;
                                 this.bonosPremiosETotal += bonosPremiosE;
                                 this.retirosETotal += retirosE;
                                 this.totalSalidasTotal += totalSalidas;
@@ -1258,12 +1667,14 @@ namespace FlujoCreditosExpress
                         cantidadLC = Math.Truncate(creditosPros * prosLC * lideLC);
                         Properties.Settings.Default.CantIniciadoras += cantidadLC;
                         Properties.Settings.Default.ProsLIAnt = creditosPros - cantidadLC;
+                        Properties.Settings.Default.LideresIProd = cantidadLC;
                     }
                     else
                     {
                         //cálcula la creación de miembros de célula
                         cantidadMiembros = Math.Truncate(creditosPros * prosLC * lideLC);
                         Properties.Settings.Default.ProsLIAnt = creditosPros - cantidadMiembros;
+                        Properties.Settings.Default.CantMiembrosIni = cantidadMiembros;
                     }
 
                     //Genera miembros de célula hijos
@@ -1283,6 +1694,7 @@ namespace FlujoCreditosExpress
                     cantidadLideresMCH = Math.Truncate(cantidadMiembrosH * prosLC * lideLC);
                     Properties.Settings.Default.CantLideresH += cantidadLideresMCH;
                     Properties.Settings.Default.ProsLHAnt = cantidadMiembrosH - cantidadLideresMCH;
+                    Properties.Settings.Default.LideresHProd = cantidadLideresMCH;
                     //Genera miembros de célula nietos
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel2MC) * 2;
                     cantidadMCN += (Properties.Settings.Default.CantLideresH * probTamCel3MC) * 3;
@@ -1300,6 +1712,7 @@ namespace FlujoCreditosExpress
                     cantidadLideresMCN = Math.Truncate(cantidadMiembrosN * prosLC * lideLC);
                     Properties.Settings.Default.CantLideresN += cantidadLideresMCN;
                     Properties.Settings.Default.ProsLNAnt = cantidadMiembrosN - cantidadLideresMCN;
+                    Properties.Settings.Default.LideresNProd = cantidadLideresMCN;
                     //Genera miembros de célula bisnietos
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel2MC) * 2;
                     cantidadMCB += (Properties.Settings.Default.CantLideresN * probTamCel3MC) * 3;
@@ -1454,7 +1867,8 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCHP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.HijasP > 0 ? Properties.Settings.Default.HijasP : 0;
+                    tConfiguracionesRow["Valor"] = 
+                        Properties.Settings.Default.HijasP > 0 ? Properties.Settings.Default.HijasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1470,7 +1884,8 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCNP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.NietasP > 0 ? Properties.Settings.Default.NietasP : 0;
+                    tConfiguracionesRow["Valor"] = 
+                        Properties.Settings.Default.NietasP > 0 ? Properties.Settings.Default.NietasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1486,7 +1901,8 @@ namespace FlujoCreditosExpress
                     tConfiguracionesRow["Id"] = configId;
                     tConfiguracionesRow["SesionId"] = Properties.Settings.Default.SessionId.ToString().Trim();
                     tConfiguracionesRow["Campo"] = "CtesMCBP";
-                    tConfiguracionesRow["Valor"] = Properties.Settings.Default.BisnietasP > 0 ? Properties.Settings.Default.BisnietasP : 0;
+                    tConfiguracionesRow["Valor"] = 
+                        Properties.Settings.Default.BisnietasP > 0 ? Properties.Settings.Default.BisnietasP : 0;
                     tConfiguracionesRow["TipoDato"] =
                         "P" +
                         (Properties.Settings.Default.PeriodoActual > 0 ?
@@ -1503,21 +1919,20 @@ namespace FlujoCreditosExpress
                     {
                         result = t_ConfiguracionesTableAdapter.UpdateTConfiguracion(
                             int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
-                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
+                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), 
+                            short.Parse(dr["Estatus"].ToString()));
 
                         if (result == 0)
                         {
                             result = t_ConfiguracionesTableAdapter.InsertTConfiguracion(
                             int.Parse(dr["Id"].ToString()), int.Parse(dr["SesionId"].ToString()),
-                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), short.Parse(dr["Estatus"].ToString()));
+                            dr["Campo"].ToString(), dr["Valor"].ToString(), dr["TipoDato"].ToString(), 
+                            short.Parse(dr["Estatus"].ToString()));
                         }
-
                         result = 0;
                     }
-
                     flujoDBDataSet.AcceptChanges();
                 }
-
                 //Guarda las proporciones de clientes producidos para el primero período.
                 if (periodoActual == 1)
                 {
@@ -1525,17 +1940,16 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.CtesMMPProd = (cantidadMM / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.CtesCZPProd = (cantidadCZ / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.CtesMCPProd = (cantidadMCH / (cantCtes - cantD)) * 100;
-
                     Properties.Settings.Default.ClientesDistP = (cantidadD / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.ClientesMMP = (cantidadMM / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.ClientesZafyP = (cantidadCZ / (cantCtes - cantD)) * 100;
                     Properties.Settings.Default.ClientesMCP = (cantidadMCH / (cantCtes - cantD)) * 100;
                 }
-                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "Error");
+                MessageBox.Show(ex.Message.ToString(), 
+                    "Error en la producción de clientes");
             }
         }
 
@@ -1545,34 +1959,33 @@ namespace FlujoCreditosExpress
         private void GetFlujoDataTitles()
         {
             flujoTitulos = new ArrayList();
-            flujoTitulos.Add("+ Saldo Inicial");        //00
-            flujoTitulos.Add("+ Aportación");           //01
-            flujoTitulos.Add("+ Capital Recuperado");   //02
-            flujoTitulos.Add("+ Interés Recuperado");   //03
-            flujoTitulos.Add("+ IVA del Interés");      //04
-            flujoTitulos.Add("+ Seguro");               //05
-            flujoTitulos.Add("+ Comisión por Apertura");//06
-            flujoTitulos.Add("+ Ingreso PROSA");        //07
-            flujoTitulos.Add("+ Cobro por Plastico");   //08
-            flujoTitulos.Add("Total Entradas =");       //09
-            flujoTitulos.Add(string.Empty);             //10
-            flujoTitulos.Add("- Colocación");           //11
-            flujoTitulos.Add("- Comisiones Dist.");     //12
-            flujoTitulos.Add("- IVA del Interés");      //13
-            flujoTitulos.Add("- Seguro");               //14
-            flujoTitulos.Add("- Gastos Fijos PROSA");   //15
-            flujoTitulos.Add("- Gastos Var PROSA");     //16
-            flujoTitulos.Add("- Gastos Fijos Zafy");    //17
-            flujoTitulos.Add("- Gastos Var Zafy");      //18
-            flujoTitulos.Add("- Gastos por Publicidad");//19
-            flujoTitulos.Add("- Gastos por OutSourcing");//20
-            flujoTitulos.Add("- Premios y Bonos");      //21           
-            flujoTitulos.Add("- Retiros");              //22
-            flujoTitulos.Add("Total Salidas =");        //23
-            flujoTitulos.Add(string.Empty);             //24
-            flujoTitulos.Add("Saldo Final");            //25
+            flujoTitulos.Add("+ Saldo Inicial");            //00
+            flujoTitulos.Add("+ Aportación");               //01
+            flujoTitulos.Add("+ Capital Recuperado");       //02
+            flujoTitulos.Add("+ Interés Recuperado");       //03
+            flujoTitulos.Add("+ IVA del Interés");          //04
+            flujoTitulos.Add("+ Seguro");                   //05
+            flujoTitulos.Add("+ Comisión por Apertura");    //06
+            flujoTitulos.Add("+ Ingreso PROSA");            //07
+            flujoTitulos.Add("+ Cobro por Plastico");       //08
+            flujoTitulos.Add("Total Entradas =");           //09
+            flujoTitulos.Add(string.Empty);                 //10
+            flujoTitulos.Add("- Colocación");               //11
+            flujoTitulos.Add("- Comisiones");               //12
+            flujoTitulos.Add("- IVA del Interés");          //13
+            flujoTitulos.Add("- Seguro");                   //14
+            flujoTitulos.Add("- Gastos Fijos PROSA");       //15
+            flujoTitulos.Add("- Gastos Var PROSA");         //16
+            flujoTitulos.Add("- Gastos Fijos Zafy");        //17
+            flujoTitulos.Add("- Gastos Var Zafy");          //18
+            flujoTitulos.Add("- Gastos por Publicidad");    //19
+            flujoTitulos.Add("- Gastos por ISR");           //20
+            flujoTitulos.Add("- Bonos y Premios");          //21           
+            flujoTitulos.Add("- Retiros");                  //22
+            flujoTitulos.Add("Total Salidas =");            //23
+            flujoTitulos.Add(string.Empty);                 //24
+            flujoTitulos.Add("Saldo Final");                //25
         }
-
         #endregion
 
         #region Métodos de Validación
@@ -1585,8 +1998,9 @@ namespace FlujoCreditosExpress
         public void checkNumbers(object sender, KeyPressEventArgs e)
         {
             TextBox txtB = (TextBox)sender;
-            
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != 46)
+            if (!char.IsControl(e.KeyChar) && 
+                !char.IsDigit(e.KeyChar) && 
+                e.KeyChar != 46)
             {
                 e.Handled = true;
             }
@@ -1602,18 +2016,14 @@ namespace FlujoCreditosExpress
             if(sender is TextBox)
             {
                 TextBox txtB = (TextBox)sender;
-
                 if (txtB.Text == "")
                 {
                     ValidaCampo(this, txtB);
                 }
-
-                
             }
             else if (sender is NumericUpDown)
             {
                 NumericUpDown txtB = (NumericUpDown)sender;
-
                 if (txtB.Text == "")
                 {
                     txtB.Text = "4";
@@ -1638,7 +2048,9 @@ namespace FlujoCreditosExpress
                         break;
                     }
                 }
-                else if (control is TabControl || control is TabPage || control is GroupBox)
+                else if (control is TabControl || 
+                    control is TabPage || 
+                    control is GroupBox)
                 {
                     ValidaCampo(control, txtB);
                 }
@@ -1669,7 +2081,7 @@ namespace FlujoCreditosExpress
         private string GetMonthName(int month)
         {
             string monthName = string.Empty;
-
+            
             switch (month)
             {
                 case 1:
@@ -1858,9 +2270,63 @@ namespace FlujoCreditosExpress
             Properties.Settings.Default.GastosFijosZafyE = double.Parse(txtGastosFijosZafyE.Text);
             Properties.Settings.Default.GastosVarZafyE = double.Parse(txtGastosVarZafyE.Text);
             Properties.Settings.Default.GastosXPublicidadE = double.Parse(txtGastosXPublicidadE.Text);
-            Properties.Settings.Default.GastosXOutSourcingE = double.Parse(txtGastosXOutSourcingE.Text);
+            Properties.Settings.Default.LimiteXISRE = double.Parse(txtLimiteXISRE.Text);
             Properties.Settings.Default.BonosPremiosE = double.Parse(txtBonosPremiosE.Text);
             Properties.Settings.Default.RetirosE = double.Parse(txtRetirosE.Text);
+
+            Properties.Settings.Default.PagoPronto = double.Parse(txtPagoProntoVal.Text);
+            Properties.Settings.Default.PagoTiempo = double.Parse(txtPagoTiempoVal.Text);
+            Properties.Settings.Default.PagoTardio1 = double.Parse(txtPagoTardio1Val.Text);
+            Properties.Settings.Default.PagoTardio2 = double.Parse(txtPagoTardio2Val.Text);
+            Properties.Settings.Default.PagoTardio3 = double.Parse(txtPagoTardio3Val.Text);
+            Properties.Settings.Default.PagoProntoPerc = double.Parse(txtDistPagoProntoPerc.Text);
+            Properties.Settings.Default.PagoTiempoPerc = double.Parse(txtDistPagoTiempoPerc.Text);
+            Properties.Settings.Default.PagoTardio1Perc = double.Parse(txtDistPagoTardio1Perc.Text);
+            Properties.Settings.Default.PagoTardio2Perc = double.Parse(txtDistPagoTardio2Perc.Text);
+            Properties.Settings.Default.PagoTardio3Perc = double.Parse(txtDistPagoTardio3Perc.Text);
+            Properties.Settings.Default.PagoTiempoCN1 = double.Parse(txtPagoTiempoCN1Val.Text);
+            Properties.Settings.Default.PagoTiempoCN2 = double.Parse(txtPagoTiempoCN2Val.Text);
+            Properties.Settings.Default.PagoTiempoCN3 = double.Parse(txtPagoTiempoCN3Val.Text);
+            Properties.Settings.Default.PagoTardio1CN1 = double.Parse(txtPagoTardio1CN1Val.Text);
+            Properties.Settings.Default.PagoTardio1CN2 = double.Parse(txtPagoTardio1CN2Val.Text);
+            Properties.Settings.Default.PagoTardio1CN3 = double.Parse(txtPagoTardio1CN3Val.Text);
+            Properties.Settings.Default.PagoTardio2CN1 = double.Parse(txtPagoTardio2CN1Val.Text);
+            Properties.Settings.Default.PagoTardio2CN2 = double.Parse(txtPagoTardio2CN2Val.Text);
+            Properties.Settings.Default.PagoTardio2CN3 = double.Parse(txtPagoTardio2CN3Val.Text);
+            Properties.Settings.Default.PagoTardio3CN1 = double.Parse(txtPagoTardio3CN1Val.Text);
+            Properties.Settings.Default.PagoTardio3CN2 = double.Parse(txtPagoTardio3CN2Val.Text);
+            Properties.Settings.Default.PagoTardio3CN3 = double.Parse(txtPagoTardio3CN3Val.Text);
+            Properties.Settings.Default.PorColocacion = double.Parse(txtPorColocacionVal.Text);
+            Properties.Settings.Default.PagoTiempoCN1Perc = double.Parse(txtN1PagoTiempoCN1Perc.Text);
+            Properties.Settings.Default.PagoTiempoCN2Perc = double.Parse(txtN2PagoTiempoCN2Perc.Text);
+            Properties.Settings.Default.PagoTiempoCN3Perc = double.Parse(txtN3PagoTiempoCN3Perc.Text);
+            Properties.Settings.Default.PagoTardio1CN1Perc = double.Parse(txtN1PagoTardio1CN1Perc.Text);
+            Properties.Settings.Default.PagoTardio1CN2Perc = double.Parse(txtN2PagoTardio1CN2Perc.Text);
+            Properties.Settings.Default.PagoTardio1CN3Perc = double.Parse(txtN3PagoTardio1CN3Perc.Text);
+            Properties.Settings.Default.PagoTardio2CN1Perc = double.Parse(txtN1PagoTardio2CN1Perc.Text);
+            Properties.Settings.Default.PagoTardio2CN2Perc = double.Parse(txtN2PagoTardio2CN2Perc.Text);
+            Properties.Settings.Default.PagoTardio2CN3Perc = double.Parse(txtN3PagoTardio2CN3Perc.Text);
+            Properties.Settings.Default.PagoTardio3CN1Perc = double.Parse(txtN1PagoTardio3CN1Perc.Text);
+            Properties.Settings.Default.PagoTardio3CN2Perc = double.Parse(txtN2PagoTardio3CN2Perc.Text);
+            Properties.Settings.Default.PagoTardio3CN3Perc = double.Parse(txtN3PagoTardio3CN3Perc.Text);
+            Properties.Settings.Default.PorCumplimiento = double.Parse(txtPorCumplimientoVal.Text);
+            Properties.Settings.Default.PorCumplimientoPerc = double.Parse(txtPorCumplimientoPerc.Text);
+            Properties.Settings.Default.PorCrecimiento = double.Parse(txtPorCrecimientoVal.Text);
+            Properties.Settings.Default.PorCompletarCelula = double.Parse(txtPorCompletarCelulaVal.Text);
+            Properties.Settings.Default.PorColocacionValorMenor = double.Parse(txtPorVolumenColocadoValorMenor.Text);
+            Properties.Settings.Default.PorColocacionMontoMenor = double.Parse(txtPorVolumenColocadoMontoMenor.Text);
+            Properties.Settings.Default.PorColocacionValorEntre = double.Parse(txtPorVolumenMiembrosValorEntre.Text);
+            Properties.Settings.Default.PorColocacionMontoDe = double.Parse(txtPorVolumenColocadoMontoDe.Text);
+            Properties.Settings.Default.PorColocacionMontoHasta = double.Parse(txtPorVolumenColocadoMontoHasta.Text);
+            Properties.Settings.Default.PorColocacionValorMayor = double.Parse(txtPorVolumenMiembrosValorMayor.Text);
+            Properties.Settings.Default.PorColocacionMontoMayor = double.Parse(txtPorVolumenColocadoMontoMayor.Text);
+            Properties.Settings.Default.PorVolumenValorMenor = double.Parse(txtPorVolumenMiembrosValorMenor.Text);
+            Properties.Settings.Default.PorVolumenVolumenMenor = double.Parse(txtPorVolumenMiembrosVolumenMenor.Text);
+            Properties.Settings.Default.PorVolumenValorEntre = double.Parse(txtPorVolumenMiembrosValorEntre.Text);
+            Properties.Settings.Default.PorVolumenVolumenDe = double.Parse(txtPorVolumenMiembrosVolumenDe.Text);
+            Properties.Settings.Default.PorVolumenVolumenHasta = double.Parse(txtPorVolumenMiembrosVolumenHasta.Text);
+            Properties.Settings.Default.PorVolumenValorMayor = double.Parse(txtPorVolumenMiembrosValorMayor.Text);
+            Properties.Settings.Default.PorVolumenVolumenMayor = double.Parse(txtPorVolumenMiembrosVolumenMayor.Text);
         }
 
         /// <summary>
@@ -1974,9 +2440,63 @@ namespace FlujoCreditosExpress
             txtGastosFijosZafyE.Text = Properties.Settings.Default.GastosFijosZafyE.ToString();
             txtGastosVarZafyE.Text = Properties.Settings.Default.GastosVarZafyE.ToString();
             txtGastosXPublicidadE.Text = Properties.Settings.Default.GastosXPublicidadE.ToString();
-            txtGastosXOutSourcingE.Text = Properties.Settings.Default.GastosXOutSourcingE.ToString();
+            txtLimiteXISRE.Text = Properties.Settings.Default.LimiteXISRE.ToString();
             txtBonosPremiosE.Text = Properties.Settings.Default.BonosPremiosE.ToString();
             txtRetirosE.Text = Properties.Settings.Default.RetirosE.ToString();
+
+            txtPagoProntoVal.Text = Properties.Settings.Default.PagoPronto.ToString();
+            txtPagoTiempoVal.Text = Properties.Settings.Default.PagoTiempo.ToString();
+            txtPagoTardio1Val.Text = Properties.Settings.Default.PagoTardio1.ToString();
+            txtPagoTardio2Val.Text = Properties.Settings.Default.PagoTardio2.ToString();
+            txtPagoTardio3Val.Text = Properties.Settings.Default.PagoTardio3.ToString();
+            txtDistPagoProntoPerc.Text = Properties.Settings.Default.PagoProntoPerc.ToString();
+            txtDistPagoTiempoPerc.Text = Properties.Settings.Default.PagoTiempoPerc.ToString();
+            txtDistPagoTardio1Perc.Text = Properties.Settings.Default.PagoTardio1Perc.ToString();
+            txtDistPagoTardio2Perc.Text = Properties.Settings.Default.PagoTardio2Perc.ToString();
+            txtDistPagoTardio3Perc.Text = Properties.Settings.Default.PagoTardio3Perc.ToString();
+            txtPagoTiempoCN1Val.Text = Properties.Settings.Default.PagoTiempoCN1.ToString();
+            txtPagoTiempoCN2Val.Text = Properties.Settings.Default.PagoTiempoCN2.ToString();
+            txtPagoTiempoCN3Val.Text = Properties.Settings.Default.PagoTiempoCN3.ToString();
+            txtPagoTardio1CN1Val.Text = Properties.Settings.Default.PagoTardio1CN1.ToString();
+            txtPagoTardio1CN2Val.Text = Properties.Settings.Default.PagoTardio1CN2.ToString();
+            txtPagoTardio1CN3Val.Text = Properties.Settings.Default.PagoTardio1CN3.ToString();
+            txtPagoTardio2CN1Val.Text = Properties.Settings.Default.PagoTardio2CN1.ToString();
+            txtPagoTardio2CN2Val.Text = Properties.Settings.Default.PagoTardio2CN2.ToString();
+            txtPagoTardio2CN3Val.Text = Properties.Settings.Default.PagoTardio2CN3.ToString();
+            txtPagoTardio3CN1Val.Text = Properties.Settings.Default.PagoTardio3CN1.ToString();
+            txtPagoTardio3CN2Val.Text = Properties.Settings.Default.PagoTardio3CN2.ToString();
+            txtPagoTardio3CN3Val.Text = Properties.Settings.Default.PagoTardio3CN3.ToString();
+            txtPorColocacionVal.Text = Properties.Settings.Default.PorColocacion.ToString();
+            txtN1PagoTiempoCN1Perc.Text = Properties.Settings.Default.PagoTiempoCN1Perc.ToString();
+            txtN2PagoTiempoCN2Perc.Text = Properties.Settings.Default.PagoTiempoCN2Perc.ToString();
+            txtN3PagoTiempoCN3Perc.Text = Properties.Settings.Default.PagoTiempoCN3Perc.ToString();
+            txtN1PagoTardio1CN1Perc.Text = Properties.Settings.Default.PagoTardio1CN1Perc.ToString();
+            txtN2PagoTardio1CN2Perc.Text = Properties.Settings.Default.PagoTardio1CN2Perc.ToString();
+            txtN3PagoTardio1CN3Perc.Text = Properties.Settings.Default.PagoTardio1CN3Perc.ToString();
+            txtN1PagoTardio2CN1Perc.Text = Properties.Settings.Default.PagoTardio2CN1Perc.ToString();
+            txtN2PagoTardio2CN2Perc.Text = Properties.Settings.Default.PagoTardio2CN2Perc.ToString();
+            txtN3PagoTardio2CN3Perc.Text = Properties.Settings.Default.PagoTardio2CN3Perc.ToString();
+            txtN1PagoTardio3CN1Perc.Text = Properties.Settings.Default.PagoTardio3CN1Perc.ToString();
+            txtN2PagoTardio3CN2Perc.Text = Properties.Settings.Default.PagoTardio3CN2Perc.ToString();
+            txtN3PagoTardio3CN3Perc.Text = Properties.Settings.Default.PagoTardio3CN3Perc.ToString();
+            txtPorCumplimientoVal.Text = Properties.Settings.Default.PorCumplimiento.ToString();
+            txtPorCumplimientoPerc.Text = Properties.Settings.Default.PorCumplimientoPerc.ToString();
+            txtPorCrecimientoVal.Text = Properties.Settings.Default.PorCrecimiento.ToString();
+            txtPorCompletarCelulaVal.Text = Properties.Settings.Default.PorCompletarCelula.ToString();
+            txtPorVolumenColocadoValorMenor.Text = Properties.Settings.Default.PorColocacionValorMenor.ToString();
+            txtPorVolumenColocadoMontoMenor.Text = Properties.Settings.Default.PorColocacionMontoMenor.ToString();
+            txtPorVolumenMiembrosValorEntre.Text = Properties.Settings.Default.PorColocacionValorEntre.ToString();
+            txtPorVolumenColocadoMontoDe.Text = Properties.Settings.Default.PorColocacionMontoDe.ToString();
+            txtPorVolumenColocadoMontoHasta.Text = Properties.Settings.Default.PorColocacionMontoHasta.ToString();
+            txtPorVolumenMiembrosValorMayor.Text = Properties.Settings.Default.PorColocacionValorMayor.ToString();
+            txtPorVolumenColocadoMontoMayor.Text = Properties.Settings.Default.PorColocacionMontoMayor.ToString();
+            txtPorVolumenMiembrosValorMenor.Text = Properties.Settings.Default.PorVolumenValorMenor.ToString();
+            txtPorVolumenMiembrosVolumenMenor.Text = Properties.Settings.Default.PorVolumenVolumenMenor.ToString();
+            txtPorVolumenMiembrosValorEntre.Text = Properties.Settings.Default.PorVolumenValorEntre.ToString();
+            txtPorVolumenMiembrosVolumenDe.Text = Properties.Settings.Default.PorVolumenVolumenDe.ToString();
+            txtPorVolumenMiembrosVolumenHasta.Text = Properties.Settings.Default.PorVolumenVolumenHasta.ToString();
+            txtPorVolumenMiembrosValorMayor.Text = Properties.Settings.Default.PorVolumenValorMayor.ToString();
+            txtPorVolumenMiembrosVolumenMayor.Text = Properties.Settings.Default.PorVolumenVolumenMayor.ToString();
         }
         
         /// <summary>
@@ -2007,12 +2527,23 @@ namespace FlujoCreditosExpress
         /// <param name="e">Los eventos</param>
         private void btnLoadDefaults_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("¿Desea cargar los valores iniciales?", "Restaurar configuración", MessageBoxButtons.YesNo))
+            if (periodoActual > 1)
             {
-                Properties.Settings.Default.Reset();
-                Properties.Settings.Default.SessionId = sesionId;
-                Properties.Settings.Default.Save();
-                this.GetProperties();
+                MessageBox.Show(
+                    "No se puede restaurar la configuración hasta terminar el "
+                    + "flujo actual", "Configuración no restaurada");
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show(
+                    "¿Desea cargar los valores iniciales?", 
+                    "Restaurar configuración", MessageBoxButtons.YesNo))
+                {
+                    Properties.Settings.Default.Reset();
+                    Properties.Settings.Default.SessionId = sesionId;
+                    Properties.Settings.Default.Save();
+                    this.GetProperties();
+                }
             }
         }
 
@@ -2036,14 +2567,17 @@ namespace FlujoCreditosExpress
         /// </summary>
         /// <param name="sender">El objeto que llama la función</param>
         /// <param name="e">Los eventos</param>
-        private void dgvFlujoT_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvFlujoT_CellClick(object sender, 
+            DataGridViewCellEventArgs e)
         {
             for (int i = 0; i < dgvFlujoT.Rows.Count; i++)
             {
                 if (e.ColumnIndex > 0)
                 {
-                    dgvFlujo.Rows[i].Selected = dgvFlujoT.Rows[i].Cells[e.ColumnIndex].Selected;
-                    dgvFlujoP.Rows[i].Selected = dgvFlujoT.Rows[i].Cells[e.ColumnIndex].Selected;
+                    dgvFlujo.Rows[i].Selected = 
+                        dgvFlujoT.Rows[i].Cells[e.ColumnIndex].Selected;
+                    dgvFlujoP.Rows[i].Selected = 
+                        dgvFlujoT.Rows[i].Cells[e.ColumnIndex].Selected;
                 }
             }
         }
@@ -2058,7 +2592,6 @@ namespace FlujoCreditosExpress
             txtSeguroI.Select();
         }
 
-        
         /// <summary>
         /// Activa o desactiva la función para agregar a las distribuidoras
         /// </summary>
@@ -2079,15 +2612,25 @@ namespace FlujoCreditosExpress
                 btnInscribirDistribuidoras.Text = "O";
             }
         }
-
-        #endregion
-
+        
+        /// <summary>
+        /// Muestra los detalles de la cartera actual
+        /// </summary>
+        /// <param name="sender">El objeto que llama la función</param>
+        /// <param name="e">Los eventos</param>
         private void btnDetalle_Click(object sender, EventArgs e)
         {
             FormDetalle frmDetalle = new FormDetalle();
             frmDetalle.StartPosition = FormStartPosition.CenterScreen;
             frmDetalle.ShowDialog();
         }
-    }
+        #endregion
 
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            Impresor impresor = new Impresor();
+
+            impresor.CreatePDFNoTemplate();
+        }
+    }
 }

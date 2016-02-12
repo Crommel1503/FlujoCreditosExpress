@@ -1572,18 +1572,6 @@ namespace FlujoCreditosExpress.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public double GastosXOutSourcingE {
-            get {
-                return ((double)(this["GastosXOutSourcingE"]));
-            }
-            set {
-                this["GastosXOutSourcingE"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int LastIdCliente {
             get {
@@ -2203,6 +2191,918 @@ namespace FlujoCreditosExpress.Properties {
             }
             set {
                 this["IsConfigMod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public double PagoPronto {
+            get {
+                return ((double)(this["PagoPronto"]));
+            }
+            set {
+                this["PagoPronto"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public double PagoTiempo {
+            get {
+                return ((double)(this["PagoTiempo"]));
+            }
+            set {
+                this["PagoTiempo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public double PagoTardio1 {
+            get {
+                return ((double)(this["PagoTardio1"]));
+            }
+            set {
+                this["PagoTardio1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public double PagoTardio2 {
+            get {
+                return ((double)(this["PagoTardio2"]));
+            }
+            set {
+                this["PagoTardio2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public double PagoTardio3 {
+            get {
+                return ((double)(this["PagoTardio3"]));
+            }
+            set {
+                this["PagoTardio3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoProntoPerc {
+            get {
+                return ((double)(this["PagoProntoPerc"]));
+            }
+            set {
+                this["PagoProntoPerc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoPerc {
+            get {
+                return ((double)(this["PagoTiempoPerc"]));
+            }
+            set {
+                this["PagoTiempoPerc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1Perc {
+            get {
+                return ((double)(this["PagoTardio1Perc"]));
+            }
+            set {
+                this["PagoTardio1Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2Perc {
+            get {
+                return ((double)(this["PagoTardio2Perc"]));
+            }
+            set {
+                this["PagoTardio2Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3Perc {
+            get {
+                return ((double)(this["PagoTardio3Perc"]));
+            }
+            set {
+                this["PagoTardio3Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN1 {
+            get {
+                return ((double)(this["PagoTiempoCN1"]));
+            }
+            set {
+                this["PagoTiempoCN1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN2 {
+            get {
+                return ((double)(this["PagoTiempoCN2"]));
+            }
+            set {
+                this["PagoTiempoCN2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN3 {
+            get {
+                return ((double)(this["PagoTiempoCN3"]));
+            }
+            set {
+                this["PagoTiempoCN3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN1 {
+            get {
+                return ((double)(this["PagoTardio1CN1"]));
+            }
+            set {
+                this["PagoTardio1CN1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN2 {
+            get {
+                return ((double)(this["PagoTardio1CN2"]));
+            }
+            set {
+                this["PagoTardio1CN2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN3 {
+            get {
+                return ((double)(this["PagoTardio1CN3"]));
+            }
+            set {
+                this["PagoTardio1CN3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN1 {
+            get {
+                return ((double)(this["PagoTardio2CN1"]));
+            }
+            set {
+                this["PagoTardio2CN1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN2 {
+            get {
+                return ((double)(this["PagoTardio2CN2"]));
+            }
+            set {
+                this["PagoTardio2CN2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN3 {
+            get {
+                return ((double)(this["PagoTardio2CN3"]));
+            }
+            set {
+                this["PagoTardio2CN3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PorColocacion {
+            get {
+                return ((double)(this["PorColocacion"]));
+            }
+            set {
+                this["PorColocacion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN1Perc {
+            get {
+                return ((double)(this["PagoTiempoCN1Perc"]));
+            }
+            set {
+                this["PagoTiempoCN1Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN2Perc {
+            get {
+                return ((double)(this["PagoTiempoCN2Perc"]));
+            }
+            set {
+                this["PagoTiempoCN2Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTiempoCN3Perc {
+            get {
+                return ((double)(this["PagoTiempoCN3Perc"]));
+            }
+            set {
+                this["PagoTiempoCN3Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN1Perc {
+            get {
+                return ((double)(this["PagoTardio1CN1Perc"]));
+            }
+            set {
+                this["PagoTardio1CN1Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN2Perc {
+            get {
+                return ((double)(this["PagoTardio1CN2Perc"]));
+            }
+            set {
+                this["PagoTardio1CN2Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio1CN3Perc {
+            get {
+                return ((double)(this["PagoTardio1CN3Perc"]));
+            }
+            set {
+                this["PagoTardio1CN3Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN1Perc {
+            get {
+                return ((double)(this["PagoTardio2CN1Perc"]));
+            }
+            set {
+                this["PagoTardio2CN1Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN2Perc {
+            get {
+                return ((double)(this["PagoTardio2CN2Perc"]));
+            }
+            set {
+                this["PagoTardio2CN2Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio2CN3Perc {
+            get {
+                return ((double)(this["PagoTardio2CN3Perc"]));
+            }
+            set {
+                this["PagoTardio2CN3Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public double PorCumplimiento {
+            get {
+                return ((double)(this["PorCumplimiento"]));
+            }
+            set {
+                this["PorCumplimiento"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double PorCrecimiento {
+            get {
+                return ((double)(this["PorCrecimiento"]));
+            }
+            set {
+                this["PorCrecimiento"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public double PorCompletarCelula {
+            get {
+                return ((double)(this["PorCompletarCelula"]));
+            }
+            set {
+                this["PorCompletarCelula"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double Dist2Credito {
+            get {
+                return ((double)(this["Dist2Credito"]));
+            }
+            set {
+                this["Dist2Credito"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ColocacionN {
+            get {
+                return ((double)(this["ColocacionN"]));
+            }
+            set {
+                this["ColocacionN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ColocacionP {
+            get {
+                return ((double)(this["ColocacionP"]));
+            }
+            set {
+                this["ColocacionP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ClientesMCPerm {
+            get {
+                return ((double)(this["ClientesMCPerm"]));
+            }
+            set {
+                this["ClientesMCPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ClientesMCHPerm {
+            get {
+                return ((double)(this["ClientesMCHPerm"]));
+            }
+            set {
+                this["ClientesMCHPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ClientesMCNPerm {
+            get {
+                return ((double)(this["ClientesMCNPerm"]));
+            }
+            set {
+                this["ClientesMCNPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ClientesMCBPerm {
+            get {
+                return ((double)(this["ClientesMCBPerm"]));
+            }
+            set {
+                this["ClientesMCBPerm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double CantMiembrosIni {
+            get {
+                return ((double)(this["CantMiembrosIni"]));
+            }
+            set {
+                this["CantMiembrosIni"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresIBonoB {
+            get {
+                return ((double)(this["LideresIBonoB"]));
+            }
+            set {
+                this["LideresIBonoB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresIBonoC {
+            get {
+                return ((double)(this["LideresIBonoC"]));
+            }
+            set {
+                this["LideresIBonoC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresIBonoD {
+            get {
+                return ((double)(this["LideresIBonoD"]));
+            }
+            set {
+                this["LideresIBonoD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresIProd {
+            get {
+                return ((double)(this["LideresIProd"]));
+            }
+            set {
+                this["LideresIProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresHBonoB {
+            get {
+                return ((double)(this["LideresHBonoB"]));
+            }
+            set {
+                this["LideresHBonoB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresHBonoC {
+            get {
+                return ((double)(this["LideresHBonoC"]));
+            }
+            set {
+                this["LideresHBonoC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresHBonoD {
+            get {
+                return ((double)(this["LideresHBonoD"]));
+            }
+            set {
+                this["LideresHBonoD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresHProd {
+            get {
+                return ((double)(this["LideresHProd"]));
+            }
+            set {
+                this["LideresHProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresNBonoB {
+            get {
+                return ((double)(this["LideresNBonoB"]));
+            }
+            set {
+                this["LideresNBonoB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresNBonoC {
+            get {
+                return ((double)(this["LideresNBonoC"]));
+            }
+            set {
+                this["LideresNBonoC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresNBonoD {
+            get {
+                return ((double)(this["LideresNBonoD"]));
+            }
+            set {
+                this["LideresNBonoD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LideresNProd {
+            get {
+                return ((double)(this["LideresNProd"]));
+            }
+            set {
+                this["LideresNProd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double PorCumplimientoPerc {
+            get {
+                return ((double)(this["PorCumplimientoPerc"]));
+            }
+            set {
+                this["PorCumplimientoPerc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ColocacionAcumuladaMC {
+            get {
+                return ((double)(this["ColocacionAcumuladaMC"]));
+            }
+            set {
+                this["ColocacionAcumuladaMC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double VolumenAcumuladoMC {
+            get {
+                return ((double)(this["VolumenAcumuladoMC"]));
+            }
+            set {
+                this["VolumenAcumuladoMC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PorColocacionValorMenor {
+            get {
+                return ((double)(this["PorColocacionValorMenor"]));
+            }
+            set {
+                this["PorColocacionValorMenor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("120")]
+        public double PorColocacionMontoMenor {
+            get {
+                return ((double)(this["PorColocacionMontoMenor"]));
+            }
+            set {
+                this["PorColocacionMontoMenor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public double PorColocacionValorEntre {
+            get {
+                return ((double)(this["PorColocacionValorEntre"]));
+            }
+            set {
+                this["PorColocacionValorEntre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("120")]
+        public double PorColocacionMontoDe {
+            get {
+                return ((double)(this["PorColocacionMontoDe"]));
+            }
+            set {
+                this["PorColocacionMontoDe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
+        public double PorColocacionMontoHasta {
+            get {
+                return ((double)(this["PorColocacionMontoHasta"]));
+            }
+            set {
+                this["PorColocacionMontoHasta"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double PorColocacionValorMayor {
+            get {
+                return ((double)(this["PorColocacionValorMayor"]));
+            }
+            set {
+                this["PorColocacionValorMayor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
+        public double PorColocacionMontoMayor {
+            get {
+                return ((double)(this["PorColocacionMontoMayor"]));
+            }
+            set {
+                this["PorColocacionMontoMayor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PorVolumenValorMenor {
+            get {
+                return ((double)(this["PorVolumenValorMenor"]));
+            }
+            set {
+                this["PorVolumenValorMenor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("45")]
+        public double PorVolumenVolumenMenor {
+            get {
+                return ((double)(this["PorVolumenVolumenMenor"]));
+            }
+            set {
+                this["PorVolumenVolumenMenor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double PorVolumenValorEntre {
+            get {
+                return ((double)(this["PorVolumenValorEntre"]));
+            }
+            set {
+                this["PorVolumenValorEntre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("45")]
+        public double PorVolumenVolumenDe {
+            get {
+                return ((double)(this["PorVolumenVolumenDe"]));
+            }
+            set {
+                this["PorVolumenVolumenDe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public double PorVolumenVolumenHasta {
+            get {
+                return ((double)(this["PorVolumenVolumenHasta"]));
+            }
+            set {
+                this["PorVolumenVolumenHasta"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public double PorVolumenValorMayor {
+            get {
+                return ((double)(this["PorVolumenValorMayor"]));
+            }
+            set {
+                this["PorVolumenValorMayor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public double PorVolumenVolumenMayor {
+            get {
+                return ((double)(this["PorVolumenVolumenMayor"]));
+            }
+            set {
+                this["PorVolumenVolumenMayor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN1 {
+            get {
+                return ((double)(this["PagoTardio3CN1"]));
+            }
+            set {
+                this["PagoTardio3CN1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN2 {
+            get {
+                return ((double)(this["PagoTardio3CN2"]));
+            }
+            set {
+                this["PagoTardio3CN2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN3 {
+            get {
+                return ((double)(this["PagoTardio3CN3"]));
+            }
+            set {
+                this["PagoTardio3CN3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN1Perc {
+            get {
+                return ((double)(this["PagoTardio3CN1Perc"]));
+            }
+            set {
+                this["PagoTardio3CN1Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN2Perc {
+            get {
+                return ((double)(this["PagoTardio3CN2Perc"]));
+            }
+            set {
+                this["PagoTardio3CN2Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double PagoTardio3CN3Perc {
+            get {
+                return ((double)(this["PagoTardio3CN3Perc"]));
+            }
+            set {
+                this["PagoTardio3CN3Perc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double LimiteXISRE {
+            get {
+                return ((double)(this["LimiteXISRE"]));
+            }
+            set {
+                this["LimiteXISRE"] = value;
             }
         }
     }

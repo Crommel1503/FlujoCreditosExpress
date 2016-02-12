@@ -928,7 +928,7 @@
             this.lblComisionDist.Name = "lblComisionDist";
             this.lblComisionDist.Size = new System.Drawing.Size(95, 15);
             this.lblComisionDist.TabIndex = 165;
-            this.lblComisionDist.Text = "% Comisión Dist.";
+            this.lblComisionDist.Text = "% Comisión";
             this.lblComisionDist.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPPerdida

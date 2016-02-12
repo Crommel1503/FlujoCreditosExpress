@@ -94,6 +94,8 @@ namespace FlujoCreditosExpress
         double capitalRestante = 0;
         double apCapitalTemp = 0;
         double colocacion = 0;
+        double colocacionN = 0;
+        double colocacionP = 0;
         double periodoActual = Properties.Settings.Default.PeriodoActual;
         double capital = Properties.Settings.Default.Capital;
         double clientesPeriodoAnt = Properties.Settings.Default.ClientesNuevos;
@@ -204,11 +206,11 @@ namespace FlujoCreditosExpress
                     txtNCantPeriodos.Value =
                         decimal.Parse((Properties.Settings.Default.CantPeriodos - Properties.Settings.Default.CantPP).ToString());
                     Properties.Settings.Default.CantPP = 0;
-                    if (periodoActual == 5)
+                    if (Properties.Settings.Default.CantPeriodos == 5)
                     {
                         Properties.Settings.Default.CantPeriodos = 1;
                     }
-
+                    
                     txtNC03Q06.Select();
                 }   
             }
@@ -1050,6 +1052,7 @@ namespace FlujoCreditosExpress
                     }
 
                     Properties.Settings.Default.Clientes2Credito = clientes2Credito;
+                    Properties.Settings.Default.Dist2Credito = dist2Credito;
                     permanencia = ((clientesT2Credito) / clientes2Credito);
                 }
 
@@ -1653,6 +1656,8 @@ namespace FlujoCreditosExpress
                     Properties.Settings.Default.ClientesNuevos = creditosCN;
                     Properties.Settings.Default.Clientes2Credito = creditosCA;
                     Properties.Settings.Default.ColocacionE = colocacion;
+                    Properties.Settings.Default.ColocacionN = colocacionN;
+                    Properties.Settings.Default.ColocacionP = colocacionP;
 
                     if (periodoActual == 1)
                     {
@@ -1738,6 +1743,10 @@ namespace FlujoCreditosExpress
                                 ((ctesMCB + ctesMCBPerm + ctesMCBAnt) /
                                     (ctesMC + ctesMCPerm + ctesMCAnt)) * 100;
                         }
+                        Properties.Settings.Default.ClientesMCPerm += ctesMCPerm;
+                        Properties.Settings.Default.ClientesMCHPerm += ctesMCHPerm;
+                        Properties.Settings.Default.ClientesMCNPerm += ctesMCNPerm;
+                        Properties.Settings.Default.ClientesMCBPerm += ctesMCBPerm;
                     }
 
                     //Guarda las proporciones de los clientes para el período
@@ -2142,6 +2151,8 @@ namespace FlujoCreditosExpress
             creditosCN = 0;
             creditosCA = 0;
             colocacion = 0;
+            colocacionN = 0;
+            colocacionP = 0;
             creditosI = t.Text != "" ? double.Parse(t.Text) : 0;
             creditosRestantesN = 0;
             creditosRestantesA = 0;
@@ -2389,21 +2400,27 @@ namespace FlujoCreditosExpress
                     {
                         case 1:
                             colocacion += int.Parse(control.Text) * c1;
+                            colocacionN += int.Parse(control.Text) * c1;
                             break;
                         case 2:
                             colocacion += int.Parse(control.Text) * c2;
+                            colocacionN += int.Parse(control.Text) * c2;
                             break;
                         case 3:
                             colocacion += int.Parse(control.Text) * c3;
+                            colocacionP += int.Parse(control.Text) * c3;
                             break;
                         case 4:
                             colocacion += int.Parse(control.Text) * c4;
+                            colocacionP += int.Parse(control.Text) * c4;
                             break;
                         case 5:
                             colocacion += int.Parse(control.Text) * c5;
+                            colocacionP += int.Parse(control.Text) * c5;
                             break;
                         case 6:
                             colocacion += int.Parse(control.Text) * c6;
+                            colocacionP += int.Parse(control.Text) * c6;
                             break;
                     }
                 }
@@ -2451,6 +2468,14 @@ namespace FlujoCreditosExpress
                             "Créditos no colocados", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                 {
                     e.Cancel = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.ClientesNuevos = 0;
+                    Properties.Settings.Default.Clientes2Credito = 0;
+                    Properties.Settings.Default.ColocacionE = 0;
+                    Properties.Settings.Default.ColocacionN = 0;
+                    Properties.Settings.Default.ColocacionP = 0;
                 }
             }
             else

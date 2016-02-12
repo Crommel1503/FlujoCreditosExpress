@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCContenedor = new System.Windows.Forms.TabControl();
             this.tabFlujo = new System.Windows.Forms.TabPage();
+            this.btnReporte = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.btnInscribirDistribuidoras = new System.Windows.Forms.Button();
             this.lblInscribirDistribuidoras = new System.Windows.Forms.Label();
@@ -198,9 +198,11 @@
             this.txtPCredDO = new System.Windows.Forms.TextBox();
             this.btnSaveConfig = new System.Windows.Forms.Button();
             this.gpbEgresos = new System.Windows.Forms.GroupBox();
+            this.lblLimiteXISRE = new System.Windows.Forms.Label();
+            this.txtLimiteXISRE = new System.Windows.Forms.TextBox();
+            this.chkGastosXISRE = new System.Windows.Forms.CheckBox();
             this.txtGastosVarZafyE = new System.Windows.Forms.TextBox();
-            this.txtGastosXOutSourcingE = new System.Windows.Forms.TextBox();
-            this.lblGastosXOutSourcingE = new System.Windows.Forms.Label();
+            this.lblGastosXISRE = new System.Windows.Forms.Label();
             this.txtGastosXPublicidadE = new System.Windows.Forms.TextBox();
             this.lblGastosXPublicidadE = new System.Windows.Forms.Label();
             this.txtGastosVarPROSAE = new System.Windows.Forms.TextBox();
@@ -248,6 +250,109 @@
             this.lblQ4 = new System.Windows.Forms.Label();
             this.lblQ2 = new System.Windows.Forms.Label();
             this.lblTasa = new System.Windows.Forms.Label();
+            this.tabConfigRed = new System.Windows.Forms.TabPage();
+            this.gpbBonosPremios = new System.Windows.Forms.GroupBox();
+            this.lblPorVolumenMiembrosValor = new System.Windows.Forms.Label();
+            this.lblPorVolumenColocadoMayor = new System.Windows.Forms.Label();
+            this.lblPorVolumenColocadoMenor = new System.Windows.Forms.Label();
+            this.lblPorVolumenColocadoEntre = new System.Windows.Forms.Label();
+            this.txtPorVolumenColocadoMontoHasta = new System.Windows.Forms.TextBox();
+            this.lblPorVolumenMiembrosMayor = new System.Windows.Forms.Label();
+            this.lblPorVolumenMiembrosMenor = new System.Windows.Forms.Label();
+            this.lblPorVolumenMiembrosEntre = new System.Windows.Forms.Label();
+            this.txtPorVolumenMiembrosVolumenHasta = new System.Windows.Forms.TextBox();
+            this.lblPorVolumenMiembrosVolumen = new System.Windows.Forms.Label();
+            this.txtPorVolumenMiembrosVolumenMayor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenMiembrosVolumenMenor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenMiembrosVolumenDe = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenColocadoMontoDe = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenColocadoMontoMayor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenMiembrosValorMayor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenColocadoMontoMenor = new System.Windows.Forms.TextBox();
+            this.lblPorVolumenColocadoMonto = new System.Windows.Forms.Label();
+            this.lblPorVolumenColocadoValor = new System.Windows.Forms.Label();
+            this.txtPorVolumenColocadoEntre = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenColocadoMayor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenMiembrosValorMenor = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenMiembrosValorEntre = new System.Windows.Forms.TextBox();
+            this.txtPorVolumenColocadoValorMenor = new System.Windows.Forms.TextBox();
+            this.txtPorCumplimientoPerc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPorVolumenMiembros = new System.Windows.Forms.Label();
+            this.lblPorVolumenColocado = new System.Windows.Forms.Label();
+            this.lblPorCrecimiento = new System.Windows.Forms.Label();
+            this.lblPorCompletarCelula = new System.Windows.Forms.Label();
+            this.lblValBonLid = new System.Windows.Forms.Label();
+            this.txtPorCrecimientoVal = new System.Windows.Forms.TextBox();
+            this.txtPorCompletarCelulaVal = new System.Windows.Forms.TextBox();
+            this.txtPorCumplimientoVal = new System.Windows.Forms.TextBox();
+            this.lblBonosLideres = new System.Windows.Forms.Label();
+            this.lblPorCumplimiento = new System.Windows.Forms.Label();
+            this.btnLoadDefaultsR = new System.Windows.Forms.Button();
+            this.btnSaveConfigR = new System.Windows.Forms.Button();
+            this.gpbComisiones = new System.Windows.Forms.GroupBox();
+            this.lblPagoTardio3CN3 = new System.Windows.Forms.Label();
+            this.txtN3PagoTardio3CN3Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio3CN3Val = new System.Windows.Forms.TextBox();
+            this.lblPagoTardio3CN2 = new System.Windows.Forms.Label();
+            this.txtN2PagoTardio3CN2Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio3CN2Val = new System.Windows.Forms.TextBox();
+            this.lblPagoTardio3CN1 = new System.Windows.Forms.Label();
+            this.txtN1PagoTardio3CN1Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio3CN1Val = new System.Windows.Forms.TextBox();
+            this.lblNivel3 = new System.Windows.Forms.Label();
+            this.lblNivel2 = new System.Windows.Forms.Label();
+            this.lblNivel1 = new System.Windows.Forms.Label();
+            this.lblPagoTardio1CN2 = new System.Windows.Forms.Label();
+            this.txtN2PagoTardio1CN2Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio1CN2Val = new System.Windows.Forms.TextBox();
+            this.lblPagoTardio2CN1 = new System.Windows.Forms.Label();
+            this.txtN1PagoTardio2CN1Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio2CN1Val = new System.Windows.Forms.TextBox();
+            this.lblPagoTardio1CN1 = new System.Windows.Forms.Label();
+            this.txtN1PagoTardio1CN1Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio1CN1Val = new System.Windows.Forms.TextBox();
+            this.lblPorColocacion = new System.Windows.Forms.Label();
+            this.txtPorColocacionVal = new System.Windows.Forms.TextBox();
+            this.lblPagoTardio2CN2 = new System.Windows.Forms.Label();
+            this.lblPagoTardio2CN3 = new System.Windows.Forms.Label();
+            this.lblPagoTardio1CN3 = new System.Windows.Forms.Label();
+            this.txtN3PagoTardio2CN3Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio2CN3Val = new System.Windows.Forms.TextBox();
+            this.txtN2PagoTardio2CN2Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio2CN2Val = new System.Windows.Forms.TextBox();
+            this.txtN3PagoTardio1CN3Perc = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio1CN3Val = new System.Windows.Forms.TextBox();
+            this.lblPagoTiempoCN2 = new System.Windows.Forms.Label();
+            this.lblPagoTiempoCN3 = new System.Windows.Forms.Label();
+            this.txtN2PagoTiempoCN2Perc = new System.Windows.Forms.TextBox();
+            this.txtN3PagoTiempoCN3Perc = new System.Windows.Forms.TextBox();
+            this.txtN1PagoTiempoCN1Perc = new System.Windows.Forms.TextBox();
+            this.lblPercComLid = new System.Windows.Forms.Label();
+            this.lblValorComLid = new System.Windows.Forms.Label();
+            this.txtPagoTiempoCN2Val = new System.Windows.Forms.TextBox();
+            this.txtPagoTiempoCN3Val = new System.Windows.Forms.TextBox();
+            this.txtPagoTiempoCN1Val = new System.Windows.Forms.TextBox();
+            this.lblComisionesLideres = new System.Windows.Forms.Label();
+            this.lblPagoTiempoCN1 = new System.Windows.Forms.Label();
+            this.txtDistPagoTiempoPerc = new System.Windows.Forms.TextBox();
+            this.txtDistPagoTardio1Perc = new System.Windows.Forms.TextBox();
+            this.txtDistPagoTardio2Perc = new System.Windows.Forms.TextBox();
+            this.txtDistPagoTardio3Perc = new System.Windows.Forms.TextBox();
+            this.txtDistPagoProntoPerc = new System.Windows.Forms.TextBox();
+            this.lblPercComDist = new System.Windows.Forms.Label();
+            this.lblValorComDist = new System.Windows.Forms.Label();
+            this.txtPagoTiempoVal = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio1Val = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio2Val = new System.Windows.Forms.TextBox();
+            this.txtPagoTardio3Val = new System.Windows.Forms.TextBox();
+            this.txtPagoProntoVal = new System.Windows.Forms.TextBox();
+            this.lblComicionesDist = new System.Windows.Forms.Label();
+            this.lblPagoTardio3 = new System.Windows.Forms.Label();
+            this.lblPagoTardio2 = new System.Windows.Forms.Label();
+            this.lblPagoTardio1 = new System.Windows.Forms.Label();
+            this.lblPagoTiempo = new System.Windows.Forms.Label();
+            this.lblPagoPronto = new System.Windows.Forms.Label();
             this.lblSesionId = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.flujoDBDataSet = new FlujoCreditosExpress.FlujoDBDataSet();
@@ -257,9 +362,7 @@
             this.t_SesionesTableAdapter = new FlujoCreditosExpress.FlujoDBDataSetTableAdapters.T_SesionesTableAdapter();
             this.t_ClientesTableAdapter = new FlujoCreditosExpress.FlujoDBDataSetTableAdapters.T_ClientesTableAdapter();
             this.pbProcesando = new System.Windows.Forms.PictureBox();
-            this.tabConfigRed = new System.Windows.Forms.TabPage();
-            this.gpbComisiones = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCContenedor.SuspendLayout();
             this.tabFlujo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlujoT)).BeginInit();
@@ -274,21 +377,14 @@
             this.tabOptimista.SuspendLayout();
             this.gpbEgresos.SuspendLayout();
             this.gpbColocacion.SuspendLayout();
+            this.tabConfigRed.SuspendLayout();
+            this.gpbBonosPremios.SuspendLayout();
+            this.gpbComisiones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flujoDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFlujoDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProcesando)).BeginInit();
-            this.tabConfigRed.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tabCContenedor
             // 
@@ -304,6 +400,7 @@
             // tabFlujo
             // 
             this.tabFlujo.BackColor = System.Drawing.Color.White;
+            this.tabFlujo.Controls.Add(this.btnReporte);
             this.tabFlujo.Controls.Add(this.btnDetalle);
             this.tabFlujo.Controls.Add(this.btnInscribirDistribuidoras);
             this.tabFlujo.Controls.Add(this.lblInscribirDistribuidoras);
@@ -331,6 +428,17 @@
             this.tabFlujo.Size = new System.Drawing.Size(1252, 555);
             this.tabFlujo.TabIndex = 0;
             this.tabFlujo.Text = "Flujo de Efectivo";
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.Location = new System.Drawing.Point(1160, 3);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(75, 23);
+            this.btnReporte.TabIndex = 114;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Visible = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // btnDetalle
             // 
@@ -550,7 +658,7 @@
             this.dgvFlujoT.GridColor = System.Drawing.Color.White;
             this.dgvFlujoT.Location = new System.Drawing.Point(215, 27);
             this.dgvFlujoT.Name = "dgvFlujoT";
-            this.dgvFlujoT.Size = new System.Drawing.Size(197, 516);
+            this.dgvFlujoT.Size = new System.Drawing.Size(191, 516);
             this.dgvFlujoT.TabIndex = 60;
             this.dgvFlujoT.Visible = false;
             this.dgvFlujoT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFlujoT_CellClick);
@@ -567,9 +675,9 @@
             this.dgvFlujo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvFlujo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFlujo.GridColor = System.Drawing.Color.White;
-            this.dgvFlujo.Location = new System.Drawing.Point(368, 27);
+            this.dgvFlujo.Location = new System.Drawing.Point(364, 27);
             this.dgvFlujo.Name = "dgvFlujo";
-            this.dgvFlujo.Size = new System.Drawing.Size(772, 516);
+            this.dgvFlujo.Size = new System.Drawing.Size(776, 516);
             this.dgvFlujo.TabIndex = 61;
             this.dgvFlujo.Visible = false;
             // 
@@ -2543,9 +2651,11 @@
             // 
             // gpbEgresos
             // 
+            this.gpbEgresos.Controls.Add(this.lblLimiteXISRE);
+            this.gpbEgresos.Controls.Add(this.txtLimiteXISRE);
+            this.gpbEgresos.Controls.Add(this.chkGastosXISRE);
             this.gpbEgresos.Controls.Add(this.txtGastosVarZafyE);
-            this.gpbEgresos.Controls.Add(this.txtGastosXOutSourcingE);
-            this.gpbEgresos.Controls.Add(this.lblGastosXOutSourcingE);
+            this.gpbEgresos.Controls.Add(this.lblGastosXISRE);
             this.gpbEgresos.Controls.Add(this.txtGastosXPublicidadE);
             this.gpbEgresos.Controls.Add(this.lblGastosXPublicidadE);
             this.gpbEgresos.Controls.Add(this.txtGastosVarPROSAE);
@@ -2568,10 +2678,40 @@
             this.gpbEgresos.Controls.Add(this.lblPerdidaE);
             this.gpbEgresos.Location = new System.Drawing.Point(3, 177);
             this.gpbEgresos.Name = "gpbEgresos";
-            this.gpbEgresos.Size = new System.Drawing.Size(230, 328);
+            this.gpbEgresos.Size = new System.Drawing.Size(230, 359);
             this.gpbEgresos.TabIndex = 1;
             this.gpbEgresos.TabStop = false;
             this.gpbEgresos.Text = "Egresos";
+            // 
+            // lblLimiteXISRE
+            // 
+            this.lblLimiteXISRE.Location = new System.Drawing.Point(-3, 266);
+            this.lblLimiteXISRE.Name = "lblLimiteXISRE";
+            this.lblLimiteXISRE.Size = new System.Drawing.Size(118, 13);
+            this.lblLimiteXISRE.TabIndex = 79;
+            this.lblLimiteXISRE.Text = "Límite de Comisión";
+            this.lblLimiteXISRE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtLimiteXISRE
+            // 
+            this.txtLimiteXISRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLimiteXISRE.Location = new System.Drawing.Point(120, 264);
+            this.txtLimiteXISRE.MaxLength = 9;
+            this.txtLimiteXISRE.Name = "txtLimiteXISRE";
+            this.txtLimiteXISRE.Size = new System.Drawing.Size(62, 20);
+            this.txtLimiteXISRE.TabIndex = 78;
+            this.txtLimiteXISRE.Tag = "";
+            this.txtLimiteXISRE.Text = "0";
+            this.txtLimiteXISRE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // chkGastosXISRE
+            // 
+            this.chkGastosXISRE.AutoSize = true;
+            this.chkGastosXISRE.Location = new System.Drawing.Point(122, 244);
+            this.chkGastosXISRE.Name = "chkGastosXISRE";
+            this.chkGastosXISRE.Size = new System.Drawing.Size(15, 14);
+            this.chkGastosXISRE.TabIndex = 77;
+            this.chkGastosXISRE.UseVisualStyleBackColor = true;
             // 
             // txtGastosVarZafyE
             // 
@@ -2588,29 +2728,14 @@
             this.txtGastosVarZafyE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
             this.txtGastosVarZafyE.Leave += new System.EventHandler(this.clearZeros);
             // 
-            // txtGastosXOutSourcingE
+            // lblGastosXISRE
             // 
-            this.txtGastosXOutSourcingE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGastosXOutSourcingE.Location = new System.Drawing.Point(122, 244);
-            this.txtGastosXOutSourcingE.MaxLength = 3;
-            this.txtGastosXOutSourcingE.Name = "txtGastosXOutSourcingE";
-            this.txtGastosXOutSourcingE.Size = new System.Drawing.Size(27, 20);
-            this.txtGastosXOutSourcingE.TabIndex = 14;
-            this.txtGastosXOutSourcingE.Text = "0";
-            this.txtGastosXOutSourcingE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtGastosXOutSourcingE.TextChanged += new System.EventHandler(this.saveConfig);
-            this.txtGastosXOutSourcingE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
-            this.txtGastosXOutSourcingE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
-            this.txtGastosXOutSourcingE.Leave += new System.EventHandler(this.clearZeros);
-            // 
-            // lblGastosXOutSourcingE
-            // 
-            this.lblGastosXOutSourcingE.Location = new System.Drawing.Point(-2, 246);
-            this.lblGastosXOutSourcingE.Name = "lblGastosXOutSourcingE";
-            this.lblGastosXOutSourcingE.Size = new System.Drawing.Size(118, 13);
-            this.lblGastosXOutSourcingE.TabIndex = 75;
-            this.lblGastosXOutSourcingE.Text = "% Gastos OutSourcing";
-            this.lblGastosXOutSourcingE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblGastosXISRE.Location = new System.Drawing.Point(-2, 244);
+            this.lblGastosXISRE.Name = "lblGastosXISRE";
+            this.lblGastosXISRE.Size = new System.Drawing.Size(118, 13);
+            this.lblGastosXISRE.TabIndex = 75;
+            this.lblGastosXISRE.Text = "Gastos ISR";
+            this.lblGastosXISRE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtGastosXPublicidadE
             // 
@@ -2728,7 +2853,7 @@
             // txtRetirosE
             // 
             this.txtRetirosE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRetirosE.Location = new System.Drawing.Point(122, 296);
+            this.txtRetirosE.Location = new System.Drawing.Point(120, 316);
             this.txtRetirosE.MaxLength = 3;
             this.txtRetirosE.Name = "txtRetirosE";
             this.txtRetirosE.Size = new System.Drawing.Size(27, 20);
@@ -2742,7 +2867,7 @@
             // 
             // lblRetirosE
             // 
-            this.lblRetirosE.Location = new System.Drawing.Point(18, 300);
+            this.lblRetirosE.Location = new System.Drawing.Point(16, 320);
             this.lblRetirosE.Name = "lblRetirosE";
             this.lblRetirosE.Size = new System.Drawing.Size(98, 16);
             this.lblRetirosE.TabIndex = 48;
@@ -2752,7 +2877,7 @@
             // txtBonosPremiosE
             // 
             this.txtBonosPremiosE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBonosPremiosE.Location = new System.Drawing.Point(122, 270);
+            this.txtBonosPremiosE.Location = new System.Drawing.Point(120, 290);
             this.txtBonosPremiosE.MaxLength = 3;
             this.txtBonosPremiosE.Name = "txtBonosPremiosE";
             this.txtBonosPremiosE.Size = new System.Drawing.Size(27, 20);
@@ -2811,7 +2936,7 @@
             // 
             // lblBonosPremiosE
             // 
-            this.lblBonosPremiosE.Location = new System.Drawing.Point(15, 270);
+            this.lblBonosPremiosE.Location = new System.Drawing.Point(13, 290);
             this.lblBonosPremiosE.Name = "lblBonosPremiosE";
             this.lblBonosPremiosE.Size = new System.Drawing.Size(101, 16);
             this.lblBonosPremiosE.TabIndex = 38;
@@ -2833,7 +2958,7 @@
             this.lblComisionDistE.Name = "lblComisionDistE";
             this.lblComisionDistE.Size = new System.Drawing.Size(98, 16);
             this.lblComisionDistE.TabIndex = 36;
-            this.lblComisionDistE.Text = "% Comisión Dist.";
+            this.lblComisionDistE.Text = "% Comisiones";
             this.lblComisionDistE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPerdidaE
@@ -3187,6 +3312,1366 @@
             this.lblTasa.TabIndex = 2;
             this.lblTasa.Text = "Tasas Interes %:";
             // 
+            // tabConfigRed
+            // 
+            this.tabConfigRed.Controls.Add(this.gpbBonosPremios);
+            this.tabConfigRed.Controls.Add(this.btnLoadDefaultsR);
+            this.tabConfigRed.Controls.Add(this.btnSaveConfigR);
+            this.tabConfigRed.Controls.Add(this.gpbComisiones);
+            this.tabConfigRed.Location = new System.Drawing.Point(4, 22);
+            this.tabConfigRed.Name = "tabConfigRed";
+            this.tabConfigRed.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConfigRed.Size = new System.Drawing.Size(1252, 555);
+            this.tabConfigRed.TabIndex = 2;
+            this.tabConfigRed.Text = "Configuración de Red";
+            this.tabConfigRed.UseVisualStyleBackColor = true;
+            // 
+            // gpbBonosPremios
+            // 
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembrosValor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocadoMayor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocadoMenor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocadoEntre);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoMontoHasta);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembrosMayor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembrosMenor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembrosEntre);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosVolumenHasta);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembrosVolumen);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosVolumenMayor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosVolumenMenor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosVolumenDe);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoMontoDe);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoMontoMayor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosValorMayor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoMontoMenor);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocadoMonto);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocadoValor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoEntre);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoMayor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosValorMenor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenMiembrosValorEntre);
+            this.gpbBonosPremios.Controls.Add(this.txtPorVolumenColocadoValorMenor);
+            this.gpbBonosPremios.Controls.Add(this.txtPorCumplimientoPerc);
+            this.gpbBonosPremios.Controls.Add(this.label1);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenMiembros);
+            this.gpbBonosPremios.Controls.Add(this.lblPorVolumenColocado);
+            this.gpbBonosPremios.Controls.Add(this.lblPorCrecimiento);
+            this.gpbBonosPremios.Controls.Add(this.lblPorCompletarCelula);
+            this.gpbBonosPremios.Controls.Add(this.lblValBonLid);
+            this.gpbBonosPremios.Controls.Add(this.txtPorCrecimientoVal);
+            this.gpbBonosPremios.Controls.Add(this.txtPorCompletarCelulaVal);
+            this.gpbBonosPremios.Controls.Add(this.txtPorCumplimientoVal);
+            this.gpbBonosPremios.Controls.Add(this.lblBonosLideres);
+            this.gpbBonosPremios.Controls.Add(this.lblPorCumplimiento);
+            this.gpbBonosPremios.Location = new System.Drawing.Point(23, 74);
+            this.gpbBonosPremios.Name = "gpbBonosPremios";
+            this.gpbBonosPremios.Size = new System.Drawing.Size(271, 384);
+            this.gpbBonosPremios.TabIndex = 54;
+            this.gpbBonosPremios.TabStop = false;
+            this.gpbBonosPremios.Text = "Bonos";
+            // 
+            // lblPorVolumenMiembrosValor
+            // 
+            this.lblPorVolumenMiembrosValor.AutoSize = true;
+            this.lblPorVolumenMiembrosValor.Location = new System.Drawing.Point(135, 242);
+            this.lblPorVolumenMiembrosValor.Name = "lblPorVolumenMiembrosValor";
+            this.lblPorVolumenMiembrosValor.Size = new System.Drawing.Size(31, 13);
+            this.lblPorVolumenMiembrosValor.TabIndex = 80;
+            this.lblPorVolumenMiembrosValor.Text = "Valor";
+            // 
+            // lblPorVolumenColocadoMayor
+            // 
+            this.lblPorVolumenColocadoMayor.AutoSize = true;
+            this.lblPorVolumenColocadoMayor.Location = new System.Drawing.Point(182, 208);
+            this.lblPorVolumenColocadoMayor.Name = "lblPorVolumenColocadoMayor";
+            this.lblPorVolumenColocadoMayor.Size = new System.Drawing.Size(13, 13);
+            this.lblPorVolumenColocadoMayor.TabIndex = 79;
+            this.lblPorVolumenColocadoMayor.Text = ">";
+            // 
+            // lblPorVolumenColocadoMenor
+            // 
+            this.lblPorVolumenColocadoMenor.AutoSize = true;
+            this.lblPorVolumenColocadoMenor.Location = new System.Drawing.Point(180, 156);
+            this.lblPorVolumenColocadoMenor.Name = "lblPorVolumenColocadoMenor";
+            this.lblPorVolumenColocadoMenor.Size = new System.Drawing.Size(13, 13);
+            this.lblPorVolumenColocadoMenor.TabIndex = 78;
+            this.lblPorVolumenColocadoMenor.Text = "<";
+            // 
+            // lblPorVolumenColocadoEntre
+            // 
+            this.lblPorVolumenColocadoEntre.AutoSize = true;
+            this.lblPorVolumenColocadoEntre.Location = new System.Drawing.Point(204, 182);
+            this.lblPorVolumenColocadoEntre.Name = "lblPorVolumenColocadoEntre";
+            this.lblPorVolumenColocadoEntre.Size = new System.Drawing.Size(10, 13);
+            this.lblPorVolumenColocadoEntre.TabIndex = 77;
+            this.lblPorVolumenColocadoEntre.Text = "-";
+            // 
+            // txtPorVolumenColocadoMontoHasta
+            // 
+            this.txtPorVolumenColocadoMontoHasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoMontoHasta.Location = new System.Drawing.Point(220, 180);
+            this.txtPorVolumenColocadoMontoHasta.MaxLength = 3;
+            this.txtPorVolumenColocadoMontoHasta.Name = "txtPorVolumenColocadoMontoHasta";
+            this.txtPorVolumenColocadoMontoHasta.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoMontoHasta.TabIndex = 9;
+            this.txtPorVolumenColocadoMontoHasta.Text = "0";
+            this.txtPorVolumenColocadoMontoHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoMontoHasta.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoMontoHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoMontoHasta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoMontoHasta.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPorVolumenMiembrosMayor
+            // 
+            this.lblPorVolumenMiembrosMayor.AutoSize = true;
+            this.lblPorVolumenMiembrosMayor.Location = new System.Drawing.Point(182, 312);
+            this.lblPorVolumenMiembrosMayor.Name = "lblPorVolumenMiembrosMayor";
+            this.lblPorVolumenMiembrosMayor.Size = new System.Drawing.Size(13, 13);
+            this.lblPorVolumenMiembrosMayor.TabIndex = 75;
+            this.lblPorVolumenMiembrosMayor.Text = ">";
+            // 
+            // lblPorVolumenMiembrosMenor
+            // 
+            this.lblPorVolumenMiembrosMenor.AutoSize = true;
+            this.lblPorVolumenMiembrosMenor.Location = new System.Drawing.Point(180, 260);
+            this.lblPorVolumenMiembrosMenor.Name = "lblPorVolumenMiembrosMenor";
+            this.lblPorVolumenMiembrosMenor.Size = new System.Drawing.Size(13, 13);
+            this.lblPorVolumenMiembrosMenor.TabIndex = 74;
+            this.lblPorVolumenMiembrosMenor.Text = "<";
+            // 
+            // lblPorVolumenMiembrosEntre
+            // 
+            this.lblPorVolumenMiembrosEntre.AutoSize = true;
+            this.lblPorVolumenMiembrosEntre.Location = new System.Drawing.Point(204, 286);
+            this.lblPorVolumenMiembrosEntre.Name = "lblPorVolumenMiembrosEntre";
+            this.lblPorVolumenMiembrosEntre.Size = new System.Drawing.Size(10, 13);
+            this.lblPorVolumenMiembrosEntre.TabIndex = 73;
+            this.lblPorVolumenMiembrosEntre.Text = "-";
+            // 
+            // txtPorVolumenMiembrosVolumenHasta
+            // 
+            this.txtPorVolumenMiembrosVolumenHasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosVolumenHasta.Location = new System.Drawing.Point(220, 284);
+            this.txtPorVolumenMiembrosVolumenHasta.MaxLength = 3;
+            this.txtPorVolumenMiembrosVolumenHasta.Name = "txtPorVolumenMiembrosVolumenHasta";
+            this.txtPorVolumenMiembrosVolumenHasta.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosVolumenHasta.TabIndex = 16;
+            this.txtPorVolumenMiembrosVolumenHasta.Text = "0";
+            this.txtPorVolumenMiembrosVolumenHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosVolumenHasta.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosVolumenHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosVolumenHasta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosVolumenHasta.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPorVolumenMiembrosVolumen
+            // 
+            this.lblPorVolumenMiembrosVolumen.AutoSize = true;
+            this.lblPorVolumenMiembrosVolumen.Location = new System.Drawing.Point(180, 242);
+            this.lblPorVolumenMiembrosVolumen.Name = "lblPorVolumenMiembrosVolumen";
+            this.lblPorVolumenMiembrosVolumen.Size = new System.Drawing.Size(48, 13);
+            this.lblPorVolumenMiembrosVolumen.TabIndex = 71;
+            this.lblPorVolumenMiembrosVolumen.Text = "Volumen";
+            // 
+            // txtPorVolumenMiembrosVolumenMayor
+            // 
+            this.txtPorVolumenMiembrosVolumenMayor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosVolumenMayor.Location = new System.Drawing.Point(201, 310);
+            this.txtPorVolumenMiembrosVolumenMayor.MaxLength = 3;
+            this.txtPorVolumenMiembrosVolumenMayor.Name = "txtPorVolumenMiembrosVolumenMayor";
+            this.txtPorVolumenMiembrosVolumenMayor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosVolumenMayor.TabIndex = 18;
+            this.txtPorVolumenMiembrosVolumenMayor.Text = "0";
+            this.txtPorVolumenMiembrosVolumenMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosVolumenMayor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosVolumenMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosVolumenMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosVolumenMayor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenMiembrosVolumenMenor
+            // 
+            this.txtPorVolumenMiembrosVolumenMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosVolumenMenor.Location = new System.Drawing.Point(201, 258);
+            this.txtPorVolumenMiembrosVolumenMenor.MaxLength = 3;
+            this.txtPorVolumenMiembrosVolumenMenor.Name = "txtPorVolumenMiembrosVolumenMenor";
+            this.txtPorVolumenMiembrosVolumenMenor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosVolumenMenor.TabIndex = 13;
+            this.txtPorVolumenMiembrosVolumenMenor.Text = "0";
+            this.txtPorVolumenMiembrosVolumenMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosVolumenMenor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosVolumenMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosVolumenMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosVolumenMenor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenMiembrosVolumenDe
+            // 
+            this.txtPorVolumenMiembrosVolumenDe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosVolumenDe.Location = new System.Drawing.Point(171, 284);
+            this.txtPorVolumenMiembrosVolumenDe.MaxLength = 3;
+            this.txtPorVolumenMiembrosVolumenDe.Name = "txtPorVolumenMiembrosVolumenDe";
+            this.txtPorVolumenMiembrosVolumenDe.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosVolumenDe.TabIndex = 15;
+            this.txtPorVolumenMiembrosVolumenDe.Text = "0";
+            this.txtPorVolumenMiembrosVolumenDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosVolumenDe.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosVolumenDe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosVolumenDe.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosVolumenDe.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenColocadoMontoDe
+            // 
+            this.txtPorVolumenColocadoMontoDe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoMontoDe.Location = new System.Drawing.Point(171, 180);
+            this.txtPorVolumenColocadoMontoDe.MaxLength = 3;
+            this.txtPorVolumenColocadoMontoDe.Name = "txtPorVolumenColocadoMontoDe";
+            this.txtPorVolumenColocadoMontoDe.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoMontoDe.TabIndex = 8;
+            this.txtPorVolumenColocadoMontoDe.Text = "0";
+            this.txtPorVolumenColocadoMontoDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoMontoDe.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoMontoDe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoMontoDe.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoMontoDe.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenColocadoMontoMayor
+            // 
+            this.txtPorVolumenColocadoMontoMayor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoMontoMayor.Location = new System.Drawing.Point(201, 208);
+            this.txtPorVolumenColocadoMontoMayor.MaxLength = 3;
+            this.txtPorVolumenColocadoMontoMayor.Name = "txtPorVolumenColocadoMontoMayor";
+            this.txtPorVolumenColocadoMontoMayor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoMontoMayor.TabIndex = 11;
+            this.txtPorVolumenColocadoMontoMayor.Text = "0";
+            this.txtPorVolumenColocadoMontoMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoMontoMayor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoMontoMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoMontoMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoMontoMayor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenMiembrosValorMayor
+            // 
+            this.txtPorVolumenMiembrosValorMayor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosValorMayor.Location = new System.Drawing.Point(135, 310);
+            this.txtPorVolumenMiembrosValorMayor.MaxLength = 3;
+            this.txtPorVolumenMiembrosValorMayor.Name = "txtPorVolumenMiembrosValorMayor";
+            this.txtPorVolumenMiembrosValorMayor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosValorMayor.TabIndex = 17;
+            this.txtPorVolumenMiembrosValorMayor.Text = "0";
+            this.txtPorVolumenMiembrosValorMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosValorMayor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosValorMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosValorMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosValorMayor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenColocadoMontoMenor
+            // 
+            this.txtPorVolumenColocadoMontoMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoMontoMenor.Location = new System.Drawing.Point(201, 154);
+            this.txtPorVolumenColocadoMontoMenor.MaxLength = 3;
+            this.txtPorVolumenColocadoMontoMenor.Name = "txtPorVolumenColocadoMontoMenor";
+            this.txtPorVolumenColocadoMontoMenor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoMontoMenor.TabIndex = 6;
+            this.txtPorVolumenColocadoMontoMenor.Text = "0";
+            this.txtPorVolumenColocadoMontoMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoMontoMenor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoMontoMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoMontoMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoMontoMenor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPorVolumenColocadoMonto
+            // 
+            this.lblPorVolumenColocadoMonto.AutoSize = true;
+            this.lblPorVolumenColocadoMonto.Location = new System.Drawing.Point(180, 138);
+            this.lblPorVolumenColocadoMonto.Name = "lblPorVolumenColocadoMonto";
+            this.lblPorVolumenColocadoMonto.Size = new System.Drawing.Size(70, 13);
+            this.lblPorVolumenColocadoMonto.TabIndex = 63;
+            this.lblPorVolumenColocadoMonto.Text = "Monto (Miles)";
+            // 
+            // lblPorVolumenColocadoValor
+            // 
+            this.lblPorVolumenColocadoValor.AutoSize = true;
+            this.lblPorVolumenColocadoValor.Location = new System.Drawing.Point(130, 138);
+            this.lblPorVolumenColocadoValor.Name = "lblPorVolumenColocadoValor";
+            this.lblPorVolumenColocadoValor.Size = new System.Drawing.Size(31, 13);
+            this.lblPorVolumenColocadoValor.TabIndex = 57;
+            this.lblPorVolumenColocadoValor.Text = "Valor";
+            // 
+            // txtPorVolumenColocadoEntre
+            // 
+            this.txtPorVolumenColocadoEntre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoEntre.Location = new System.Drawing.Point(135, 180);
+            this.txtPorVolumenColocadoEntre.MaxLength = 3;
+            this.txtPorVolumenColocadoEntre.Name = "txtPorVolumenColocadoEntre";
+            this.txtPorVolumenColocadoEntre.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoEntre.TabIndex = 7;
+            this.txtPorVolumenColocadoEntre.Text = "0";
+            this.txtPorVolumenColocadoEntre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoEntre.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoEntre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoEntre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoEntre.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenColocadoMayor
+            // 
+            this.txtPorVolumenColocadoMayor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoMayor.Location = new System.Drawing.Point(135, 206);
+            this.txtPorVolumenColocadoMayor.MaxLength = 3;
+            this.txtPorVolumenColocadoMayor.Name = "txtPorVolumenColocadoMayor";
+            this.txtPorVolumenColocadoMayor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoMayor.TabIndex = 10;
+            this.txtPorVolumenColocadoMayor.Text = "0";
+            this.txtPorVolumenColocadoMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoMayor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoMayor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenMiembrosValorMenor
+            // 
+            this.txtPorVolumenMiembrosValorMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosValorMenor.Location = new System.Drawing.Point(135, 258);
+            this.txtPorVolumenMiembrosValorMenor.MaxLength = 3;
+            this.txtPorVolumenMiembrosValorMenor.Name = "txtPorVolumenMiembrosValorMenor";
+            this.txtPorVolumenMiembrosValorMenor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosValorMenor.TabIndex = 12;
+            this.txtPorVolumenMiembrosValorMenor.Text = "0";
+            this.txtPorVolumenMiembrosValorMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosValorMenor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosValorMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosValorMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosValorMenor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenMiembrosValorEntre
+            // 
+            this.txtPorVolumenMiembrosValorEntre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenMiembrosValorEntre.Location = new System.Drawing.Point(135, 284);
+            this.txtPorVolumenMiembrosValorEntre.MaxLength = 3;
+            this.txtPorVolumenMiembrosValorEntre.Name = "txtPorVolumenMiembrosValorEntre";
+            this.txtPorVolumenMiembrosValorEntre.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenMiembrosValorEntre.TabIndex = 14;
+            this.txtPorVolumenMiembrosValorEntre.Text = "0";
+            this.txtPorVolumenMiembrosValorEntre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenMiembrosValorEntre.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenMiembrosValorEntre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenMiembrosValorEntre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenMiembrosValorEntre.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorVolumenColocadoValorMenor
+            // 
+            this.txtPorVolumenColocadoValorMenor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorVolumenColocadoValorMenor.Location = new System.Drawing.Point(135, 154);
+            this.txtPorVolumenColocadoValorMenor.MaxLength = 3;
+            this.txtPorVolumenColocadoValorMenor.Name = "txtPorVolumenColocadoValorMenor";
+            this.txtPorVolumenColocadoValorMenor.Size = new System.Drawing.Size(27, 20);
+            this.txtPorVolumenColocadoValorMenor.TabIndex = 5;
+            this.txtPorVolumenColocadoValorMenor.Text = "0";
+            this.txtPorVolumenColocadoValorMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorVolumenColocadoValorMenor.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorVolumenColocadoValorMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorVolumenColocadoValorMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorVolumenColocadoValorMenor.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorCumplimientoPerc
+            // 
+            this.txtPorCumplimientoPerc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorCumplimientoPerc.Location = new System.Drawing.Point(163, 50);
+            this.txtPorCumplimientoPerc.MaxLength = 3;
+            this.txtPorCumplimientoPerc.Name = "txtPorCumplimientoPerc";
+            this.txtPorCumplimientoPerc.Size = new System.Drawing.Size(27, 20);
+            this.txtPorCumplimientoPerc.TabIndex = 2;
+            this.txtPorCumplimientoPerc.Text = "0";
+            this.txtPorCumplimientoPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorCumplimientoPerc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorCumplimientoPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorCumplimientoPerc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorCumplimientoPerc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(175, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "%";
+            // 
+            // lblPorVolumenMiembros
+            // 
+            this.lblPorVolumenMiembros.AutoSize = true;
+            this.lblPorVolumenMiembros.Location = new System.Drawing.Point(11, 242);
+            this.lblPorVolumenMiembros.Name = "lblPorVolumenMiembros";
+            this.lblPorVolumenMiembros.Size = new System.Drawing.Size(118, 13);
+            this.lblPorVolumenMiembros.TabIndex = 48;
+            this.lblPorVolumenMiembros.Text = "Por Volumen Miembros:";
+            // 
+            // lblPorVolumenColocado
+            // 
+            this.lblPorVolumenColocado.AutoSize = true;
+            this.lblPorVolumenColocado.Location = new System.Drawing.Point(6, 138);
+            this.lblPorVolumenColocado.Name = "lblPorVolumenColocado";
+            this.lblPorVolumenColocado.Size = new System.Drawing.Size(118, 13);
+            this.lblPorVolumenColocado.TabIndex = 46;
+            this.lblPorVolumenColocado.Text = "Por Volumen Colocado:";
+            // 
+            // lblPorCrecimiento
+            // 
+            this.lblPorCrecimiento.AutoSize = true;
+            this.lblPorCrecimiento.Location = new System.Drawing.Point(40, 78);
+            this.lblPorCrecimiento.Name = "lblPorCrecimiento";
+            this.lblPorCrecimiento.Size = new System.Drawing.Size(84, 13);
+            this.lblPorCrecimiento.TabIndex = 37;
+            this.lblPorCrecimiento.Text = "Por Crecimiento:";
+            // 
+            // lblPorCompletarCelula
+            // 
+            this.lblPorCompletarCelula.AutoSize = true;
+            this.lblPorCompletarCelula.Location = new System.Drawing.Point(16, 104);
+            this.lblPorCompletarCelula.Name = "lblPorCompletarCelula";
+            this.lblPorCompletarCelula.Size = new System.Drawing.Size(108, 13);
+            this.lblPorCompletarCelula.TabIndex = 36;
+            this.lblPorCompletarCelula.Text = "Por Completar Célula:";
+            // 
+            // lblValBonLid
+            // 
+            this.lblValBonLid.AutoSize = true;
+            this.lblValBonLid.Location = new System.Drawing.Point(125, 34);
+            this.lblValBonLid.Name = "lblValBonLid";
+            this.lblValBonLid.Size = new System.Drawing.Size(31, 13);
+            this.lblValBonLid.TabIndex = 29;
+            this.lblValBonLid.Text = "Valor";
+            // 
+            // txtPorCrecimientoVal
+            // 
+            this.txtPorCrecimientoVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorCrecimientoVal.Location = new System.Drawing.Point(130, 76);
+            this.txtPorCrecimientoVal.MaxLength = 3;
+            this.txtPorCrecimientoVal.Name = "txtPorCrecimientoVal";
+            this.txtPorCrecimientoVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPorCrecimientoVal.TabIndex = 3;
+            this.txtPorCrecimientoVal.Text = "0";
+            this.txtPorCrecimientoVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorCrecimientoVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorCrecimientoVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorCrecimientoVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorCrecimientoVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorCompletarCelulaVal
+            // 
+            this.txtPorCompletarCelulaVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorCompletarCelulaVal.Location = new System.Drawing.Point(130, 102);
+            this.txtPorCompletarCelulaVal.MaxLength = 3;
+            this.txtPorCompletarCelulaVal.Name = "txtPorCompletarCelulaVal";
+            this.txtPorCompletarCelulaVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPorCompletarCelulaVal.TabIndex = 4;
+            this.txtPorCompletarCelulaVal.Text = "0";
+            this.txtPorCompletarCelulaVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorCompletarCelulaVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorCompletarCelulaVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorCompletarCelulaVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorCompletarCelulaVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPorCumplimientoVal
+            // 
+            this.txtPorCumplimientoVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorCumplimientoVal.Location = new System.Drawing.Point(130, 50);
+            this.txtPorCumplimientoVal.MaxLength = 3;
+            this.txtPorCumplimientoVal.Name = "txtPorCumplimientoVal";
+            this.txtPorCumplimientoVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPorCumplimientoVal.TabIndex = 1;
+            this.txtPorCumplimientoVal.Text = "0";
+            this.txtPorCumplimientoVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorCumplimientoVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorCumplimientoVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorCumplimientoVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorCumplimientoVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblBonosLideres
+            // 
+            this.lblBonosLideres.AutoSize = true;
+            this.lblBonosLideres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBonosLideres.Location = new System.Drawing.Point(63, 16);
+            this.lblBonosLideres.Name = "lblBonosLideres";
+            this.lblBonosLideres.Size = new System.Drawing.Size(50, 13);
+            this.lblBonosLideres.TabIndex = 23;
+            this.lblBonosLideres.Text = "Líderes";
+            // 
+            // lblPorCumplimiento
+            // 
+            this.lblPorCumplimiento.AutoSize = true;
+            this.lblPorCumplimiento.Location = new System.Drawing.Point(33, 52);
+            this.lblPorCumplimiento.Name = "lblPorCumplimiento";
+            this.lblPorCumplimiento.Size = new System.Drawing.Size(91, 13);
+            this.lblPorCumplimiento.TabIndex = 19;
+            this.lblPorCumplimiento.Text = "Por Cumplimiento:";
+            // 
+            // btnLoadDefaultsR
+            // 
+            this.btnLoadDefaultsR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadDefaultsR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoadDefaultsR.Location = new System.Drawing.Point(119, 19);
+            this.btnLoadDefaultsR.Name = "btnLoadDefaultsR";
+            this.btnLoadDefaultsR.Size = new System.Drawing.Size(90, 23);
+            this.btnLoadDefaultsR.TabIndex = 53;
+            this.btnLoadDefaultsR.Text = "Restaurar";
+            this.btnLoadDefaultsR.UseVisualStyleBackColor = true;
+            this.btnLoadDefaultsR.Click += new System.EventHandler(this.btnLoadDefaults_Click);
+            // 
+            // btnSaveConfigR
+            // 
+            this.btnSaveConfigR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveConfigR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSaveConfigR.Location = new System.Drawing.Point(23, 19);
+            this.btnSaveConfigR.Name = "btnSaveConfigR";
+            this.btnSaveConfigR.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveConfigR.TabIndex = 52;
+            this.btnSaveConfigR.Text = "Guardar";
+            this.btnSaveConfigR.UseVisualStyleBackColor = true;
+            this.btnSaveConfigR.Click += new System.EventHandler(this.btnSaveConfig_Click);
+            // 
+            // gpbComisiones
+            // 
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio3CN3);
+            this.gpbComisiones.Controls.Add(this.txtN3PagoTardio3CN3Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio3CN3Val);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio3CN2);
+            this.gpbComisiones.Controls.Add(this.txtN2PagoTardio3CN2Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio3CN2Val);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio3CN1);
+            this.gpbComisiones.Controls.Add(this.txtN1PagoTardio3CN1Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio3CN1Val);
+            this.gpbComisiones.Controls.Add(this.lblNivel3);
+            this.gpbComisiones.Controls.Add(this.lblNivel2);
+            this.gpbComisiones.Controls.Add(this.lblNivel1);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio1CN2);
+            this.gpbComisiones.Controls.Add(this.txtN2PagoTardio1CN2Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio1CN2Val);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio2CN1);
+            this.gpbComisiones.Controls.Add(this.txtN1PagoTardio2CN1Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio2CN1Val);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio1CN1);
+            this.gpbComisiones.Controls.Add(this.txtN1PagoTardio1CN1Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio1CN1Val);
+            this.gpbComisiones.Controls.Add(this.lblPorColocacion);
+            this.gpbComisiones.Controls.Add(this.txtPorColocacionVal);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio2CN2);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio2CN3);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio1CN3);
+            this.gpbComisiones.Controls.Add(this.txtN3PagoTardio2CN3Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio2CN3Val);
+            this.gpbComisiones.Controls.Add(this.txtN2PagoTardio2CN2Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio2CN2Val);
+            this.gpbComisiones.Controls.Add(this.txtN3PagoTardio1CN3Perc);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio1CN3Val);
+            this.gpbComisiones.Controls.Add(this.lblPagoTiempoCN2);
+            this.gpbComisiones.Controls.Add(this.lblPagoTiempoCN3);
+            this.gpbComisiones.Controls.Add(this.txtN2PagoTiempoCN2Perc);
+            this.gpbComisiones.Controls.Add(this.txtN3PagoTiempoCN3Perc);
+            this.gpbComisiones.Controls.Add(this.txtN1PagoTiempoCN1Perc);
+            this.gpbComisiones.Controls.Add(this.lblPercComLid);
+            this.gpbComisiones.Controls.Add(this.lblValorComLid);
+            this.gpbComisiones.Controls.Add(this.txtPagoTiempoCN2Val);
+            this.gpbComisiones.Controls.Add(this.txtPagoTiempoCN3Val);
+            this.gpbComisiones.Controls.Add(this.txtPagoTiempoCN1Val);
+            this.gpbComisiones.Controls.Add(this.lblComisionesLideres);
+            this.gpbComisiones.Controls.Add(this.lblPagoTiempoCN1);
+            this.gpbComisiones.Controls.Add(this.txtDistPagoTiempoPerc);
+            this.gpbComisiones.Controls.Add(this.txtDistPagoTardio1Perc);
+            this.gpbComisiones.Controls.Add(this.txtDistPagoTardio2Perc);
+            this.gpbComisiones.Controls.Add(this.txtDistPagoTardio3Perc);
+            this.gpbComisiones.Controls.Add(this.txtDistPagoProntoPerc);
+            this.gpbComisiones.Controls.Add(this.lblPercComDist);
+            this.gpbComisiones.Controls.Add(this.lblValorComDist);
+            this.gpbComisiones.Controls.Add(this.txtPagoTiempoVal);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio1Val);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio2Val);
+            this.gpbComisiones.Controls.Add(this.txtPagoTardio3Val);
+            this.gpbComisiones.Controls.Add(this.txtPagoProntoVal);
+            this.gpbComisiones.Controls.Add(this.lblComicionesDist);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio3);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio2);
+            this.gpbComisiones.Controls.Add(this.lblPagoTardio1);
+            this.gpbComisiones.Controls.Add(this.lblPagoTiempo);
+            this.gpbComisiones.Controls.Add(this.lblPagoPronto);
+            this.gpbComisiones.Location = new System.Drawing.Point(300, 19);
+            this.gpbComisiones.Name = "gpbComisiones";
+            this.gpbComisiones.Size = new System.Drawing.Size(427, 439);
+            this.gpbComisiones.TabIndex = 51;
+            this.gpbComisiones.TabStop = false;
+            this.gpbComisiones.Text = "Comisiones";
+            // 
+            // lblPagoTardio3CN3
+            // 
+            this.lblPagoTardio3CN3.AutoSize = true;
+            this.lblPagoTardio3CN3.Location = new System.Drawing.Point(237, 375);
+            this.lblPagoTardio3CN3.Name = "lblPagoTardio3CN3";
+            this.lblPagoTardio3CN3.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio3CN3.TabIndex = 75;
+            this.lblPagoTardio3CN3.Text = "Pago Tardío 3:";
+            // 
+            // txtN3PagoTardio3CN3Perc
+            // 
+            this.txtN3PagoTardio3CN3Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN3PagoTardio3CN3Perc.Location = new System.Drawing.Point(355, 373);
+            this.txtN3PagoTardio3CN3Perc.MaxLength = 3;
+            this.txtN3PagoTardio3CN3Perc.Name = "txtN3PagoTardio3CN3Perc";
+            this.txtN3PagoTardio3CN3Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN3PagoTardio3CN3Perc.TabIndex = 52;
+            this.txtN3PagoTardio3CN3Perc.Text = "0";
+            this.txtN3PagoTardio3CN3Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN3PagoTardio3CN3Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN3PagoTardio3CN3Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN3PagoTardio3CN3Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN3PagoTardio3CN3Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio3CN3Val
+            // 
+            this.txtPagoTardio3CN3Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio3CN3Val.Location = new System.Drawing.Point(322, 373);
+            this.txtPagoTardio3CN3Val.MaxLength = 3;
+            this.txtPagoTardio3CN3Val.Name = "txtPagoTardio3CN3Val";
+            this.txtPagoTardio3CN3Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio3CN3Val.TabIndex = 51;
+            this.txtPagoTardio3CN3Val.Text = "0";
+            this.txtPagoTardio3CN3Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio3CN3Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio3CN3Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio3CN3Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio3CN3Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTardio3CN2
+            // 
+            this.lblPagoTardio3CN2.AutoSize = true;
+            this.lblPagoTardio3CN2.Location = new System.Drawing.Point(237, 253);
+            this.lblPagoTardio3CN2.Name = "lblPagoTardio3CN2";
+            this.lblPagoTardio3CN2.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio3CN2.TabIndex = 72;
+            this.lblPagoTardio3CN2.Text = "Pago Tardío 3:";
+            // 
+            // txtN2PagoTardio3CN2Perc
+            // 
+            this.txtN2PagoTardio3CN2Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN2PagoTardio3CN2Perc.Location = new System.Drawing.Point(355, 251);
+            this.txtN2PagoTardio3CN2Perc.MaxLength = 3;
+            this.txtN2PagoTardio3CN2Perc.Name = "txtN2PagoTardio3CN2Perc";
+            this.txtN2PagoTardio3CN2Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN2PagoTardio3CN2Perc.TabIndex = 44;
+            this.txtN2PagoTardio3CN2Perc.Text = "0";
+            this.txtN2PagoTardio3CN2Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN2PagoTardio3CN2Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN2PagoTardio3CN2Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN2PagoTardio3CN2Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN2PagoTardio3CN2Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio3CN2Val
+            // 
+            this.txtPagoTardio3CN2Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio3CN2Val.Location = new System.Drawing.Point(322, 251);
+            this.txtPagoTardio3CN2Val.MaxLength = 3;
+            this.txtPagoTardio3CN2Val.Name = "txtPagoTardio3CN2Val";
+            this.txtPagoTardio3CN2Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio3CN2Val.TabIndex = 43;
+            this.txtPagoTardio3CN2Val.Text = "0";
+            this.txtPagoTardio3CN2Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio3CN2Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio3CN2Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio3CN2Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio3CN2Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTardio3CN1
+            // 
+            this.lblPagoTardio3CN1.AutoSize = true;
+            this.lblPagoTardio3CN1.Location = new System.Drawing.Point(237, 133);
+            this.lblPagoTardio3CN1.Name = "lblPagoTardio3CN1";
+            this.lblPagoTardio3CN1.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio3CN1.TabIndex = 69;
+            this.lblPagoTardio3CN1.Text = "Pago Tardío 3:";
+            // 
+            // txtN1PagoTardio3CN1Perc
+            // 
+            this.txtN1PagoTardio3CN1Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN1PagoTardio3CN1Perc.Location = new System.Drawing.Point(355, 131);
+            this.txtN1PagoTardio3CN1Perc.MaxLength = 3;
+            this.txtN1PagoTardio3CN1Perc.Name = "txtN1PagoTardio3CN1Perc";
+            this.txtN1PagoTardio3CN1Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN1PagoTardio3CN1Perc.TabIndex = 36;
+            this.txtN1PagoTardio3CN1Perc.Text = "0";
+            this.txtN1PagoTardio3CN1Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN1PagoTardio3CN1Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN1PagoTardio3CN1Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN1PagoTardio3CN1Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN1PagoTardio3CN1Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio3CN1Val
+            // 
+            this.txtPagoTardio3CN1Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio3CN1Val.Location = new System.Drawing.Point(322, 131);
+            this.txtPagoTardio3CN1Val.MaxLength = 3;
+            this.txtPagoTardio3CN1Val.Name = "txtPagoTardio3CN1Val";
+            this.txtPagoTardio3CN1Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio3CN1Val.TabIndex = 35;
+            this.txtPagoTardio3CN1Val.Text = "0";
+            this.txtPagoTardio3CN1Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio3CN1Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio3CN1Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio3CN1Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio3CN1Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblNivel3
+            // 
+            this.lblNivel3.AutoSize = true;
+            this.lblNivel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel3.Location = new System.Drawing.Point(224, 279);
+            this.lblNivel3.Name = "lblNivel3";
+            this.lblNivel3.Size = new System.Drawing.Size(51, 13);
+            this.lblNivel3.TabIndex = 66;
+            this.lblNivel3.Text = "Nivel 3:";
+            // 
+            // lblNivel2
+            // 
+            this.lblNivel2.AutoSize = true;
+            this.lblNivel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel2.Location = new System.Drawing.Point(224, 157);
+            this.lblNivel2.Name = "lblNivel2";
+            this.lblNivel2.Size = new System.Drawing.Size(51, 13);
+            this.lblNivel2.TabIndex = 65;
+            this.lblNivel2.Text = "Nivel 2:";
+            // 
+            // lblNivel1
+            // 
+            this.lblNivel1.AutoSize = true;
+            this.lblNivel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel1.Location = new System.Drawing.Point(224, 37);
+            this.lblNivel1.Name = "lblNivel1";
+            this.lblNivel1.Size = new System.Drawing.Size(51, 13);
+            this.lblNivel1.TabIndex = 64;
+            this.lblNivel1.Text = "Nivel 1:";
+            // 
+            // lblPagoTardio1CN2
+            // 
+            this.lblPagoTardio1CN2.AutoSize = true;
+            this.lblPagoTardio1CN2.Location = new System.Drawing.Point(237, 201);
+            this.lblPagoTardio1CN2.Name = "lblPagoTardio1CN2";
+            this.lblPagoTardio1CN2.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio1CN2.TabIndex = 63;
+            this.lblPagoTardio1CN2.Text = "Pago Tardío 1:";
+            // 
+            // txtN2PagoTardio1CN2Perc
+            // 
+            this.txtN2PagoTardio1CN2Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN2PagoTardio1CN2Perc.Location = new System.Drawing.Point(355, 199);
+            this.txtN2PagoTardio1CN2Perc.MaxLength = 3;
+            this.txtN2PagoTardio1CN2Perc.Name = "txtN2PagoTardio1CN2Perc";
+            this.txtN2PagoTardio1CN2Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN2PagoTardio1CN2Perc.TabIndex = 40;
+            this.txtN2PagoTardio1CN2Perc.Text = "0";
+            this.txtN2PagoTardio1CN2Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN2PagoTardio1CN2Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN2PagoTardio1CN2Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN2PagoTardio1CN2Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN2PagoTardio1CN2Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio1CN2Val
+            // 
+            this.txtPagoTardio1CN2Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio1CN2Val.Location = new System.Drawing.Point(322, 199);
+            this.txtPagoTardio1CN2Val.MaxLength = 3;
+            this.txtPagoTardio1CN2Val.Name = "txtPagoTardio1CN2Val";
+            this.txtPagoTardio1CN2Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio1CN2Val.TabIndex = 39;
+            this.txtPagoTardio1CN2Val.Text = "0";
+            this.txtPagoTardio1CN2Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio1CN2Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio1CN2Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio1CN2Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio1CN2Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTardio2CN1
+            // 
+            this.lblPagoTardio2CN1.AutoSize = true;
+            this.lblPagoTardio2CN1.Location = new System.Drawing.Point(237, 107);
+            this.lblPagoTardio2CN1.Name = "lblPagoTardio2CN1";
+            this.lblPagoTardio2CN1.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio2CN1.TabIndex = 60;
+            this.lblPagoTardio2CN1.Text = "Pago Tardío 2:";
+            // 
+            // txtN1PagoTardio2CN1Perc
+            // 
+            this.txtN1PagoTardio2CN1Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN1PagoTardio2CN1Perc.Location = new System.Drawing.Point(355, 105);
+            this.txtN1PagoTardio2CN1Perc.MaxLength = 3;
+            this.txtN1PagoTardio2CN1Perc.Name = "txtN1PagoTardio2CN1Perc";
+            this.txtN1PagoTardio2CN1Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN1PagoTardio2CN1Perc.TabIndex = 34;
+            this.txtN1PagoTardio2CN1Perc.Text = "0";
+            this.txtN1PagoTardio2CN1Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN1PagoTardio2CN1Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN1PagoTardio2CN1Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN1PagoTardio2CN1Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN1PagoTardio2CN1Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio2CN1Val
+            // 
+            this.txtPagoTardio2CN1Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio2CN1Val.Location = new System.Drawing.Point(322, 105);
+            this.txtPagoTardio2CN1Val.MaxLength = 3;
+            this.txtPagoTardio2CN1Val.Name = "txtPagoTardio2CN1Val";
+            this.txtPagoTardio2CN1Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio2CN1Val.TabIndex = 33;
+            this.txtPagoTardio2CN1Val.Text = "0";
+            this.txtPagoTardio2CN1Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio2CN1Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio2CN1Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio2CN1Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio2CN1Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTardio1CN1
+            // 
+            this.lblPagoTardio1CN1.AutoSize = true;
+            this.lblPagoTardio1CN1.Location = new System.Drawing.Point(237, 81);
+            this.lblPagoTardio1CN1.Name = "lblPagoTardio1CN1";
+            this.lblPagoTardio1CN1.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio1CN1.TabIndex = 57;
+            this.lblPagoTardio1CN1.Text = "Pago Tardío 1:";
+            // 
+            // txtN1PagoTardio1CN1Perc
+            // 
+            this.txtN1PagoTardio1CN1Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN1PagoTardio1CN1Perc.Location = new System.Drawing.Point(355, 79);
+            this.txtN1PagoTardio1CN1Perc.MaxLength = 3;
+            this.txtN1PagoTardio1CN1Perc.Name = "txtN1PagoTardio1CN1Perc";
+            this.txtN1PagoTardio1CN1Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN1PagoTardio1CN1Perc.TabIndex = 32;
+            this.txtN1PagoTardio1CN1Perc.Text = "0";
+            this.txtN1PagoTardio1CN1Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN1PagoTardio1CN1Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN1PagoTardio1CN1Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN1PagoTardio1CN1Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN1PagoTardio1CN1Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio1CN1Val
+            // 
+            this.txtPagoTardio1CN1Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio1CN1Val.Location = new System.Drawing.Point(322, 79);
+            this.txtPagoTardio1CN1Val.MaxLength = 3;
+            this.txtPagoTardio1CN1Val.Name = "txtPagoTardio1CN1Val";
+            this.txtPagoTardio1CN1Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio1CN1Val.TabIndex = 31;
+            this.txtPagoTardio1CN1Val.Text = "0";
+            this.txtPagoTardio1CN1Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio1CN1Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio1CN1Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio1CN1Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio1CN1Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPorColocacion
+            // 
+            this.lblPorColocacion.AutoSize = true;
+            this.lblPorColocacion.Location = new System.Drawing.Point(233, 401);
+            this.lblPorColocacion.Name = "lblPorColocacion";
+            this.lblPorColocacion.Size = new System.Drawing.Size(82, 13);
+            this.lblPorColocacion.TabIndex = 54;
+            this.lblPorColocacion.Text = "Por Colocación:";
+            // 
+            // txtPorColocacionVal
+            // 
+            this.txtPorColocacionVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPorColocacionVal.Location = new System.Drawing.Point(321, 399);
+            this.txtPorColocacionVal.MaxLength = 3;
+            this.txtPorColocacionVal.Name = "txtPorColocacionVal";
+            this.txtPorColocacionVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPorColocacionVal.TabIndex = 53;
+            this.txtPorColocacionVal.Text = "0";
+            this.txtPorColocacionVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPorColocacionVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPorColocacionVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPorColocacionVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPorColocacionVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTardio2CN2
+            // 
+            this.lblPagoTardio2CN2.AutoSize = true;
+            this.lblPagoTardio2CN2.Location = new System.Drawing.Point(237, 227);
+            this.lblPagoTardio2CN2.Name = "lblPagoTardio2CN2";
+            this.lblPagoTardio2CN2.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio2CN2.TabIndex = 51;
+            this.lblPagoTardio2CN2.Text = "Pago Tardío 2:";
+            // 
+            // lblPagoTardio2CN3
+            // 
+            this.lblPagoTardio2CN3.AutoSize = true;
+            this.lblPagoTardio2CN3.Location = new System.Drawing.Point(237, 349);
+            this.lblPagoTardio2CN3.Name = "lblPagoTardio2CN3";
+            this.lblPagoTardio2CN3.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio2CN3.TabIndex = 50;
+            this.lblPagoTardio2CN3.Text = "Pago Tardío 2:";
+            // 
+            // lblPagoTardio1CN3
+            // 
+            this.lblPagoTardio1CN3.AutoSize = true;
+            this.lblPagoTardio1CN3.Location = new System.Drawing.Point(237, 323);
+            this.lblPagoTardio1CN3.Name = "lblPagoTardio1CN3";
+            this.lblPagoTardio1CN3.Size = new System.Drawing.Size(79, 13);
+            this.lblPagoTardio1CN3.TabIndex = 47;
+            this.lblPagoTardio1CN3.Text = "Pago Tardío 1:";
+            // 
+            // txtN3PagoTardio2CN3Perc
+            // 
+            this.txtN3PagoTardio2CN3Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN3PagoTardio2CN3Perc.Location = new System.Drawing.Point(355, 347);
+            this.txtN3PagoTardio2CN3Perc.MaxLength = 3;
+            this.txtN3PagoTardio2CN3Perc.Name = "txtN3PagoTardio2CN3Perc";
+            this.txtN3PagoTardio2CN3Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN3PagoTardio2CN3Perc.TabIndex = 50;
+            this.txtN3PagoTardio2CN3Perc.Text = "0";
+            this.txtN3PagoTardio2CN3Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN3PagoTardio2CN3Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN3PagoTardio2CN3Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN3PagoTardio2CN3Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN3PagoTardio2CN3Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio2CN3Val
+            // 
+            this.txtPagoTardio2CN3Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio2CN3Val.Location = new System.Drawing.Point(322, 347);
+            this.txtPagoTardio2CN3Val.MaxLength = 3;
+            this.txtPagoTardio2CN3Val.Name = "txtPagoTardio2CN3Val";
+            this.txtPagoTardio2CN3Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio2CN3Val.TabIndex = 49;
+            this.txtPagoTardio2CN3Val.Text = "0";
+            this.txtPagoTardio2CN3Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio2CN3Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio2CN3Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio2CN3Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio2CN3Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtN2PagoTardio2CN2Perc
+            // 
+            this.txtN2PagoTardio2CN2Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN2PagoTardio2CN2Perc.Location = new System.Drawing.Point(355, 225);
+            this.txtN2PagoTardio2CN2Perc.MaxLength = 3;
+            this.txtN2PagoTardio2CN2Perc.Name = "txtN2PagoTardio2CN2Perc";
+            this.txtN2PagoTardio2CN2Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN2PagoTardio2CN2Perc.TabIndex = 42;
+            this.txtN2PagoTardio2CN2Perc.Text = "0";
+            this.txtN2PagoTardio2CN2Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN2PagoTardio2CN2Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN2PagoTardio2CN2Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN2PagoTardio2CN2Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN2PagoTardio2CN2Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio2CN2Val
+            // 
+            this.txtPagoTardio2CN2Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio2CN2Val.Location = new System.Drawing.Point(322, 225);
+            this.txtPagoTardio2CN2Val.MaxLength = 3;
+            this.txtPagoTardio2CN2Val.Name = "txtPagoTardio2CN2Val";
+            this.txtPagoTardio2CN2Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio2CN2Val.TabIndex = 41;
+            this.txtPagoTardio2CN2Val.Text = "0";
+            this.txtPagoTardio2CN2Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio2CN2Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio2CN2Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio2CN2Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio2CN2Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtN3PagoTardio1CN3Perc
+            // 
+            this.txtN3PagoTardio1CN3Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN3PagoTardio1CN3Perc.Location = new System.Drawing.Point(355, 321);
+            this.txtN3PagoTardio1CN3Perc.MaxLength = 3;
+            this.txtN3PagoTardio1CN3Perc.Name = "txtN3PagoTardio1CN3Perc";
+            this.txtN3PagoTardio1CN3Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN3PagoTardio1CN3Perc.TabIndex = 48;
+            this.txtN3PagoTardio1CN3Perc.Text = "0";
+            this.txtN3PagoTardio1CN3Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN3PagoTardio1CN3Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN3PagoTardio1CN3Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN3PagoTardio1CN3Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN3PagoTardio1CN3Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio1CN3Val
+            // 
+            this.txtPagoTardio1CN3Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio1CN3Val.Location = new System.Drawing.Point(322, 321);
+            this.txtPagoTardio1CN3Val.MaxLength = 3;
+            this.txtPagoTardio1CN3Val.Name = "txtPagoTardio1CN3Val";
+            this.txtPagoTardio1CN3Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio1CN3Val.TabIndex = 47;
+            this.txtPagoTardio1CN3Val.Text = "0";
+            this.txtPagoTardio1CN3Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio1CN3Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio1CN3Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio1CN3Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio1CN3Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPagoTiempoCN2
+            // 
+            this.lblPagoTiempoCN2.AutoSize = true;
+            this.lblPagoTiempoCN2.Location = new System.Drawing.Point(234, 175);
+            this.lblPagoTiempoCN2.Name = "lblPagoTiempoCN2";
+            this.lblPagoTiempoCN2.Size = new System.Drawing.Size(82, 13);
+            this.lblPagoTiempoCN2.TabIndex = 37;
+            this.lblPagoTiempoCN2.Text = "Pago a Tiempo:";
+            // 
+            // lblPagoTiempoCN3
+            // 
+            this.lblPagoTiempoCN3.AutoSize = true;
+            this.lblPagoTiempoCN3.Location = new System.Drawing.Point(234, 297);
+            this.lblPagoTiempoCN3.Name = "lblPagoTiempoCN3";
+            this.lblPagoTiempoCN3.Size = new System.Drawing.Size(82, 13);
+            this.lblPagoTiempoCN3.TabIndex = 36;
+            this.lblPagoTiempoCN3.Text = "Pago a Tiempo:";
+            // 
+            // txtN2PagoTiempoCN2Perc
+            // 
+            this.txtN2PagoTiempoCN2Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN2PagoTiempoCN2Perc.Location = new System.Drawing.Point(355, 173);
+            this.txtN2PagoTiempoCN2Perc.MaxLength = 3;
+            this.txtN2PagoTiempoCN2Perc.Name = "txtN2PagoTiempoCN2Perc";
+            this.txtN2PagoTiempoCN2Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN2PagoTiempoCN2Perc.TabIndex = 38;
+            this.txtN2PagoTiempoCN2Perc.Text = "0";
+            this.txtN2PagoTiempoCN2Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN2PagoTiempoCN2Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN2PagoTiempoCN2Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN2PagoTiempoCN2Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN2PagoTiempoCN2Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtN3PagoTiempoCN3Perc
+            // 
+            this.txtN3PagoTiempoCN3Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN3PagoTiempoCN3Perc.Location = new System.Drawing.Point(355, 295);
+            this.txtN3PagoTiempoCN3Perc.MaxLength = 3;
+            this.txtN3PagoTiempoCN3Perc.Name = "txtN3PagoTiempoCN3Perc";
+            this.txtN3PagoTiempoCN3Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN3PagoTiempoCN3Perc.TabIndex = 46;
+            this.txtN3PagoTiempoCN3Perc.Text = "0";
+            this.txtN3PagoTiempoCN3Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN3PagoTiempoCN3Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN3PagoTiempoCN3Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN3PagoTiempoCN3Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN3PagoTiempoCN3Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtN1PagoTiempoCN1Perc
+            // 
+            this.txtN1PagoTiempoCN1Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN1PagoTiempoCN1Perc.Location = new System.Drawing.Point(355, 53);
+            this.txtN1PagoTiempoCN1Perc.MaxLength = 3;
+            this.txtN1PagoTiempoCN1Perc.Name = "txtN1PagoTiempoCN1Perc";
+            this.txtN1PagoTiempoCN1Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtN1PagoTiempoCN1Perc.TabIndex = 30;
+            this.txtN1PagoTiempoCN1Perc.Text = "0";
+            this.txtN1PagoTiempoCN1Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtN1PagoTiempoCN1Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtN1PagoTiempoCN1Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtN1PagoTiempoCN1Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtN1PagoTiempoCN1Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPercComLid
+            // 
+            this.lblPercComLid.AutoSize = true;
+            this.lblPercComLid.Location = new System.Drawing.Point(367, 37);
+            this.lblPercComLid.Name = "lblPercComLid";
+            this.lblPercComLid.Size = new System.Drawing.Size(15, 13);
+            this.lblPercComLid.TabIndex = 30;
+            this.lblPercComLid.Text = "%";
+            // 
+            // lblValorComLid
+            // 
+            this.lblValorComLid.AutoSize = true;
+            this.lblValorComLid.Location = new System.Drawing.Point(318, 37);
+            this.lblValorComLid.Name = "lblValorComLid";
+            this.lblValorComLid.Size = new System.Drawing.Size(31, 13);
+            this.lblValorComLid.TabIndex = 29;
+            this.lblValorComLid.Text = "Valor";
+            // 
+            // txtPagoTiempoCN2Val
+            // 
+            this.txtPagoTiempoCN2Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTiempoCN2Val.Location = new System.Drawing.Point(322, 173);
+            this.txtPagoTiempoCN2Val.MaxLength = 3;
+            this.txtPagoTiempoCN2Val.Name = "txtPagoTiempoCN2Val";
+            this.txtPagoTiempoCN2Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTiempoCN2Val.TabIndex = 37;
+            this.txtPagoTiempoCN2Val.Text = "0";
+            this.txtPagoTiempoCN2Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTiempoCN2Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTiempoCN2Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTiempoCN2Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTiempoCN2Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTiempoCN3Val
+            // 
+            this.txtPagoTiempoCN3Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTiempoCN3Val.Location = new System.Drawing.Point(322, 295);
+            this.txtPagoTiempoCN3Val.MaxLength = 3;
+            this.txtPagoTiempoCN3Val.Name = "txtPagoTiempoCN3Val";
+            this.txtPagoTiempoCN3Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTiempoCN3Val.TabIndex = 45;
+            this.txtPagoTiempoCN3Val.Text = "0";
+            this.txtPagoTiempoCN3Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTiempoCN3Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTiempoCN3Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTiempoCN3Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTiempoCN3Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTiempoCN1Val
+            // 
+            this.txtPagoTiempoCN1Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTiempoCN1Val.Location = new System.Drawing.Point(322, 53);
+            this.txtPagoTiempoCN1Val.MaxLength = 3;
+            this.txtPagoTiempoCN1Val.Name = "txtPagoTiempoCN1Val";
+            this.txtPagoTiempoCN1Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTiempoCN1Val.TabIndex = 29;
+            this.txtPagoTiempoCN1Val.Text = "0";
+            this.txtPagoTiempoCN1Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTiempoCN1Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTiempoCN1Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTiempoCN1Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTiempoCN1Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblComisionesLideres
+            // 
+            this.lblComisionesLideres.AutoSize = true;
+            this.lblComisionesLideres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComisionesLideres.Location = new System.Drawing.Point(266, 16);
+            this.lblComisionesLideres.Name = "lblComisionesLideres";
+            this.lblComisionesLideres.Size = new System.Drawing.Size(50, 13);
+            this.lblComisionesLideres.TabIndex = 23;
+            this.lblComisionesLideres.Text = "Líderes";
+            // 
+            // lblPagoTiempoCN1
+            // 
+            this.lblPagoTiempoCN1.AutoSize = true;
+            this.lblPagoTiempoCN1.Location = new System.Drawing.Point(234, 55);
+            this.lblPagoTiempoCN1.Name = "lblPagoTiempoCN1";
+            this.lblPagoTiempoCN1.Size = new System.Drawing.Size(82, 13);
+            this.lblPagoTiempoCN1.TabIndex = 19;
+            this.lblPagoTiempoCN1.Text = "Pago a Tiempo:";
+            // 
+            // txtDistPagoTiempoPerc
+            // 
+            this.txtDistPagoTiempoPerc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDistPagoTiempoPerc.Location = new System.Drawing.Point(157, 79);
+            this.txtDistPagoTiempoPerc.MaxLength = 3;
+            this.txtDistPagoTiempoPerc.Name = "txtDistPagoTiempoPerc";
+            this.txtDistPagoTiempoPerc.Size = new System.Drawing.Size(27, 20);
+            this.txtDistPagoTiempoPerc.TabIndex = 22;
+            this.txtDistPagoTiempoPerc.Text = "0";
+            this.txtDistPagoTiempoPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDistPagoTiempoPerc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtDistPagoTiempoPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtDistPagoTiempoPerc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtDistPagoTiempoPerc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtDistPagoTardio1Perc
+            // 
+            this.txtDistPagoTardio1Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDistPagoTardio1Perc.Location = new System.Drawing.Point(157, 105);
+            this.txtDistPagoTardio1Perc.MaxLength = 3;
+            this.txtDistPagoTardio1Perc.Name = "txtDistPagoTardio1Perc";
+            this.txtDistPagoTardio1Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtDistPagoTardio1Perc.TabIndex = 24;
+            this.txtDistPagoTardio1Perc.Text = "0";
+            this.txtDistPagoTardio1Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDistPagoTardio1Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtDistPagoTardio1Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtDistPagoTardio1Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtDistPagoTardio1Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtDistPagoTardio2Perc
+            // 
+            this.txtDistPagoTardio2Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDistPagoTardio2Perc.Location = new System.Drawing.Point(157, 131);
+            this.txtDistPagoTardio2Perc.MaxLength = 3;
+            this.txtDistPagoTardio2Perc.Name = "txtDistPagoTardio2Perc";
+            this.txtDistPagoTardio2Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtDistPagoTardio2Perc.TabIndex = 26;
+            this.txtDistPagoTardio2Perc.Text = "0";
+            this.txtDistPagoTardio2Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDistPagoTardio2Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtDistPagoTardio2Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtDistPagoTardio2Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtDistPagoTardio2Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtDistPagoTardio3Perc
+            // 
+            this.txtDistPagoTardio3Perc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDistPagoTardio3Perc.Location = new System.Drawing.Point(157, 157);
+            this.txtDistPagoTardio3Perc.MaxLength = 3;
+            this.txtDistPagoTardio3Perc.Name = "txtDistPagoTardio3Perc";
+            this.txtDistPagoTardio3Perc.Size = new System.Drawing.Size(27, 20);
+            this.txtDistPagoTardio3Perc.TabIndex = 28;
+            this.txtDistPagoTardio3Perc.Text = "0";
+            this.txtDistPagoTardio3Perc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDistPagoTardio3Perc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtDistPagoTardio3Perc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtDistPagoTardio3Perc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtDistPagoTardio3Perc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtDistPagoProntoPerc
+            // 
+            this.txtDistPagoProntoPerc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDistPagoProntoPerc.Location = new System.Drawing.Point(157, 53);
+            this.txtDistPagoProntoPerc.MaxLength = 3;
+            this.txtDistPagoProntoPerc.Name = "txtDistPagoProntoPerc";
+            this.txtDistPagoProntoPerc.Size = new System.Drawing.Size(27, 20);
+            this.txtDistPagoProntoPerc.TabIndex = 20;
+            this.txtDistPagoProntoPerc.Text = "0";
+            this.txtDistPagoProntoPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDistPagoProntoPerc.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtDistPagoProntoPerc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtDistPagoProntoPerc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtDistPagoProntoPerc.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblPercComDist
+            // 
+            this.lblPercComDist.AutoSize = true;
+            this.lblPercComDist.Location = new System.Drawing.Point(169, 37);
+            this.lblPercComDist.Name = "lblPercComDist";
+            this.lblPercComDist.Size = new System.Drawing.Size(15, 13);
+            this.lblPercComDist.TabIndex = 12;
+            this.lblPercComDist.Text = "%";
+            // 
+            // lblValorComDist
+            // 
+            this.lblValorComDist.AutoSize = true;
+            this.lblValorComDist.Location = new System.Drawing.Point(120, 37);
+            this.lblValorComDist.Name = "lblValorComDist";
+            this.lblValorComDist.Size = new System.Drawing.Size(31, 13);
+            this.lblValorComDist.TabIndex = 11;
+            this.lblValorComDist.Text = "Valor";
+            // 
+            // txtPagoTiempoVal
+            // 
+            this.txtPagoTiempoVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTiempoVal.Location = new System.Drawing.Point(124, 79);
+            this.txtPagoTiempoVal.MaxLength = 3;
+            this.txtPagoTiempoVal.Name = "txtPagoTiempoVal";
+            this.txtPagoTiempoVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTiempoVal.TabIndex = 21;
+            this.txtPagoTiempoVal.Text = "0";
+            this.txtPagoTiempoVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTiempoVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTiempoVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTiempoVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTiempoVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio1Val
+            // 
+            this.txtPagoTardio1Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio1Val.Location = new System.Drawing.Point(124, 105);
+            this.txtPagoTardio1Val.MaxLength = 3;
+            this.txtPagoTardio1Val.Name = "txtPagoTardio1Val";
+            this.txtPagoTardio1Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio1Val.TabIndex = 23;
+            this.txtPagoTardio1Val.Text = "0";
+            this.txtPagoTardio1Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio1Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio1Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio1Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio1Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio2Val
+            // 
+            this.txtPagoTardio2Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio2Val.Location = new System.Drawing.Point(124, 131);
+            this.txtPagoTardio2Val.MaxLength = 3;
+            this.txtPagoTardio2Val.Name = "txtPagoTardio2Val";
+            this.txtPagoTardio2Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio2Val.TabIndex = 25;
+            this.txtPagoTardio2Val.Text = "0";
+            this.txtPagoTardio2Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio2Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio2Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio2Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio2Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoTardio3Val
+            // 
+            this.txtPagoTardio3Val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoTardio3Val.Location = new System.Drawing.Point(124, 157);
+            this.txtPagoTardio3Val.MaxLength = 3;
+            this.txtPagoTardio3Val.Name = "txtPagoTardio3Val";
+            this.txtPagoTardio3Val.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoTardio3Val.TabIndex = 27;
+            this.txtPagoTardio3Val.Text = "0";
+            this.txtPagoTardio3Val.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoTardio3Val.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoTardio3Val.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoTardio3Val.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoTardio3Val.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // txtPagoProntoVal
+            // 
+            this.txtPagoProntoVal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoProntoVal.Location = new System.Drawing.Point(124, 53);
+            this.txtPagoProntoVal.MaxLength = 3;
+            this.txtPagoProntoVal.Name = "txtPagoProntoVal";
+            this.txtPagoProntoVal.Size = new System.Drawing.Size(27, 20);
+            this.txtPagoProntoVal.TabIndex = 19;
+            this.txtPagoProntoVal.Text = "0";
+            this.txtPagoProntoVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPagoProntoVal.TextChanged += new System.EventHandler(this.saveConfig);
+            this.txtPagoProntoVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumbers);
+            this.txtPagoProntoVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkEmpty);
+            this.txtPagoProntoVal.Leave += new System.EventHandler(this.clearZeros);
+            // 
+            // lblComicionesDist
+            // 
+            this.lblComicionesDist.AutoSize = true;
+            this.lblComicionesDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComicionesDist.Location = new System.Drawing.Point(34, 16);
+            this.lblComicionesDist.Name = "lblComicionesDist";
+            this.lblComicionesDist.Size = new System.Drawing.Size(84, 13);
+            this.lblComicionesDist.TabIndex = 5;
+            this.lblComicionesDist.Text = "Distribuidoras";
+            // 
+            // lblPagoTardio3
+            // 
+            this.lblPagoTardio3.AutoSize = true;
+            this.lblPagoTardio3.Location = new System.Drawing.Point(30, 159);
+            this.lblPagoTardio3.Name = "lblPagoTardio3";
+            this.lblPagoTardio3.Size = new System.Drawing.Size(88, 13);
+            this.lblPagoTardio3.TabIndex = 4;
+            this.lblPagoTardio3.Text = "Pago a Tardío 3:";
+            // 
+            // lblPagoTardio2
+            // 
+            this.lblPagoTardio2.AutoSize = true;
+            this.lblPagoTardio2.Location = new System.Drawing.Point(30, 133);
+            this.lblPagoTardio2.Name = "lblPagoTardio2";
+            this.lblPagoTardio2.Size = new System.Drawing.Size(88, 13);
+            this.lblPagoTardio2.TabIndex = 3;
+            this.lblPagoTardio2.Text = "Pago a Tardío 2:";
+            // 
+            // lblPagoTardio1
+            // 
+            this.lblPagoTardio1.AutoSize = true;
+            this.lblPagoTardio1.Location = new System.Drawing.Point(30, 107);
+            this.lblPagoTardio1.Name = "lblPagoTardio1";
+            this.lblPagoTardio1.Size = new System.Drawing.Size(88, 13);
+            this.lblPagoTardio1.TabIndex = 2;
+            this.lblPagoTardio1.Text = "Pago a Tardío 1:";
+            // 
+            // lblPagoTiempo
+            // 
+            this.lblPagoTiempo.AutoSize = true;
+            this.lblPagoTiempo.Location = new System.Drawing.Point(36, 81);
+            this.lblPagoTiempo.Name = "lblPagoTiempo";
+            this.lblPagoTiempo.Size = new System.Drawing.Size(82, 13);
+            this.lblPagoTiempo.TabIndex = 1;
+            this.lblPagoTiempo.Text = "Pago a Tiempo:";
+            // 
+            // lblPagoPronto
+            // 
+            this.lblPagoPronto.AutoSize = true;
+            this.lblPagoPronto.Location = new System.Drawing.Point(49, 55);
+            this.lblPagoPronto.Name = "lblPagoPronto";
+            this.lblPagoPronto.Size = new System.Drawing.Size(69, 13);
+            this.lblPagoPronto.TabIndex = 0;
+            this.lblPagoPronto.Text = "Pronto Pago:";
+            // 
             // lblSesionId
             // 
             this.lblSesionId.Location = new System.Drawing.Point(1101, 9);
@@ -3245,25 +4730,15 @@
             this.pbProcesando.UseWaitCursor = true;
             this.pbProcesando.Visible = false;
             // 
-            // tabConfigRed
+            // pictureBox1
             // 
-            this.tabConfigRed.Controls.Add(this.gpbComisiones);
-            this.tabConfigRed.Location = new System.Drawing.Point(4, 22);
-            this.tabConfigRed.Name = "tabConfigRed";
-            this.tabConfigRed.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfigRed.Size = new System.Drawing.Size(1252, 555);
-            this.tabConfigRed.TabIndex = 2;
-            this.tabConfigRed.Text = "Configuración de Red";
-            this.tabConfigRed.UseVisualStyleBackColor = true;
-            // 
-            // gpbComisiones
-            // 
-            this.gpbComisiones.Location = new System.Drawing.Point(6, 15);
-            this.gpbComisiones.Name = "gpbComisiones";
-            this.gpbComisiones.Size = new System.Drawing.Size(471, 291);
-            this.gpbComisiones.TabIndex = 51;
-            this.gpbComisiones.TabStop = false;
-            this.gpbComisiones.Text = "Comisiones";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(187, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FormPrincipal
             // 
@@ -3279,9 +4754,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPrincipal";
-            this.Text = "Simulador de Flujo (Micro Créditos)";
+            this.Text = "Simulador de Flujo (Credi-TÚ) V 1.0";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabCContenedor.ResumeLayout(false);
             this.tabFlujo.ResumeLayout(false);
             this.tabFlujo.PerformLayout();
@@ -3303,10 +4777,15 @@
             this.gpbEgresos.PerformLayout();
             this.gpbColocacion.ResumeLayout(false);
             this.gpbColocacion.PerformLayout();
+            this.tabConfigRed.ResumeLayout(false);
+            this.gpbBonosPremios.ResumeLayout(false);
+            this.gpbBonosPremios.PerformLayout();
+            this.gpbComisiones.ResumeLayout(false);
+            this.gpbComisiones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flujoDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFlujoDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProcesando)).EndInit();
-            this.tabConfigRed.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3530,8 +5009,7 @@
         private System.Windows.Forms.Label lblGastosFijosPROSAE;
         private System.Windows.Forms.TextBox txtGastosXPublicidadE;
         private System.Windows.Forms.Label lblGastosXPublicidadE;
-        private System.Windows.Forms.Label lblGastosXOutSourcingE;
-        private System.Windows.Forms.TextBox txtGastosXOutSourcingE;
+        private System.Windows.Forms.Label lblGastosXISRE;
         private FlujoDBDataSetTableAdapters.T_ClientesTableAdapter t_ClientesTableAdapter;
         private System.Windows.Forms.TextBox txtGastosVarZafyE;
         private System.Windows.Forms.Button btnTerminarFlujo;
@@ -3542,6 +5020,111 @@
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.TabPage tabConfigRed;
         private System.Windows.Forms.GroupBox gpbComisiones;
+        private System.Windows.Forms.Button btnLoadDefaultsR;
+        private System.Windows.Forms.Button btnSaveConfigR;
+        private System.Windows.Forms.Label lblPagoPronto;
+        private System.Windows.Forms.Label lblComicionesDist;
+        private System.Windows.Forms.Label lblPagoTardio3;
+        private System.Windows.Forms.Label lblPagoTardio2;
+        private System.Windows.Forms.Label lblPagoTardio1;
+        private System.Windows.Forms.Label lblPagoTiempo;
+        private System.Windows.Forms.Label lblPagoTardio2CN2;
+        private System.Windows.Forms.Label lblPagoTardio2CN3;
+        private System.Windows.Forms.Label lblPagoTardio1CN3;
+        private System.Windows.Forms.TextBox txtN3PagoTardio2CN3Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio2CN3Val;
+        private System.Windows.Forms.TextBox txtN2PagoTardio2CN2Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio2CN2Val;
+        private System.Windows.Forms.TextBox txtN3PagoTardio1CN3Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio1CN3Val;
+        private System.Windows.Forms.Label lblPagoTiempoCN2;
+        private System.Windows.Forms.Label lblPagoTiempoCN3;
+        private System.Windows.Forms.TextBox txtN2PagoTiempoCN2Perc;
+        private System.Windows.Forms.TextBox txtN3PagoTiempoCN3Perc;
+        private System.Windows.Forms.TextBox txtN1PagoTiempoCN1Perc;
+        private System.Windows.Forms.Label lblPercComLid;
+        private System.Windows.Forms.Label lblValorComLid;
+        private System.Windows.Forms.TextBox txtPagoTiempoCN2Val;
+        private System.Windows.Forms.TextBox txtPagoTiempoCN3Val;
+        private System.Windows.Forms.TextBox txtPagoTiempoCN1Val;
+        private System.Windows.Forms.Label lblComisionesLideres;
+        private System.Windows.Forms.Label lblPagoTiempoCN1;
+        private System.Windows.Forms.TextBox txtDistPagoTiempoPerc;
+        private System.Windows.Forms.TextBox txtDistPagoTardio1Perc;
+        private System.Windows.Forms.TextBox txtDistPagoTardio2Perc;
+        private System.Windows.Forms.TextBox txtDistPagoTardio3Perc;
+        private System.Windows.Forms.TextBox txtDistPagoProntoPerc;
+        private System.Windows.Forms.Label lblPercComDist;
+        private System.Windows.Forms.Label lblValorComDist;
+        private System.Windows.Forms.TextBox txtPagoTiempoVal;
+        private System.Windows.Forms.TextBox txtPagoTardio1Val;
+        private System.Windows.Forms.TextBox txtPagoTardio2Val;
+        private System.Windows.Forms.TextBox txtPagoTardio3Val;
+        private System.Windows.Forms.TextBox txtPagoProntoVal;
+        private System.Windows.Forms.Label lblPorColocacion;
+        private System.Windows.Forms.TextBox txtPorColocacionVal;
+        private System.Windows.Forms.GroupBox gpbBonosPremios;
+        private System.Windows.Forms.Label lblPorVolumenMiembros;
+        private System.Windows.Forms.Label lblPorVolumenColocado;
+        private System.Windows.Forms.Label lblPorCrecimiento;
+        private System.Windows.Forms.Label lblPorCompletarCelula;
+        private System.Windows.Forms.Label lblValBonLid;
+        private System.Windows.Forms.TextBox txtPorCrecimientoVal;
+        private System.Windows.Forms.TextBox txtPorCompletarCelulaVal;
+        private System.Windows.Forms.TextBox txtPorCumplimientoVal;
+        private System.Windows.Forms.Label lblBonosLideres;
+        private System.Windows.Forms.Label lblPorCumplimiento;
+        private System.Windows.Forms.Label lblPagoTardio1CN2;
+        private System.Windows.Forms.TextBox txtN2PagoTardio1CN2Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio1CN2Val;
+        private System.Windows.Forms.Label lblPagoTardio2CN1;
+        private System.Windows.Forms.TextBox txtN1PagoTardio2CN1Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio2CN1Val;
+        private System.Windows.Forms.Label lblPagoTardio1CN1;
+        private System.Windows.Forms.TextBox txtN1PagoTardio1CN1Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio1CN1Val;
+        private System.Windows.Forms.Label lblNivel3;
+        private System.Windows.Forms.Label lblNivel2;
+        private System.Windows.Forms.Label lblNivel1;
+        private System.Windows.Forms.TextBox txtPorCumplimientoPerc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoMontoMenor;
+        private System.Windows.Forms.Label lblPorVolumenColocadoMonto;
+        private System.Windows.Forms.Label lblPorVolumenColocadoValor;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoEntre;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoMayor;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosValorMenor;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosValorEntre;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoValorMenor;
+        private System.Windows.Forms.Label lblPorVolumenColocadoMayor;
+        private System.Windows.Forms.Label lblPorVolumenColocadoMenor;
+        private System.Windows.Forms.Label lblPorVolumenColocadoEntre;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoMontoHasta;
+        private System.Windows.Forms.Label lblPorVolumenMiembrosMayor;
+        private System.Windows.Forms.Label lblPorVolumenMiembrosMenor;
+        private System.Windows.Forms.Label lblPorVolumenMiembrosEntre;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosVolumenHasta;
+        private System.Windows.Forms.Label lblPorVolumenMiembrosVolumen;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosVolumenMayor;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosVolumenMenor;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosVolumenDe;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoMontoDe;
+        private System.Windows.Forms.TextBox txtPorVolumenColocadoMontoMayor;
+        private System.Windows.Forms.TextBox txtPorVolumenMiembrosValorMayor;
+        private System.Windows.Forms.Label lblPorVolumenMiembrosValor;
+        private System.Windows.Forms.Label lblPagoTardio3CN3;
+        private System.Windows.Forms.TextBox txtN3PagoTardio3CN3Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio3CN3Val;
+        private System.Windows.Forms.Label lblPagoTardio3CN2;
+        private System.Windows.Forms.TextBox txtN2PagoTardio3CN2Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio3CN2Val;
+        private System.Windows.Forms.Label lblPagoTardio3CN1;
+        private System.Windows.Forms.TextBox txtN1PagoTardio3CN1Perc;
+        private System.Windows.Forms.TextBox txtPagoTardio3CN1Val;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Label lblLimiteXISRE;
+        private System.Windows.Forms.TextBox txtLimiteXISRE;
+        private System.Windows.Forms.CheckBox chkGastosXISRE;
     }
 }
 

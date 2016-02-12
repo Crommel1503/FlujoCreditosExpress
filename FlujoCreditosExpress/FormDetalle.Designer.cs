@@ -30,15 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalle));
             this.gbProduccionCtes = new System.Windows.Forms.GroupBox();
+            this.pgrBarMC = new System.Windows.Forms.ProgressBar();
+            this.txtMiembrosCelulaDet = new System.Windows.Forms.TextBox();
+            this.lblMiembrosCelula = new System.Windows.Forms.Label();
             this.txtCtesZafyDet = new System.Windows.Forms.TextBox();
+            this.pgrBarCZ = new System.Windows.Forms.ProgressBar();
             this.txtCtesMediosMasivosDet = new System.Windows.Forms.TextBox();
+            this.pgrBarMM = new System.Windows.Forms.ProgressBar();
             this.txtCtesDsitribuidorasDet = new System.Windows.Forms.TextBox();
+            this.pgrBarCD = new System.Windows.Forms.ProgressBar();
             this.txtDistribuidorasDet = new System.Windows.Forms.TextBox();
+            this.pgrBarD = new System.Windows.Forms.ProgressBar();
             this.lblCtesZafyDet = new System.Windows.Forms.Label();
             this.lblMediosMasivosDet = new System.Windows.Forms.Label();
             this.lblCtesDistribuidorasDet = new System.Windows.Forms.Label();
             this.lblDistribuidorasDet = new System.Windows.Forms.Label();
             this.gbRedCelular = new System.Windows.Forms.GroupBox();
+            this.picBoxB = new System.Windows.Forms.PictureBox();
+            this.picBoxN = new System.Windows.Forms.PictureBox();
+            this.picBoxH = new System.Windows.Forms.PictureBox();
+            this.lblProgresoRed = new System.Windows.Forms.Label();
+            this.pgrBarRed = new System.Windows.Forms.ProgressBar();
             this.txtMadresProd = new System.Windows.Forms.TextBox();
             this.lblMadresProd = new System.Windows.Forms.Label();
             this.txtBisnietasProd = new System.Windows.Forms.TextBox();
@@ -53,19 +65,7 @@
             this.lblLideresIniciadorasDet = new System.Windows.Forms.Label();
             this.txtCarteraTotal = new System.Windows.Forms.TextBox();
             this.lblCarteraTotal = new System.Windows.Forms.Label();
-            this.pgrBarRed = new System.Windows.Forms.ProgressBar();
-            this.lblProgresoRed = new System.Windows.Forms.Label();
             this.pgrBarCT = new System.Windows.Forms.ProgressBar();
-            this.pgrBarD = new System.Windows.Forms.ProgressBar();
-            this.pgrBarCD = new System.Windows.Forms.ProgressBar();
-            this.pgrBarMM = new System.Windows.Forms.ProgressBar();
-            this.pgrBarCZ = new System.Windows.Forms.ProgressBar();
-            this.pgrBarMC = new System.Windows.Forms.ProgressBar();
-            this.txtMiembrosCelulaDet = new System.Windows.Forms.TextBox();
-            this.lblMiembrosCelula = new System.Windows.Forms.Label();
-            this.picBoxB = new System.Windows.Forms.PictureBox();
-            this.picBoxN = new System.Windows.Forms.PictureBox();
-            this.picBoxH = new System.Windows.Forms.PictureBox();
             this.gbProduccionCtes.SuspendLayout();
             this.gbRedCelular.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxB)).BeginInit();
@@ -97,6 +97,33 @@
             this.gbProduccionCtes.TabStop = false;
             this.gbProduccionCtes.Text = "Producción de Clientes";
             // 
+            // pgrBarMC
+            // 
+            this.pgrBarMC.Location = new System.Drawing.Point(201, 140);
+            this.pgrBarMC.Name = "pgrBarMC";
+            this.pgrBarMC.Size = new System.Drawing.Size(100, 10);
+            this.pgrBarMC.TabIndex = 20;
+            // 
+            // txtMiembrosCelulaDet
+            // 
+            this.txtMiembrosCelulaDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMiembrosCelulaDet.Enabled = false;
+            this.txtMiembrosCelulaDet.Location = new System.Drawing.Point(145, 137);
+            this.txtMiembrosCelulaDet.Name = "txtMiembrosCelulaDet";
+            this.txtMiembrosCelulaDet.Size = new System.Drawing.Size(50, 13);
+            this.txtMiembrosCelulaDet.TabIndex = 19;
+            this.txtMiembrosCelulaDet.Text = "_";
+            this.txtMiembrosCelulaDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblMiembrosCelula
+            // 
+            this.lblMiembrosCelula.AutoSize = true;
+            this.lblMiembrosCelula.Location = new System.Drawing.Point(40, 137);
+            this.lblMiembrosCelula.Name = "lblMiembrosCelula";
+            this.lblMiembrosCelula.Size = new System.Drawing.Size(99, 13);
+            this.lblMiembrosCelula.TabIndex = 18;
+            this.lblMiembrosCelula.Text = "Miembros de Célula";
+            // 
             // txtCtesZafyDet
             // 
             this.txtCtesZafyDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -107,6 +134,13 @@
             this.txtCtesZafyDet.TabIndex = 7;
             this.txtCtesZafyDet.Text = "_";
             this.txtCtesZafyDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // pgrBarCZ
+            // 
+            this.pgrBarCZ.Location = new System.Drawing.Point(201, 111);
+            this.pgrBarCZ.Name = "pgrBarCZ";
+            this.pgrBarCZ.Size = new System.Drawing.Size(100, 10);
+            this.pgrBarCZ.TabIndex = 16;
             // 
             // txtCtesMediosMasivosDet
             // 
@@ -119,6 +153,13 @@
             this.txtCtesMediosMasivosDet.Text = "_";
             this.txtCtesMediosMasivosDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // pgrBarMM
+            // 
+            this.pgrBarMM.Location = new System.Drawing.Point(201, 85);
+            this.pgrBarMM.Name = "pgrBarMM";
+            this.pgrBarMM.Size = new System.Drawing.Size(100, 10);
+            this.pgrBarMM.TabIndex = 15;
+            // 
             // txtCtesDsitribuidorasDet
             // 
             this.txtCtesDsitribuidorasDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -129,6 +170,13 @@
             this.txtCtesDsitribuidorasDet.TabIndex = 5;
             this.txtCtesDsitribuidorasDet.Text = "_";
             this.txtCtesDsitribuidorasDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // pgrBarCD
+            // 
+            this.pgrBarCD.Location = new System.Drawing.Point(201, 58);
+            this.pgrBarCD.Name = "pgrBarCD";
+            this.pgrBarCD.Size = new System.Drawing.Size(100, 10);
+            this.pgrBarCD.TabIndex = 14;
             // 
             // txtDistribuidorasDet
             // 
@@ -141,10 +189,17 @@
             this.txtDistribuidorasDet.Text = "_";
             this.txtDistribuidorasDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // pgrBarD
+            // 
+            this.pgrBarD.Location = new System.Drawing.Point(201, 33);
+            this.pgrBarD.Name = "pgrBarD";
+            this.pgrBarD.Size = new System.Drawing.Size(100, 10);
+            this.pgrBarD.TabIndex = 13;
+            // 
             // lblCtesZafyDet
             // 
             this.lblCtesZafyDet.AutoSize = true;
-            this.lblCtesZafyDet.Location = new System.Drawing.Point(6, 108);
+            this.lblCtesZafyDet.Location = new System.Drawing.Point(71, 108);
             this.lblCtesZafyDet.Name = "lblCtesZafyDet";
             this.lblCtesZafyDet.Size = new System.Drawing.Size(68, 13);
             this.lblCtesZafyDet.TabIndex = 3;
@@ -153,7 +208,7 @@
             // lblMediosMasivosDet
             // 
             this.lblMediosMasivosDet.AutoSize = true;
-            this.lblMediosMasivosDet.Location = new System.Drawing.Point(6, 82);
+            this.lblMediosMasivosDet.Location = new System.Drawing.Point(56, 82);
             this.lblMediosMasivosDet.Name = "lblMediosMasivosDet";
             this.lblMediosMasivosDet.Size = new System.Drawing.Size(83, 13);
             this.lblMediosMasivosDet.TabIndex = 2;
@@ -162,7 +217,7 @@
             // lblCtesDistribuidorasDet
             // 
             this.lblCtesDistribuidorasDet.AutoSize = true;
-            this.lblCtesDistribuidorasDet.Location = new System.Drawing.Point(6, 55);
+            this.lblCtesDistribuidorasDet.Location = new System.Drawing.Point(14, 55);
             this.lblCtesDistribuidorasDet.Name = "lblCtesDistribuidorasDet";
             this.lblCtesDistribuidorasDet.Size = new System.Drawing.Size(125, 13);
             this.lblCtesDistribuidorasDet.TabIndex = 1;
@@ -171,7 +226,7 @@
             // lblDistribuidorasDet
             // 
             this.lblDistribuidorasDet.AutoSize = true;
-            this.lblDistribuidorasDet.Location = new System.Drawing.Point(6, 30);
+            this.lblDistribuidorasDet.Location = new System.Drawing.Point(69, 27);
             this.lblDistribuidorasDet.Name = "lblDistribuidorasDet";
             this.lblDistribuidorasDet.Size = new System.Drawing.Size(70, 13);
             this.lblDistribuidorasDet.TabIndex = 0;
@@ -203,6 +258,56 @@
             this.gbRedCelular.TabStop = false;
             this.gbRedCelular.Text = "Red Célular";
             // 
+            // picBoxB
+            // 
+            this.picBoxB.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
+            this.picBoxB.Location = new System.Drawing.Point(202, 151);
+            this.picBoxB.Name = "picBoxB";
+            this.picBoxB.Size = new System.Drawing.Size(20, 20);
+            this.picBoxB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxB.TabIndex = 25;
+            this.picBoxB.TabStop = false;
+            this.picBoxB.Visible = false;
+            // 
+            // picBoxN
+            // 
+            this.picBoxN.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
+            this.picBoxN.Location = new System.Drawing.Point(203, 123);
+            this.picBoxN.Name = "picBoxN";
+            this.picBoxN.Size = new System.Drawing.Size(20, 20);
+            this.picBoxN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxN.TabIndex = 24;
+            this.picBoxN.TabStop = false;
+            this.picBoxN.Visible = false;
+            // 
+            // picBoxH
+            // 
+            this.picBoxH.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
+            this.picBoxH.Location = new System.Drawing.Point(203, 98);
+            this.picBoxH.Name = "picBoxH";
+            this.picBoxH.Size = new System.Drawing.Size(20, 20);
+            this.picBoxH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxH.TabIndex = 23;
+            this.picBoxH.TabStop = false;
+            this.picBoxH.Visible = false;
+            // 
+            // lblProgresoRed
+            // 
+            this.lblProgresoRed.AutoSize = true;
+            this.lblProgresoRed.Location = new System.Drawing.Point(11, 191);
+            this.lblProgresoRed.Name = "lblProgresoRed";
+            this.lblProgresoRed.Size = new System.Drawing.Size(98, 13);
+            this.lblProgresoRed.TabIndex = 22;
+            this.lblProgresoRed.Text = "Progreso de la Red";
+            // 
+            // pgrBarRed
+            // 
+            this.pgrBarRed.Location = new System.Drawing.Point(11, 210);
+            this.pgrBarRed.Name = "pgrBarRed";
+            this.pgrBarRed.Size = new System.Drawing.Size(290, 10);
+            this.pgrBarRed.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pgrBarRed.TabIndex = 21;
+            // 
             // txtMadresProd
             // 
             this.txtMadresProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -217,7 +322,7 @@
             // lblMadresProd
             // 
             this.lblMadresProd.AutoSize = true;
-            this.lblMadresProd.Location = new System.Drawing.Point(8, 77);
+            this.lblMadresProd.Location = new System.Drawing.Point(99, 77);
             this.lblMadresProd.Name = "lblMadresProd";
             this.lblMadresProd.Size = new System.Drawing.Size(42, 13);
             this.lblMadresProd.TabIndex = 19;
@@ -259,7 +364,7 @@
             // lblBisnietasProd
             // 
             this.lblBisnietasProd.AutoSize = true;
-            this.lblBisnietasProd.Location = new System.Drawing.Point(8, 157);
+            this.lblBisnietasProd.Location = new System.Drawing.Point(92, 157);
             this.lblBisnietasProd.Name = "lblBisnietasProd";
             this.lblBisnietasProd.Size = new System.Drawing.Size(49, 13);
             this.lblBisnietasProd.TabIndex = 15;
@@ -268,7 +373,7 @@
             // lblNietasProd
             // 
             this.lblNietasProd.AutoSize = true;
-            this.lblNietasProd.Location = new System.Drawing.Point(8, 129);
+            this.lblNietasProd.Location = new System.Drawing.Point(104, 129);
             this.lblNietasProd.Name = "lblNietasProd";
             this.lblNietasProd.Size = new System.Drawing.Size(37, 13);
             this.lblNietasProd.TabIndex = 14;
@@ -277,7 +382,7 @@
             // lblHijasProd
             // 
             this.lblHijasProd.AutoSize = true;
-            this.lblHijasProd.Location = new System.Drawing.Point(8, 104);
+            this.lblHijasProd.Location = new System.Drawing.Point(111, 99);
             this.lblHijasProd.Name = "lblHijasProd";
             this.lblHijasProd.Size = new System.Drawing.Size(30, 13);
             this.lblHijasProd.TabIndex = 13;
@@ -287,7 +392,7 @@
             // 
             this.txtLideresDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLideresDet.Enabled = false;
-            this.txtLideresDet.Location = new System.Drawing.Point(145, 53);
+            this.txtLideresDet.Location = new System.Drawing.Point(147, 53);
             this.txtLideresDet.Name = "txtLideresDet";
             this.txtLideresDet.Size = new System.Drawing.Size(50, 13);
             this.txtLideresDet.TabIndex = 9;
@@ -298,7 +403,7 @@
             // 
             this.txtLideresIniciadorasDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLideresIniciadorasDet.Enabled = false;
-            this.txtLideresIniciadorasDet.Location = new System.Drawing.Point(145, 23);
+            this.txtLideresIniciadorasDet.Location = new System.Drawing.Point(147, 23);
             this.txtLideresIniciadorasDet.Name = "txtLideresIniciadorasDet";
             this.txtLideresIniciadorasDet.Size = new System.Drawing.Size(50, 13);
             this.txtLideresIniciadorasDet.TabIndex = 8;
@@ -308,7 +413,7 @@
             // lblLideresDet
             // 
             this.lblLideresDet.AutoSize = true;
-            this.lblLideresDet.Location = new System.Drawing.Point(6, 53);
+            this.lblLideresDet.Location = new System.Drawing.Point(98, 53);
             this.lblLideresDet.Name = "lblLideresDet";
             this.lblLideresDet.Size = new System.Drawing.Size(43, 13);
             this.lblLideresDet.TabIndex = 2;
@@ -317,7 +422,7 @@
             // lblLideresIniciadorasDet
             // 
             this.lblLideresIniciadorasDet.AutoSize = true;
-            this.lblLideresIniciadorasDet.Location = new System.Drawing.Point(6, 23);
+            this.lblLideresIniciadorasDet.Location = new System.Drawing.Point(44, 23);
             this.lblLideresIniciadorasDet.Name = "lblLideresIniciadorasDet";
             this.lblLideresIniciadorasDet.Size = new System.Drawing.Size(97, 13);
             this.lblLideresIniciadorasDet.TabIndex = 1;
@@ -337,28 +442,11 @@
             // lblCarteraTotal
             // 
             this.lblCarteraTotal.AutoSize = true;
-            this.lblCarteraTotal.Location = new System.Drawing.Point(18, 12);
+            this.lblCarteraTotal.Location = new System.Drawing.Point(83, 12);
             this.lblCarteraTotal.Name = "lblCarteraTotal";
             this.lblCarteraTotal.Size = new System.Drawing.Size(68, 13);
             this.lblCarteraTotal.TabIndex = 8;
             this.lblCarteraTotal.Text = "Cartera Total";
-            // 
-            // pgrBarRed
-            // 
-            this.pgrBarRed.Location = new System.Drawing.Point(11, 210);
-            this.pgrBarRed.Name = "pgrBarRed";
-            this.pgrBarRed.Size = new System.Drawing.Size(290, 10);
-            this.pgrBarRed.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pgrBarRed.TabIndex = 21;
-            // 
-            // lblProgresoRed
-            // 
-            this.lblProgresoRed.AutoSize = true;
-            this.lblProgresoRed.Location = new System.Drawing.Point(11, 191);
-            this.lblProgresoRed.Name = "lblProgresoRed";
-            this.lblProgresoRed.Size = new System.Drawing.Size(98, 13);
-            this.lblProgresoRed.TabIndex = 22;
-            this.lblProgresoRed.Text = "Progreso de la Red";
             // 
             // pgrBarCT
             // 
@@ -366,94 +454,6 @@
             this.pgrBarCT.Name = "pgrBarCT";
             this.pgrBarCT.Size = new System.Drawing.Size(100, 10);
             this.pgrBarCT.TabIndex = 12;
-            // 
-            // pgrBarD
-            // 
-            this.pgrBarD.Location = new System.Drawing.Point(201, 33);
-            this.pgrBarD.Name = "pgrBarD";
-            this.pgrBarD.Size = new System.Drawing.Size(100, 10);
-            this.pgrBarD.TabIndex = 13;
-            // 
-            // pgrBarCD
-            // 
-            this.pgrBarCD.Location = new System.Drawing.Point(201, 58);
-            this.pgrBarCD.Name = "pgrBarCD";
-            this.pgrBarCD.Size = new System.Drawing.Size(100, 10);
-            this.pgrBarCD.TabIndex = 14;
-            // 
-            // pgrBarMM
-            // 
-            this.pgrBarMM.Location = new System.Drawing.Point(201, 85);
-            this.pgrBarMM.Name = "pgrBarMM";
-            this.pgrBarMM.Size = new System.Drawing.Size(100, 10);
-            this.pgrBarMM.TabIndex = 15;
-            // 
-            // pgrBarCZ
-            // 
-            this.pgrBarCZ.Location = new System.Drawing.Point(201, 111);
-            this.pgrBarCZ.Name = "pgrBarCZ";
-            this.pgrBarCZ.Size = new System.Drawing.Size(100, 10);
-            this.pgrBarCZ.TabIndex = 16;
-            // 
-            // pgrBarMC
-            // 
-            this.pgrBarMC.Location = new System.Drawing.Point(201, 140);
-            this.pgrBarMC.Name = "pgrBarMC";
-            this.pgrBarMC.Size = new System.Drawing.Size(100, 10);
-            this.pgrBarMC.TabIndex = 20;
-            // 
-            // txtMiembrosCelulaDet
-            // 
-            this.txtMiembrosCelulaDet.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMiembrosCelulaDet.Enabled = false;
-            this.txtMiembrosCelulaDet.Location = new System.Drawing.Point(145, 137);
-            this.txtMiembrosCelulaDet.Name = "txtMiembrosCelulaDet";
-            this.txtMiembrosCelulaDet.Size = new System.Drawing.Size(50, 13);
-            this.txtMiembrosCelulaDet.TabIndex = 19;
-            this.txtMiembrosCelulaDet.Text = "_";
-            this.txtMiembrosCelulaDet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblMiembrosCelula
-            // 
-            this.lblMiembrosCelula.AutoSize = true;
-            this.lblMiembrosCelula.Location = new System.Drawing.Point(6, 137);
-            this.lblMiembrosCelula.Name = "lblMiembrosCelula";
-            this.lblMiembrosCelula.Size = new System.Drawing.Size(99, 13);
-            this.lblMiembrosCelula.TabIndex = 18;
-            this.lblMiembrosCelula.Text = "Miembros de Célula";
-            // 
-            // picBoxB
-            // 
-            this.picBoxB.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
-            this.picBoxB.Location = new System.Drawing.Point(216, 150);
-            this.picBoxB.Name = "picBoxB";
-            this.picBoxB.Size = new System.Drawing.Size(20, 20);
-            this.picBoxB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxB.TabIndex = 25;
-            this.picBoxB.TabStop = false;
-            this.picBoxB.Visible = false;
-            // 
-            // picBoxN
-            // 
-            this.picBoxN.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
-            this.picBoxN.Location = new System.Drawing.Point(216, 122);
-            this.picBoxN.Name = "picBoxN";
-            this.picBoxN.Size = new System.Drawing.Size(20, 20);
-            this.picBoxN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxN.TabIndex = 24;
-            this.picBoxN.TabStop = false;
-            this.picBoxN.Visible = false;
-            // 
-            // picBoxH
-            // 
-            this.picBoxH.Image = global::FlujoCreditosExpress.Properties.Resources.complete21;
-            this.picBoxH.Location = new System.Drawing.Point(216, 93);
-            this.picBoxH.Name = "picBoxH";
-            this.picBoxH.Size = new System.Drawing.Size(20, 20);
-            this.picBoxH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxH.TabIndex = 23;
-            this.picBoxH.TabStop = false;
-            this.picBoxH.Visible = false;
             // 
             // FormDetalle
             // 
